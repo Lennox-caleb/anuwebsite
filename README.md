@@ -41,7 +41,9 @@ To run a site you need to create its `config` files with your own database host,
 
 ## Credits
 
-Designed and developed by Lennox Caleb, with editorial by Molly Otieno.
+- Designed and developed by Lennox Caleb, with general editorial by Molly Otieno.
+- ANU Online website (`anu`): revisions by Paul Kahenya and Richard Musyoka.
+- TVET Institute website: reviews by Revd. Charles Onyango.
 
 ## License
 
