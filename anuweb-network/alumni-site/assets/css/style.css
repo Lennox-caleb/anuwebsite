@@ -1,0 +1,206 @@
+/* ============================================================
+   Alumni -- custom design
+   Same four brand colors as the main site (red/gold/black/white).
+   ============================================================ */
+:root{
+  --alum-red:   #FF0000;
+  --alum-gold:  #FAC823;
+  --alum-black: #000000;
+  --alum-white: #FFFFFF;
+  --alum-ink-soft: rgba(0,0,0,.62);
+  --alum-line: rgba(0,0,0,.14);
+
+  --font-display: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+body{ font-family: var(--font-body); background: var(--alum-white); color: var(--alum-black); line-height: 1.65; }
+h1,h2,h3,h4{ font-family: var(--font-display); font-weight:600; color: var(--alum-black); }
+a{ color: var(--alum-red); }
+a:hover{ color: var(--alum-black); }
+.container-narrow{ max-width: 1080px; margin-inline:auto; }
+
+/* ---------- Top bar ---------- */
+.alum-topbar{ background: var(--alum-red); color: var(--alum-white); font-size:.82rem; padding:6px 0; }
+.alum-topbar a{ color: var(--alum-white); text-decoration:none; }
+.alum-topbar a:hover{ color: var(--alum-gold); }
+
+/* ---------- Nav ---------- */
+.alum-nav{ background: var(--alum-gold); border-bottom: 3px solid var(--alum-gold); padding: .6rem 0; }
+.alum-nav .brand-mark{ display:flex; align-items:center; gap:.7rem; text-decoration:none; }
+.alum-nav .brand-mark img{ height:60px; }
+.alum-nav .nav-link{ color: var(--alum-black); font-weight:500; margin:0 .5rem; }
+.alum-nav .nav-link:hover, .alum-nav .nav-link.active{ color: var(--alum-red); }
+.alum-nav .navbar-toggler{ border-color: rgba(0,0,0,.3); }
+.btn-alum-cta{ background: var(--alum-red); color: var(--alum-white); font-weight:700; border-radius:2px; padding:.55rem 1.4rem; border:1px solid var(--alum-red); }
+.btn-alum-cta:hover{ background: var(--alum-black); border-color: var(--alum-black); }
+.btn-alum-outline{ border:1px solid var(--alum-black); color: var(--alum-black); border-radius:2px; font-weight:600; }
+.btn-alum-outline:hover{ background: var(--alum-black); color: var(--alum-white); }
+
+/* ---------- Hero ---------- */
+.alum-hero{ min-height:420px; display:flex; align-items:center; position:relative; padding: 2.5rem 0; background: var(--alum-white); border-bottom: 4px solid var(--alum-gold); overflow:hidden; }
+.alum-hero .icon-badge{
+  width:84px; height:84px; border-radius:50%; background: rgba(250,200,35,.14);
+  color: var(--alum-red); font-size:2.1rem; display:flex; align-items:center; justify-content:center;
+  margin-bottom:1.25rem;
+}
+.alum-hero .eyebrow{ color: var(--alum-red); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.85rem; }
+.alum-hero h1{ font-size: clamp(2.1rem, 4.2vw, 3.2rem); max-width: 18ch; line-height:1.1; }
+.alum-hero p.lead{ color: var(--alum-ink-soft); max-width:52ch; font-size:1.06rem; }
+.alum-hero.compact{ min-height:auto; padding: 3.25rem 0; }
+
+/* ---------- Section styling ---------- */
+.alum-section{ padding: 4.5rem 0; }
+.alum-section.tint{ background: rgba(250,200,35,.06); }
+.alum-section.dark{ background: var(--alum-black); color: rgba(255,255,255,.85); }
+.alum-section.dark h2, .alum-section.dark h3{ color: var(--alum-white); }
+.alum-section-head{ border-bottom: 2px solid var(--alum-gold); padding-bottom: .9rem; margin-bottom: 2rem; }
+.alum-section-head h2{ margin:0; font-size:1.9rem; }
+.alum-section.dark .alum-section-head{ border-bottom-color: var(--alum-gold); }
+
+/* ---------- Cards ---------- */
+.alum-card{ border: 1px solid var(--alum-line); border-top: 3px solid var(--alum-gold); padding: 1.6rem; height:100%; background: var(--alum-white); box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.alum-card .index{ font-family: var(--font-display); color: var(--alum-red); font-size:1.6rem; }
+.alum-card h3{ font-size:1.15rem; margin-top:.4rem; }
+
+/* ---------- Faculty / leadership cards ---------- */
+.faculty-card{ text-align:center; }
+.faculty-card img{ width:120px; height:120px; object-fit:cover; border-radius:50%; border:3px solid var(--alum-gold); margin-bottom:1rem; }
+.faculty-card h3{ font-size:1.05rem; margin-bottom:.15rem; }
+.faculty-card .role{ color: var(--alum-red); font-size:.85rem; font-weight:600; }
+.faculty-placeholder{ width:120px; height:120px; border-radius:50%; background:rgba(0,0,0,.05); border:3px solid var(--alum-gold); margin:0 auto 1rem; }
+
+/* ---------- Programme / listing rows ---------- */
+.alum-programme-row{ display:flex; justify-content:space-between; align-items:center; padding: 1.1rem 0; border-top: 1px solid var(--alum-line); }
+.alum-programme-row:last-child{ border-bottom: 1px solid var(--alum-line); }
+.alum-programme-row .level{ font-size:.72rem; font-weight:700; color: var(--alum-black); background: var(--alum-gold); padding:.2rem .6rem; border-radius:2px; margin-right:1rem; }
+.alum-programme-row .thumb{ width:52px; height:52px; border-radius:4px; object-fit:cover; margin-right:1rem; flex-shrink:0; }
+.alum-programme-row .thumb-placeholder{ width:52px; height:52px; border-radius:4px; background: rgba(0,0,0,.05); margin-right:1rem; flex-shrink:0; }
+
+/* ---------- Footer ---------- */
+.alum-footer{ background: var(--alum-black); color: var(--alum-white); padding: 3rem 0 1.5rem; }
+.alum-footer a{ color: var(--alum-white); }
+.alum-footer a:hover{ color: var(--alum-gold); }
+.alum-footer .back-to-main{ background: var(--alum-gold); color: var(--alum-black); padding: .9rem 0; text-align:center; font-size:.85rem; margin-top: 2rem; }
+.alum-footer .back-to-main a{ color: var(--alum-black); font-weight:700; }
+
+.form-control{ border-radius:2px; }
+.form-control:focus{ border-color: var(--alum-gold); box-shadow: 0 0 0 .2rem rgba(250,200,35,.25); }
+
+/* ---------- Leadership message band ---------- */
+.leader-band{ padding: 1rem 0; }
+.leader-band .photo-frame{ width:100%; aspect-ratio: 4/3; object-fit:cover; border-radius: 8px; display:block; }
+.leader-band .photo-placeholder{ width:100%; aspect-ratio: 4/3; border-radius: 8px; background: rgba(0,0,0,.04); border: 2px solid var(--alum-gold); display:flex; align-items:center; justify-content:center; color: var(--alum-gold); font-size:3rem; }
+.leader-band .quote-mark{ font-family: var(--font-display); font-size:3rem; color: var(--alum-gold); line-height:1; margin-bottom:.5rem; }
+.leader-band .message{ font-size:1.05rem; line-height:1.75; }
+.leader-band .signature{ margin-top:1.2rem; padding-top:1rem; border-top:1px solid var(--alum-line); }
+.leader-band .signature strong{ display:block; font-family: var(--font-display); font-size:1.05rem; }
+.leader-band .signature span{ font-size:.85rem; opacity:.7; }
+
+/* ---------- WhatsApp floating button ---------- */
+.whatsapp-float{ position:fixed; bottom:24px; right:24px; z-index:1050; width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.6rem; box-shadow:0 4px 18px rgba(37,211,102,.45); transition:transform .2s, box-shadow .2s; text-decoration:none; }
+.whatsapp-float:hover{ transform:scale(1.1); box-shadow:0 6px 28px rgba(37,211,102,.6); color:#fff; }
+.whatsapp-float .pulse-dot{ position:absolute; top:-3px; right:-3px; width:14px; height:14px; border-radius:50%; background: var(--alum-red); border:2px solid #fff; animation: waPulse 2s infinite; }
+@keyframes waPulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.4); opacity:.6; } }
+
+/* ============================================================
+   Responsive + polish pass (advance.css block)
+   ============================================================ */
+.skip-link{ position:absolute; left:-9999px; top:auto; background: var(--alum-black); color: var(--alum-white); padding: .75rem 1.25rem; z-index: 2000; border-radius: 0 0 4px 0; }
+.skip-link:focus{ left:0; top:0; }
+
+.reveal{ opacity:0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+
+.back-to-top{ position: fixed; bottom: 24px; left: 24px; z-index: 1050; width:44px; height:44px; border-radius:50%; border:none; background: var(--alum-black); color: var(--alum-white); display:flex; align-items:center; justify-content:center; font-size:1.1rem; box-shadow:0 4px 14px rgba(0,0,0,.25); opacity:0; visibility:hidden; transform: translateY(8px); transition: opacity .25s, transform .25s, visibility .25s, background .2s; }
+.back-to-top.show{ opacity:1; visibility:visible; transform:none; }
+.back-to-top:hover{ background: var(--alum-red); color: var(--alum-white); }
+
+@media (max-width: 767px){
+  .alum-topbar .container{ flex-direction: column; gap:.25rem; text-align:center; }
+  .alum-hero{ padding: 2.25rem 0; min-height:auto; }
+  .alum-hero h1{ font-size: clamp(1.6rem, 6vw, 2.2rem); max-width:none; }
+  .alum-hero p.lead{ font-size: .96rem; max-width:none; }
+  .alum-hero .d-flex.gap-3{ flex-direction: column; align-items: stretch; }
+  .alum-hero .d-flex.gap-3 .btn{ width:100%; text-align:center; }
+  .alum-section{ padding: 2.75rem 0; }
+  .alum-section-head h2{ font-size:1.5rem; }
+  .alum-programme-row{ flex-direction: column; align-items: flex-start; gap:.6rem; }
+  .alum-programme-row > a{ align-self: flex-end; }
+  .alum-footer .row > div{ text-align:center; margin-bottom:1.25rem; }
+  .back-to-top{ left:16px; bottom:16px; width:40px; height:40px; }
+  .whatsapp-float{ right:16px; bottom:16px; }
+}
+
+/* ============================================================
+   Content-page components (icon badges, generic cards, utilities)
+   ============================================================ */
+.max-ch-60{ max-width: 60ch; }
+
+.icon-badge{
+  width:64px; height:64px; border-radius:50%; background: rgba(250,200,35,.14);
+  color: var(--alum-red); font-size:1.6rem; display:flex; align-items:center; justify-content:center;
+  margin-bottom:1rem;
+}
+.alum-hero .icon-badge{ width:84px; height:84px; font-size:2.1rem; margin-bottom:1.25rem; }
+
+.alum-card{ display:flex; flex-direction:column; }
+.alum-card .icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:56px; height:56px; border-radius:50%; background: rgba(250,200,35,.14);
+  color: var(--alum-red); font-size:1.5rem; margin-bottom:.9rem;
+}
+.alum-card.text-center .icon{ margin-left:auto; margin-right:auto; }
+.alum-card .body{ flex:1; }
+.alum-card .body h3{ font-size:1.05rem; margin-top:.2rem; }
+.alum-card .duration-badge{
+  display:inline-block; font-size:.72rem; font-weight:700; color: var(--alum-black);
+  background: var(--alum-gold); padding:.2rem .6rem; border-radius:2px; margin-bottom:.5rem;
+}
+.alum-card .thumb{ width:100%; height:140px; object-fit:cover; border-radius:4px 4px 0 0; margin:-1.6rem -1.6rem 1rem; width:calc(100% + 3.2rem); }
+.alum-card .thumb-placeholder{ height:110px; border-radius:4px; background: rgba(0,0,0,.05); display:flex; align-items:center; justify-content:center; color: var(--alum-gold); font-size:1.8rem; margin-bottom:1rem; }
+
+/* Chaplaincy: small flame accent used on ministry cards */
+.flame{
+  width:36px; height:36px; margin-bottom:.9rem; border-radius:50% 50% 50% 0;
+  background: linear-gradient(135deg, var(--alum-gold), var(--alum-red));
+  transform: rotate(45deg);
+}
+
+/* Clickable highlight cards (index.php) */
+a.alum-card{ color: var(--alum-black); transition: box-shadow .2s, transform .2s; }
+a.alum-card:hover{ box-shadow: 0 8px 20px rgba(0,0,0,.08); transform: translateY(-2px); color: var(--alum-black); }
+a.alum-card .tile-go{ display:inline-block; margin-top:.75rem; font-size:.85rem; font-weight:700; color: var(--alum-red); }
+
+/* ==========================================================================
+   Hero photo, unified (2026-09 v2): one consistent size across every hero
+   on every site (min-height 420px), text bottom-anchored, and only a light
+   bottom-fade gradient so the photo itself reads clearly -- no dark wash
+   over the top/middle of the image.
+   ========================================================================== */
+.alum-hero:not(.has-image){
+  min-height: 420px !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 2.5rem 0 2.75rem !important;
+  background: linear-gradient(0deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.24) 45%, rgba(0,0,0,0) 72%), url('../images/hero-people-2.jpg') center top / cover no-repeat !important;
+  color: #fff !important;
+}
+.alum-hero.has-image{
+  min-height: 420px !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 2.5rem 0 2.75rem !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  color: #fff !important;
+}
+.alum-hero.compact{ min-height: 420px !important; padding: 2.5rem 0 2.75rem !important; }
+.alum-hero .hero-bg-image{ display:none; }
+.alum-hero .container{ position:relative; z-index:2; }
+.alum-hero .eyebrow{ color: var(--alum-gold) !important; }
+.alum-hero h1{ color: #fff !important; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+.alum-hero p.lead{ color: rgba(255,255,255,.92) !important; text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+.alum-hero .icon-badge{ background: rgba(255,255,255,.24) !important; color:#fff !important; margin-bottom: .9rem; }

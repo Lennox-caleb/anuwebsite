@@ -1,0 +1,44 @@
+/* Dean and Head-of-Department messages on the school sites (shared). Brand red #FF0000, gold #FAC823, black. */
+.sm-section{ padding:3.5rem 0; }
+.sm-eyebrow{ display:inline-block; font-size:.78rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#FF0000; margin-bottom:.4rem; }
+.sm-dean{ display:grid; grid-template-columns:minmax(200px,300px) 1fr; gap:2rem; align-items:center; text-decoration:none; color:#111;
+  background:#fff; border:1px solid #e5e5e5; border-left:6px solid #FAC823; border-radius:14px; padding:1.5rem; box-shadow:0 8px 26px rgba(0,0,0,.06);
+  transition:transform .3s ease, box-shadow .3s ease; }
+.sm-dean:hover{ transform:translateY(-4px); box-shadow:0 16px 36px rgba(0,0,0,.12); color:#111; }
+.sm-dean-photo img, .sm-dean-photo .sm-ph{ width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:10px; }
+.sm-dean-photo img{ display:block; }
+.sm-ph{ display:flex; align-items:center; justify-content:center; background:#f4ede0; color:#b58b00; font-size:3rem; }
+.sm-dean h2{ font-size:1.7rem; margin:0 0 .8rem; color:#000; }
+.sm-quote{ font-size:1.05rem; line-height:1.7; color:#333; margin:0 0 1rem; border-left:3px solid #FAC823; padding-left:1rem; }
+.sm-sign{ margin:0 0 1rem; display:flex; flex-direction:column; }
+.sm-sign span{ color:#555; font-size:.92rem; }
+.sm-more{ display:inline-flex; align-items:center; gap:.4rem; font-weight:700; color:#FF0000; }
+.sm-more i{ transition:transform .25s; } .sm-dean:hover .sm-more i, .sm-head:hover .sm-more i{ transform:translateX(5px); }
+.sm-heads-title{ margin:3rem 0 1.2rem; } .sm-heads-title h2{ font-size:1.5rem; margin:0; color:#000; }
+.sm-heads{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.1rem; }
+.sm-head{ display:flex; gap:1rem; text-decoration:none; color:#111; background:#fff; border:1px solid #e5e5e5; border-radius:12px; padding:1rem;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.sm-head:hover{ transform:translateY(-4px); box-shadow:0 12px 26px rgba(0,0,0,.10); border-color:#FAC823; color:#111; }
+.sm-head-photo{ flex:0 0 76px; } .sm-head-photo img, .sm-head-photo .sm-ph{ width:76px; height:76px; border-radius:50%; object-fit:cover; font-size:1.7rem; }
+.sm-head-body{ display:flex; flex-direction:column; gap:.15rem; min-width:0; }
+.sm-head-body p{ font-size:.88rem; color:#444; margin:.3rem 0; }
+.sm-dept{ font-size:.76rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#8a6a00; }
+.sm-role{ color:#555; font-size:.88rem; }
+.sm-hero{ background:linear-gradient(135deg,#000 0%,#3A0000 60%,#FF0000 130%); color:#fff; padding:3.5rem 0 3rem; }
+.sm-hero h1{ color:#fff; font-size:2.2rem; margin:0; } .sm-hero .sm-eyebrow{ color:#FAC823; }
+.sm-narrow{ max-width:860px; }
+.sm-article{ display:flex; gap:1.5rem; align-items:center; margin-bottom:1.8rem; }
+.sm-article-photo img, .sm-article-photo .sm-ph{ width:140px; height:170px; object-fit:cover; border-radius:12px; }
+.sm-article-photo img{ display:block; }
+.sm-article h2{ margin:0 0 .2rem; font-size:1.5rem; }
+.sm-text{ font-size:1.08rem; line-height:1.85; color:#222; }
+.sm-back{ color:#FF0000; font-weight:700; text-decoration:none; }
+@media (max-width:767px){
+  .sm-dean{ grid-template-columns:1fr; padding:1.1rem; } .sm-dean-photo{ max-width:240px; }
+  .sm-article{ flex-direction:column; align-items:flex-start; }
+}
+@media (prefers-reduced-motion:reduce){ .sm-dean:hover,.sm-head:hover{ transform:none; } }
+
+/* the sites underline links globally; inside these cards the whole card is the link, so no underlines on its text */
+.sm-dean, .sm-dean *, .sm-head, .sm-head *, .sm-back{ text-decoration:none !important; }
+.sm-dean h2, .sm-head strong{ text-decoration:none; }

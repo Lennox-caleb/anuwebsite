@@ -1,0 +1,1227 @@
+/* ============================================================
+   ANU Design Tokens -- Official Nazarene brand colors only:
+   Red #FF0000, Gold #FAC823, White #FFFFFF, Black #000000.
+   Tints/shades below are opacity variants of these four colors
+   only -- no additional hues introduced.
+   ============================================================ */
+html{ scroll-padding-top: 130px; }
+:root{
+  --anu-red:    #FF0000;
+  --anu-gold:   #FAC823;
+  --anu-black:  #000000;
+  --anu-white:  #FFFFFF;
+
+  --anu-ink:        var(--anu-black);
+  --anu-ink-soft:   rgba(0,0,0,.65);
+  --anu-line:       rgba(0,0,0,.15);
+  --anu-panel:      rgba(250,200,35,.10);  /* gold tint for soft panels */
+  --anu-cream:      var(--anu-white);
+
+  --font-display: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Roboto", "Helvetica Neue", Arial, sans-serif;
+
+  /* Used only by the hero section below (an editorial serif headline +
+     a letter-spaced sans for labels/buttons) -- kept separate from the
+     site's normal Roboto typography so the rest of the site is untouched. */
+  --font-hero-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-hero-sans: "Jost", var(--font-body);
+}
+
+/* ---------- Self-hosted hero fonts (no external CDN dependency) ---------- */
+@font-face{
+  font-family:"Playfair Display"; font-style:normal; font-weight:400; font-display:swap;
+  src: url("../vendor/fonts/playfair-display/playfair-display-latin-400-normal.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Playfair Display"; font-style:normal; font-weight:500; font-display:swap;
+  src: url("../vendor/fonts/playfair-display/playfair-display-latin-500-normal.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Playfair Display"; font-style:normal; font-weight:600; font-display:swap;
+  src: url("../vendor/fonts/playfair-display/playfair-display-latin-600-normal.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Playfair Display"; font-style:italic; font-weight:400; font-display:swap;
+  src: url("../vendor/fonts/playfair-display/playfair-display-latin-400-italic.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Playfair Display"; font-style:italic; font-weight:500; font-display:swap;
+  src: url("../vendor/fonts/playfair-display/playfair-display-latin-500-italic.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Jost"; font-style:normal; font-weight:400; font-display:swap;
+  src: url("../vendor/fonts/jost/jost-latin-400-normal.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Jost"; font-style:normal; font-weight:500; font-display:swap;
+  src: url("../vendor/fonts/jost/jost-latin-500-normal.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Jost"; font-style:normal; font-weight:600; font-display:swap;
+  src: url("../vendor/fonts/jost/jost-latin-600-normal.woff2") format("woff2");
+}
+@font-face{
+  font-family:"Jost"; font-style:normal; font-weight:700; font-display:swap;
+  src: url("../vendor/fonts/jost/jost-latin-700-normal.woff2") format("woff2");
+}
+
+body{
+  font-family: var(--font-body);
+  color: var(--anu-ink);
+  background: var(--anu-white);
+  line-height: 1.6;
+}
+
+h1,h2,h3,h4, .font-display{
+  font-family: var(--font-display);
+  color: var(--anu-black);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+a{ color: var(--anu-red); }
+a:hover{ color: var(--anu-black); }
+
+.container-narrow{ max-width: 1120px; margin-inline:auto; }
+
+/* ---------- Top utility bar ---------- */
+.utility-bar{
+  background: var(--anu-red);
+  color: var(--anu-white);
+  font-size: 0.74rem;
+  padding: 6px 0;
+  row-gap: 4px;
+}
+.utility-bar a{ color: var(--anu-white); text-decoration:none; white-space: nowrap; }
+.utility-bar a:hover{ color: var(--anu-gold); }
+.utility-bar .divider{ opacity:.35; margin: 0 .4rem; }
+.utility-dropdown{ display:inline-block; position:relative; }
+.utility-bar .dropdown-toggle{ color: var(--anu-white); }
+.utility-bar .dropdown-toggle:hover{ color: var(--anu-gold); }
+
+@media (max-width: 767px){
+  .utility-bar .container{
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start !important;
+    scrollbar-width: none;
+  }
+  .utility-bar .container::-webkit-scrollbar{ display: none; }
+  .utility-bar .container > div{ flex-shrink: 0; flex-wrap: nowrap; }
+  .utility-bar .container > div:first-child::after{
+    content: ""; display: inline-block; width: 1px; height: 12px;
+    background: rgba(255,255,255,.3); margin: 0 .6rem; vertical-align: middle;
+  }
+}
+.utility-bar .dropdown-menu{ font-size:.85rem; min-width:210px; z-index: 1050; }
+.donate-link{ color: var(--anu-gold) !important; font-weight:700; }
+.donate-link:hover{ color: var(--anu-white) !important; }
+
+/* ---------- Main nav ---------- */
+.navbar-anu{
+  background: var(--anu-gold);
+  border-bottom: 1px solid var(--anu-line);
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+.navbar-anu .navbar-brand img{ height: 38px; }
+.navbar-anu .nav-link{
+  color: var(--anu-black);
+  font-weight: 500;
+  font-size: .87rem;
+  margin: 0 .18rem;
+  padding: .5rem .35rem !important;
+  white-space: nowrap;
+}
+.navbar-anu .nav-link:hover,
+.navbar-anu .nav-link.active{ color: var(--anu-red); }
+.btn-apply{
+  background: var(--anu-red);
+  border: 1px solid var(--anu-red);
+  color: var(--anu-white);
+  font-weight: 700;
+  padding: .5rem 1.1rem;
+  font-size: .87rem;
+  white-space: nowrap;
+  border-radius: 2px;
+}
+.btn-apply:hover{ background: var(--anu-black); border-color: var(--anu-black); color: var(--anu-white); }
+
+.btn-outline-anu{
+  border: 1px solid var(--anu-black);
+  color: var(--anu-black);
+  border-radius: 2px;
+  font-weight: 600;
+  background: transparent;
+}
+.btn-outline-anu:hover{ background: var(--anu-red); border-color: var(--anu-red); color: var(--anu-white); }
+
+/* ---------- Hero (editorial style: full-bleed photo, bottom-anchored
+   serif headline, letter-spaced sans labels/buttons) ---------- */
+.hero{
+  background: var(--anu-black);
+  color: var(--anu-white);
+  position: relative;
+  overflow: hidden;
+  /* Fixed (not min-) height so every slide in the carousel is exactly the
+     same size -- otherwise a short headline and a long one produce
+     differently-sized slides and the carousel visibly jumps as it
+     transitions. Content is bottom-anchored (align-items: flex-end)
+     for the editorial look, so the extra height reads as intentional
+     negative space above the text rather than an empty gap. */
+  /* Unified (2026-09 v2) to the same 420px used everywhere else on the
+     network -- previously 680px/460px, which read as oversized next to
+     the unit sites' heroes. */
+  height: 420px;
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+}
+/* Bootstrap's own .carousel-item.active{ display:block } has higher
+   specificity (two classes) than .hero{ display:flex } above (one class)
+   and silently wins, leaving hero content top-aligned instead of centered.
+   This re-asserts flex at matching specificity so the fix actually takes. */
+.carousel-item.hero.active{ display: flex; }
+.hero::after{
+  content:"";
+  position:absolute; inset:0;
+  /* A much lighter bottom-only wash -- just enough so the headline/buttons
+     stay readable (they also carry their own text-shadow as a second line
+     of defence, see .hero h1 / tagline below), while the photo itself
+     reads bright and clear rather than darkened. */
+  background: linear-gradient(0deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.22) 30%, rgba(0,0,0,0) 55%);
+}
+.hero-media{
+  position:absolute; inset:0;
+  width:100%; height:100%; object-fit:cover;
+  object-position: center top;
+}
+.hero-carousel-wrap{ position: relative; }
+.hero-carousel-wrap .carousel-indicators [data-bs-target]{ background-color: var(--anu-gold); }
+.hero-carousel-wrap .carousel-control-prev,
+.hero-carousel-wrap .carousel-control-next{ width: 5%; opacity:.7; }
+.hero-carousel-wrap .carousel-control-prev:hover,
+.hero-carousel-wrap .carousel-control-next:hover{ opacity:1; }
+.hero-content{ position:relative; z-index:2; padding: 2rem 0 2.5rem; }
+.hero-eyebrow{
+  color: rgba(255,255,255,.78);
+  font-family: var(--font-hero-sans);
+  font-weight:500;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .24em;
+}
+.hero h1{
+  color: var(--anu-white);
+  font-family: var(--font-hero-serif);
+  font-weight: 500;
+  /* A lower ceiling than a typical display headline: Playfair Display
+     at very large sizes needs several lines even for a normal-length,
+     real-world headline, and a fixed-height hero (needed so carousel
+     slides don't jump) has a hard limit on how tall that can get. */
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 1.15;
+  /* A character-count cap gets narrower as the font grows, which at large
+     desktop font sizes forces even a normal-length headline into many
+     short lines -- tall enough to spill past the hero's fixed height. A
+     pixel cap holds a sensible line length at any font size and actually
+     uses the wide desktop canvas available. */
+  max-width: min(880px, 92%);
+  text-shadow: 0 2px 16px rgba(0,0,0,.5);
+}
+.hero p.lead{
+  color: rgba(255,255,255,.85);
+  font-family: var(--font-hero-serif);
+  font-style: italic;
+  font-weight: 400;
+  max-width: 52ch;
+  font-size: 1.05rem;
+  margin-top: .5rem;
+  text-shadow: 0 1px 10px rgba(0,0,0,.45);
+}
+/* Buttons inside the hero only -- rectangular, letter-spaced, matching the
+   editorial tone. Scoped to .hero-content so the site's normal rounded
+   .btn-apply elsewhere (nav, newsletter, CSR) is untouched. */
+.hero-content .btn{
+  font-family: var(--font-hero-sans);
+  font-weight: 600;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  border-radius: 0;
+  padding: .95rem 2rem;
+}
+.hero-content .btn-apply{
+  background: var(--anu-gold); border-color: var(--anu-gold); color: var(--anu-black);
+}
+.hero-content .btn-apply:hover{ background: var(--anu-white); border-color: var(--anu-white); color: var(--anu-black); }
+.hero-content .btn-outline-light:hover{ color: var(--anu-black); }
+
+/* Small "SCROLL" cue, bottom-right of the whole carousel (not per-slide,
+   so it doesn't reset/duplicate when the carousel transitions). Purely a
+   decorative editorial touch -- hidden from screen readers. */
+.hero-scroll-cue{
+  position: absolute; right: 1.75rem; bottom: 1.5rem; z-index: 3;
+  display: flex; flex-direction: column; align-items: center; gap: .6rem;
+  color: rgba(255,255,255,.7);
+  font-family: var(--font-hero-sans);
+  font-size: .7rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: .2em;
+}
+.hero-scroll-cue::after{ content:""; width:1px; height:34px; background: rgba(255,255,255,.45); }
+
+/* ---------- Section headings ---------- */
+.section-head{
+  display:flex; align-items:flex-end; justify-content:space-between;
+  border-bottom: 1px solid var(--anu-line);
+  padding-bottom: 1rem; margin-bottom: 2.2rem;
+}
+.section-head h2{ font-size: 2rem; margin:0; }
+.section-head .see-all{ font-weight:700; font-size:.9rem; white-space:nowrap; color: var(--anu-red); }
+/* This variant holds a full descriptive sentence, not a short "See all ->"
+   link, so it must NOT inherit nowrap -- on a narrow phone (320px) a long
+   sentence forced onto one line pushed past the edge of the screen. */
+.section-head .see-all.see-all-muted{ font-weight:500; color: var(--anu-ink-soft); white-space:normal; text-align:right; }
+
+/* ---------- Schools list (numbered -- genuinely sequential, 5 schools) ---------- */
+.school-row{
+  display:flex; align-items:center; gap: 1.5rem;
+  border-top: 1px solid var(--anu-line);
+  padding: 1.6rem 0;
+  text-decoration:none;
+  color: var(--anu-ink);
+}
+.school-row:last-child{ border-bottom: 1px solid var(--anu-line); }
+.school-row .num{
+  font-family: var(--font-display);
+  color: rgba(0,0,0,.18);
+  font-size: 2.2rem;
+  width: 3.2rem;
+  flex-shrink:0;
+}
+.school-row:hover .num{ color: var(--anu-gold); }
+.school-row .title{ font-family: var(--font-display); font-size:1.3rem; color: var(--anu-black); margin:0; }
+.school-row .desc{ color: var(--anu-ink-soft); font-size:.92rem; margin:.15rem 0 0; }
+.school-row .arrow{ margin-left:auto; font-size:1.4rem; color: var(--anu-red); }
+.school-row .thumb{ width:64px; height:64px; border-radius:4px; object-fit:cover; flex-shrink:0; }
+.school-row .thumb-placeholder{
+  width:64px; height:64px; border-radius:4px; flex-shrink:0;
+  background: linear-gradient(135deg, var(--anu-panel), rgba(250,200,35,.22));
+  display:flex; align-items:center; justify-content:center;
+  color: var(--anu-gold); font-size:1.4rem;
+}
+
+/* ---------- Fun facts strip ---------- */
+.facts-strip{ background: var(--anu-panel); border-top:1px solid var(--anu-line); border-bottom:1px solid var(--anu-line); }
+.fact{ text-align:center; padding: 2.2rem 0; }
+.fact .value{ font-family: var(--font-display); font-size:2.6rem; color: var(--anu-red); line-height:1; }
+.fact .label{ color: var(--anu-ink-soft); font-size:.92rem; max-width:22ch; margin: .4rem auto 0; }
+
+/* ---------- News cards (image + structured content) ---------- */
+.news-card{
+  display:flex; gap:1.3rem; align-items:stretch;
+  padding: 1.3rem; margin-bottom: 1.2rem;
+  border: 1px solid var(--anu-line); border-radius: 6px;
+  text-decoration:none; color:inherit;
+  background: var(--anu-white);
+  transition: box-shadow .2s, transform .2s;
+}
+.news-card:hover{ box-shadow: 0 8px 20px rgba(0,0,0,.08); transform: translateY(-2px); }
+.news-card .thumb{ width:150px; height:110px; object-fit:cover; border-radius:4px; flex-shrink:0; }
+.news-card .thumb-placeholder{ width:150px; height:110px; border-radius:4px; background: linear-gradient(135deg, var(--anu-panel), rgba(250,200,35,.22)); display:flex; align-items:center; justify-content:center; color: var(--anu-gold); font-size:1.8rem; flex-shrink:0; }
+.news-card .content{ display:flex; flex-direction:column; justify-content:center; min-width:0; }
+.news-card .date-tag{ color: var(--anu-red); font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; margin-bottom:.3rem; }
+.news-card h3{ font-size:1.1rem; margin:0 0 .35rem; line-height:1.3; }
+.news-card .excerpt{ color: var(--anu-ink-soft); font-size:.88rem; margin:0; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+.news-card .go{ color: var(--anu-black); font-weight:600; font-size:.82rem; margin-top:.5rem; }
+.news-card:hover .go{ color: var(--anu-red); }
+
+/* ---------- Cards (used sparingly: programmes, events) ---------- */
+.card-anu{
+  border: 1px solid var(--anu-line);
+  border-radius: 6px;
+  background: var(--anu-white);
+  overflow:hidden;
+  height:100%;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+  transition: box-shadow .2s, transform .2s;
+}
+.card-anu:hover{ box-shadow: 0 12px 24px rgba(0,0,0,.1); transform: translateY(-4px); }
+.card-anu .body{ padding: 1.4rem; position:relative; }
+.card-anu .thumb{ width:100%; height:160px; object-fit:cover; display:block; }
+.card-anu .thumb-placeholder{ width:100%; height:160px; background: linear-gradient(135deg, var(--anu-panel), rgba(250,200,35,.22)); display:flex; align-items:center; justify-content:center; color: var(--anu-gold); font-size:2.2rem; }
+.card-anu .tag{
+  display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.03em; text-transform:uppercase;
+  color: var(--anu-white); background: var(--anu-red);
+  padding:.25rem .6rem; border-radius:20px; margin-bottom:.7rem;
+}
+.card-anu h3{ font-size:1.05rem; line-height:1.35; }
+.card-anu h3 a{ color: var(--anu-black); }
+.card-anu h3 a:hover{ color: var(--anu-red); }
+.card-anu .card-meta{ font-size:.8rem; color: var(--anu-ink-soft); margin-top:.4rem; }
+
+/* ---------- CTA band ---------- */
+.cta-band{
+  background: var(--anu-black);
+  color: var(--anu-white);
+  padding: 3.5rem 0;
+}
+.cta-band h2{ color: var(--anu-white); }
+.cta-band p{ color: rgba(255,255,255,.78); }
+
+/* ---------- Footer ---------- */
+.site-footer{ background: var(--anu-black); color: var(--anu-white); padding-top:3.5rem; border-top: 5px solid var(--anu-gold); }
+.site-footer h4{ color: var(--anu-white); font-family: var(--font-body); font-size:.9rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:1rem; }
+.site-footer a{ color: var(--anu-white); text-decoration:none; }
+.site-footer a:hover{ color: var(--anu-gold); }
+.site-footer ul{ list-style:none; padding:0; }
+.site-footer li{ margin-bottom:.5rem; font-size:.9rem; }
+.footer-bottom{ border-top:1px solid rgba(255,255,255,.15); margin-top:2.5rem; padding: 1.2rem 0; font-size:.82rem; }
+.social-row a{ display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border:1px solid rgba(255,255,255,.3); border-radius:50%; margin-right:.5rem; color:var(--anu-white); }
+.social-row a:hover{ border-color: var(--anu-gold); color: var(--anu-gold); }
+
+/* ---------- Forms ---------- */
+.form-control, .form-select{
+  border-radius: 2px;
+  border-color: var(--anu-line);
+  color: var(--anu-black);
+}
+.form-control:focus, .form-select:focus{
+  border-color: var(--anu-red);
+  box-shadow: 0 0 0 .2rem rgba(255,0,0,.15);
+}
+
+/* ---------- Alerts kept within the palette ---------- */
+.alert-success{ background: var(--anu-panel); border:1px solid var(--anu-gold); color: var(--anu-black); }
+.alert-danger{ background: rgba(255,0,0,.08); border:1px solid var(--anu-red); color: var(--anu-black); }
+
+/* ---------- Utility ---------- */
+.text-gold{ color: var(--anu-gold); }
+.text-red{ color: var(--anu-red); }
+.bg-cream{ background: var(--anu-white); }
+.divider{ border-top:1px solid var(--anu-line); }
+
+@media (max-width: 767px){
+  .news-card{ flex-direction: column; }
+  .news-card .thumb, .news-card .thumb-placeholder{ width:100%; height:160px; }
+  /* Height: auto + a generous min-height (up from 420px) so the editorial,
+     bottom-anchored layout still has real presence on a phone instead of
+     feeling cramped -- while remaining shorter than desktop so key content
+     (nav, schools) isn't buried too far down the page. */
+  .hero{ height: auto; min-height: 400px; }
+  .hero-content{ padding: 2rem 0 1.75rem; }
+  .hero h1{ font-size: 2rem; max-width: none; }
+  .hero p.lead{ font-size: 1rem; }
+  .hero-eyebrow{ font-size: .72rem; letter-spacing: .18em; }
+  .hero .d-flex.gap-3, .hero-content .d-flex{ flex-direction: column; align-items: stretch; }
+  .hero .btn, .hero-content .btn{ width: 100%; text-align: center; }
+  /* On mobile the CTA buttons stack full-width (right below), so there's
+     no free corner left for this decorative cue -- it would sit directly
+     on top of the second button's label. Desktop/tablet keep it. */
+  .hero-scroll-cue{ display: none; }
+
+  /* Section headings: the row layouts below get tighter, so give the
+     titles a little less room to keep things proportionate. A heading
+     plus a long muted subtitle side-by-side has no room to breathe on
+     very small phones, so let the pair wrap onto their own lines. */
+  .section-head{ flex-wrap: wrap; row-gap: .35rem; }
+  .section-head h2{ font-size: 1.5rem; }
+  .section-head .see-all.see-all-muted{ text-align: left; font-size: .85rem; }
+  .section-head{ padding-bottom: .8rem; margin-bottom: 1.6rem; }
+
+  /* Fun-facts strip: smaller numbers so all four fit without crowding
+     the 2-column mobile grid. */
+  .fact{ padding: 1.5rem 0; }
+  .fact .value{ font-size: 2rem; }
+  .fact .label{ font-size: .82rem; max-width: none; }
+
+  /* Schools list: on a 375px-wide screen, cramming a number, a 64px
+     thumbnail, the title/description and an arrow into one row left
+     almost no width for the text, so titles and descriptions wrapped
+     into narrow, cramped lines. Shrink the fixed-width pieces and let
+     the text column actually shrink (min-width:0) so it wraps normally
+     instead of being squeezed. */
+  .school-row{ gap: .85rem; padding: 1.25rem 0; }
+  .school-row .num{ font-size: 1.5rem; width: auto; }
+  .school-row .thumb, .school-row .thumb-placeholder{ width:44px; height:44px; font-size:1.1rem; }
+  .school-row .title{ font-size: 1.05rem; }
+  .school-row .desc{ font-size: .85rem; }
+  .school-row > div{ min-width: 0; }
+  .school-row .arrow{ font-size: 1.1rem; margin-left: .25rem; }
+}
+
+/* Matches navbar-expand-xl's breakpoint: the nav is collapsed into the
+   hamburger menu at any width below 1200px (phones AND tablets/small
+   laptops), so both the mega-menu stacking and the polished mobile-menu
+   treatment need to apply through that whole range, not just below the
+   old 992px / 767px cutoffs. */
+@media (max-width: 1199px){
+  /* Mobile/tablet nav menu: the collapsed menu was plain Bootstrap
+     defaults -- a bare list with no dividers, tight padding and an
+     orphaned search icon. Give it the same brand-considered treatment
+     as the rest of the site: clear row separation, comfortable touch
+     targets, and a full-width Apply button that matches desktop. */
+  .navbar-collapse{ padding: .5rem 0 1.25rem; }
+  .navbar-nav .nav-link{
+    padding: .85rem .25rem !important;
+    border-bottom: 1px solid var(--anu-line);
+    font-size: .98rem;
+  }
+  .navbar-nav .nav-item:last-of-type .nav-link{ border-bottom: none; }
+  .navbar-nav .dropdown-menu{ padding: 0 0 .5rem 1rem; margin-top: -.25rem; }
+  .navbar-nav .dropdown-item{ padding: .55rem .25rem; font-size: .92rem; }
+  .navbar-nav .nav-link[aria-label="Search"]{
+    border-bottom: 1px solid var(--anu-line);
+    width: 100%; justify-content: flex-start; display:flex; gap:.5rem;
+  }
+  .navbar-nav .nav-link[aria-label="Search"]::after{ content: "Search"; font-size:.98rem; color: var(--anu-black); }
+  .navbar-nav .btn-apply{ display:block; width:100%; text-align:center; margin-top:1rem; padding:.85rem; font-size:.95rem; }
+
+  .mega-menu{
+    position: static !important;
+    width: 100% !important;
+    box-shadow: none;
+    border-top: none;
+    padding: .5rem 0 .5rem 1rem;
+  }
+  .mega-menu .row{ margin: 0; }
+  .dropdown-menu{ box-shadow: none; border: none; padding-left: 1rem; }
+}
+
+/* ---------- Academics mega-menu ---------- */
+.mega-parent{ position: static; }
+.mega-menu{
+  width: 100%;
+  border: none;
+  border-top: 3px solid var(--anu-gold);
+  border-radius: 0;
+  box-shadow: 0 12px 24px rgba(0,0,0,.12);
+  padding: 2rem;
+}
+.mega-heading{
+  text-transform: uppercase;
+  font-size: .78rem;
+  letter-spacing: .06em;
+  font-weight: 700;
+  color: var(--anu-red);
+  margin-bottom: .9rem;
+}
+.mega-link{
+  display: block;
+  padding: .5rem 0;
+  color: var(--anu-black);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid var(--anu-line);
+}
+.mega-link:hover{ color: var(--anu-red); padding-left: .35rem; }
+.mega-link i{ opacity:.5; margin-left:.25rem; }
+
+/* ---------- Sitewide popup announcement ---------- */
+.anu-popup-overlay{
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,.82);
+  display: none; align-items: center; justify-content: center;
+  padding: 1.5rem;
+}
+.anu-popup-overlay.show{ display:flex; }
+.anu-popup-card{
+  background: var(--anu-white);
+  max-width: 560px; width:100%;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  border-top: 6px solid var(--anu-red);
+}
+.anu-popup-card img{ width:100%; max-height:260px; object-fit:cover; display:block; }
+.anu-popup-body{ padding: 1.8rem; }
+.anu-popup-close{
+  position:absolute; top:.6rem; right:.8rem;
+  background: var(--anu-black); color:#fff;
+  width:34px; height:34px; border-radius:50%;
+  border:none; font-size:1.2rem; line-height:1;
+  z-index: 2;
+}
+
+/* ---------- Library-style resource shelves ---------- */
+.shelf-title{
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--anu-gold);
+  padding-bottom: .5rem;
+  margin-bottom: 1.2rem;
+}
+.resource-item{
+  display:flex; align-items:center; gap: 1rem;
+  padding: .9rem 0; border-top: 1px solid var(--anu-line);
+}
+.resource-item:last-child{ border-bottom: 1px solid var(--anu-line); }
+.resource-icon{
+  width:42px; height:42px; border-radius:4px;
+  background: var(--anu-panel); color: var(--anu-red);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem; flex-shrink:0;
+}
+.resource-meta{ font-size:.8rem; color: var(--anu-ink-soft); }
+.d-block-title{ color: var(--anu-black); font-weight:600; }
+
+/* ---------- Library shelves (book-spine cards on a shelf ledge) ---------- */
+.shelf-section{ margin-bottom: 3.5rem; }
+.shelf-label{
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-bottom: 1.3rem;
+}
+.shelf-row{
+  display:flex; flex-wrap:wrap; align-items:flex-end; gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 10px solid var(--anu-gold);
+  position: relative;
+}
+.shelf-row::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-6px;
+  height:6px;
+  background: rgba(0,0,0,.12);
+  filter: blur(3px);
+}
+.book-card{
+  width: 132px; min-height: 176px;
+  border-radius: 3px 3px 1px 1px;
+  padding: 1rem .7rem;
+  display:flex; flex-direction:column;
+  text-decoration:none;
+  color: var(--anu-white);
+  box-shadow: 0 4px 8px rgba(0,0,0,.18);
+  transition: transform .15s;
+}
+.book-card:hover{ transform: translateY(-8px); color: var(--anu-white); }
+.book-card.spine-red{ background: var(--anu-red); }
+.book-card.spine-black{ background: var(--anu-black); }
+.book-card .book-icon{ font-size:1.7rem; margin-bottom:.6rem; color: var(--anu-gold); }
+.book-card .book-title{ font-size:.83rem; font-weight:700; line-height:1.3; flex:1; }
+.book-card .book-meta{ font-size:.66rem; opacity:.75; margin-top:.6rem; text-transform:uppercase; letter-spacing:.03em; }
+
+/* ---------- Magazine/publication cover gallery (ASPIRE, ANU Voice) ---------- */
+.mag-card{
+  display:block; text-decoration:none; color: var(--anu-black);
+  border-radius: 6px; overflow:hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,.1);
+  transition: transform .2s, box-shadow .2s;
+}
+.mag-card:hover{ transform: translateY(-6px); box-shadow: 0 12px 24px rgba(0,0,0,.16); color: var(--anu-black); }
+.mag-card .cover{ width:100%; aspect-ratio: 3/4; object-fit:cover; display:block; }
+.mag-card .cover-placeholder{ width:100%; aspect-ratio: 3/4; background: linear-gradient(160deg, var(--anu-black), rgba(0,0,0,.75)); display:flex; align-items:center; justify-content:center; color: var(--anu-gold); font-size:2.4rem; }
+.mag-card .cover-body{ padding: .9rem; background: var(--anu-white); border: 1px solid var(--anu-line); border-top:none; }
+.mag-card .cover-type{ font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; color: var(--anu-red); }
+.mag-card .cover-title{ font-size:.9rem; font-weight:700; margin:.2rem 0 0; }
+.mag-card .cover-issue{ font-size:.78rem; color: var(--anu-ink-soft); }
+
+.footer-logo-chip{
+  display:inline-block; background: var(--anu-white);
+  padding: .6rem 1rem; border-radius: 4px;
+}
+
+.network-tile{
+  display:flex; align-items:center; justify-content:space-between; gap:.5rem;
+  padding: 1rem 1.1rem; height:100%;
+  background: var(--anu-white); border: 1px solid var(--anu-line);
+  border-left: 4px solid var(--anu-red);
+  text-decoration:none; color: var(--anu-black); font-weight:600; font-size:.92rem;
+}
+.network-tile:hover{ border-left-color: var(--anu-gold); background: var(--anu-panel); color: var(--anu-black); }
+.network-tile i{ color: var(--anu-red); flex-shrink:0; }
+
+/* ---------- Faculty / governance profile cards ---------- */
+.faculty-card{ text-align:center; }
+a.faculty-card{ display:block; text-decoration:none; color:inherit; border-radius:10px; padding:.5rem; transition: background .2s ease, transform .2s ease; }
+a.faculty-card:hover{ background: var(--anu-panel); transform: translateY(-3px); color:inherit; }
+/* Squared photo with an offset colour block behind it (in ANU's red/gold
+   palette) instead of a plain circular crop -- gives each profile a bit
+   of graphic identity while staying simple enough to work at any size. */
+.faculty-photo{
+  position:relative; width:120px; height:120px; margin:0 auto 1.3rem;
+}
+.faculty-photo::before{
+  content:""; position:absolute; top:10px; left:10px; right:-10px; bottom:-10px;
+  background: var(--anu-gold); border-radius:6px; z-index:0;
+}
+.faculty-photo img,
+.faculty-photo .faculty-placeholder{
+  position:relative; z-index:1;
+  width:120px; height:120px; object-fit:cover; border-radius:6px;
+  border:3px solid var(--anu-white); display:block; margin:0;
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+}
+.faculty-placeholder{ background: var(--anu-panel); }
+.faculty-card h3{ font-size:1.05rem; margin-bottom:.15rem; }
+.faculty-card .role{ color: var(--anu-red); font-size:.85rem; font-weight:600; }
+
+/* ---------- Leadership message band (photo + quote, not circular) ---------- */
+.leader-band{ padding: 1rem 0; }
+.leader-band .photo-frame{ width:100%; aspect-ratio: 4/3; object-fit:cover; border-radius: 8px; display:block; }
+.leader-band .photo-placeholder{ width:100%; aspect-ratio: 4/3; border-radius: 8px; background: linear-gradient(135deg, var(--anu-panel), rgba(250,200,35,.25)); display:flex; align-items:center; justify-content:center; color: var(--anu-gold); font-size:3rem; }
+.leader-band .quote-mark{ font-family: var(--font-display); font-size:3rem; color: var(--anu-gold); line-height:1; margin-bottom:.5rem; }
+.leader-band .message{ font-size:1.08rem; line-height:1.75; color: var(--anu-ink); }
+.leader-band .signature{ margin-top:1.2rem; padding-top:1rem; border-top:1px solid var(--anu-line); }
+.leader-band .signature strong{ display:block; font-family: var(--font-display); font-size:1.05rem; }
+.leader-band .signature span{ font-size:.85rem; color: var(--anu-ink-soft); }
+
+/* ---------- Partner logos ---------- */
+.partner-logo{ display:inline-flex; align-items:center; }
+.partner-logo img{ max-height:48px; max-width:140px; object-fit:contain; filter: grayscale(100%); opacity:.7; transition: filter .2s, opacity .2s; }
+.partner-logo:hover img{ filter: grayscale(0%); opacity:1; }
+
+/* ---------- Utility classes (replace inline styles) ---------- */
+.max-ch-60{ max-width:60ch; }
+.max-ch-70{ max-width:70ch; }
+.max-ch-20{ max-width:20ch; }
+.img-preview-sm{ max-height:100px; }
+.img-preview-circle{ height:90px; }
+.img-preview-circle-sm{ width:40px; height:40px; object-fit:cover; }
+.field-narrow{ max-width:160px; }
+.hero-compact{ padding: 3.5rem 0; }
+.hero-compact .hero-content{ padding: 2.5rem 0; }
+.login-shell{ min-height:100vh; }
+.login-card-narrow{ max-width:420px; margin-inline:auto; }
+.brand-title-sm{ font-size:1.6rem; }
+.error-code{ font-size:5rem; line-height:1; }
+.td-message{ max-width:320px; }
+.map-frame{ border:0; }
+
+/* ---------- WhatsApp floating button ---------- */
+.whatsapp-float{
+  position:fixed; bottom:24px; right:24px; z-index:1050;
+  width:56px; height:56px; border-radius:50%;
+  background:#25D366; color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.6rem; box-shadow:0 4px 18px rgba(37,211,102,.45);
+  transition:transform .2s, box-shadow .2s; text-decoration:none;
+}
+.whatsapp-float:hover{ transform:scale(1.1); box-shadow:0 6px 28px rgba(37,211,102,.6); color:#fff; }
+.whatsapp-float .pulse-dot{
+  position:absolute; top:-3px; right:-3px; width:14px; height:14px;
+  border-radius:50%; background: var(--anu-red); border:2px solid #fff;
+  animation: waPulse 2s infinite;
+}
+@keyframes waPulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.4); opacity:.6; } }
+.page-link-active{ background: var(--anu-red); border-color: var(--anu-red); color:#fff; }
+.page-link-default{ color: var(--anu-black); }
+
+/* ---------- Accessibility: skip-to-content link ---------- */
+.skip-link{
+  position:absolute; left:-9999px; top:auto;
+  background: var(--anu-black); color: var(--anu-white);
+  padding: .75rem 1.25rem; z-index: 2000; border-radius: 0 0 6px 0;
+  text-decoration:none; font-weight:600;
+}
+.skip-link:focus{ left:0; top:0; color: var(--anu-white); }
+
+/* ---------- Footer accreditation strip ---------- */
+.footer-accreditation{
+  border-top: 1px solid rgba(255,255,255,.15);
+  margin-top: 1.5rem; padding-top: 1rem;
+  font-size: .82rem; color: var(--anu-gold);
+  display:flex; align-items:flex-start; gap:.5rem;
+}
+.footer-accreditation i{ margin-top:.15rem; flex-shrink:0; }
+.footer-legal-links a{ white-space:nowrap; }
+.footer-legal-links .divider{ opacity:.35; margin:0 .35rem; }
+
+/* ---------- Cookie / privacy notice banner ---------- */
+.cookie-banner{
+  position: fixed; left:0; right:0; bottom:0; z-index: 1080;
+  background: var(--anu-black); color: var(--anu-white);
+  padding: 1rem 1.25rem;
+  transform: translateY(100%);
+  transition: transform .3s ease;
+  box-shadow: 0 -4px 18px rgba(0,0,0,.25);
+}
+.cookie-banner.show{ transform: translateY(0); }
+.cookie-banner-inner{
+  max-width: 1120px; margin-inline:auto;
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap: 1rem;
+}
+.cookie-banner p{ margin:0; font-size:.85rem; max-width: 70ch; }
+.cookie-banner a{ color: var(--anu-gold); text-decoration:underline; }
+.cookie-banner-actions{ display:flex; gap:.5rem; flex-shrink:0; }
+
+/* ---------- Homepage trust / compliance strip ---------- */
+.trust-strip{
+  background: var(--anu-black); color: var(--anu-white);
+  padding: 1.5rem 0;
+}
+.trust-strip .trust-item{
+  display:flex; align-items:center; gap:.6rem; font-size:.85rem;
+}
+.trust-strip .trust-item i{ color: var(--anu-gold); font-size:1.3rem; flex-shrink:0; }
+
+/* ---------- Hero fallback (no uploaded slide image yet) ---------- */
+.hero-media-fallback{
+  width:100%; height:100%; position:absolute; inset:0;
+  background: linear-gradient(135deg, var(--anu-black) 0%, #3a0000 55%, var(--anu-red) 100%);
+}
+
+/* ---------- Scroll-reveal (progressive enhancement; content is visible without JS) ---------- */
+.reveal{
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.is-visible{ opacity: 1; transform: none; }
+.reveal-1{ transition-delay: .08s; }
+.reveal-2{ transition-delay: .16s; }
+.reveal-3{ transition-delay: .24s; }
+.reveal-4{ transition-delay: .32s; }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+}
+
+/* ---------- Back-to-top button ---------- */
+.back-to-top{
+  /* Sits directly above the WhatsApp button (56px tall + 24px gap + 12px
+     breathing room) so the two floating buttons never overlap. This is a
+     fixed-position stack, so the offset has to hold at every viewport
+     width, not just above some breakpoint. */
+  position: fixed; bottom: 92px; right: 24px; z-index: 1049;
+  width:44px; height:44px; border-radius:50%; border: none;
+  background: var(--anu-black); color: var(--anu-white);
+  display:flex; align-items:center; justify-content:center;
+  font-size: 1.1rem; box-shadow: 0 4px 14px rgba(0,0,0,.3);
+  opacity:0; visibility:hidden; transform: translateY(10px);
+  transition: opacity .25s, transform .25s, visibility .25s, background .2s;
+}
+.back-to-top.show{ opacity:1; visibility:visible; transform:none; }
+.back-to-top:hover{ background: var(--anu-red); color: var(--anu-white); }
+
+/* ---------- Icon badges (premium circular icon treatment) ---------- */
+.icon-badge{
+  width:56px; height:56px; border-radius:50%;
+  background: var(--anu-panel);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem; color: var(--anu-red);
+  margin-bottom: 1rem;
+  transition: background .2s, transform .2s;
+}
+.card-anu:hover .icon-badge{ background: var(--anu-gold); transform: scale(1.06); }
+
+/* ---------- Fun facts: give the counted number a fixed baseline so layout doesn't jump ---------- */
+.fact .value{ font-variant-numeric: tabular-nums; }
+
+/* ---------- CSR page ---------- */
+.csr-hero{
+  background: linear-gradient(0deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.24) 45%, rgba(0,0,0,0) 72%), url('../images/hero-people-2.jpg') center top/cover no-repeat;
+  color: var(--anu-white); padding: 2.5rem 0 2.75rem; min-height: 420px; display:flex; align-items:flex-end;
+}
+.csr-hero h1{ color: var(--anu-white); }
+.csr-hero p{ color: rgba(255,255,255,.85); max-width: 62ch; }
+.csr-pillar{
+  border: 1px solid var(--anu-line); border-radius: 8px; background: var(--anu-white);
+  padding: 1.8rem; height:100%;
+  transition: box-shadow .2s, transform .2s;
+}
+.csr-pillar:hover{ box-shadow: 0 12px 24px rgba(0,0,0,.1); transform: translateY(-4px); }
+.csr-pillar .icon-badge{ margin-bottom:1.1rem; }
+
+/* ============================================================
+   Message Card -- leadership welcome messages (VC/DVC/Chancellor)
+   Inspired by the photo+quote+signature "welcome" layout pattern
+   used by peer university sites, rebuilt in ANU's own palette.
+   ============================================================ */
+.message-card{
+  display:grid; grid-template-columns: 340px 1fr;
+  background: var(--anu-white); border-radius: 16px; overflow:hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,.10);
+  margin-bottom: 2rem;
+}
+.message-card-photo{
+  position:relative; min-height: 340px;
+  background: linear-gradient(150deg, var(--anu-black), #3a0000);
+}
+.message-card-photo img{
+  width:100%; height:100%; object-fit:cover; object-position: top center; display:block;
+}
+.message-card-photo .placeholder-icon{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  color: rgba(250,200,35,.5); font-size:4.5rem;
+}
+.message-card-photo::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:6px;
+  background: var(--anu-gold);
+}
+.message-card-body{
+  padding: 2.4rem 2.6rem; position:relative; display:flex; flex-direction:column; justify-content:center;
+}
+.message-card-body .bi-quote{
+  position:absolute; top:1.2rem; right:1.6rem; font-size:4rem;
+  color: var(--anu-panel); z-index:0;
+}
+.message-card-eyebrow{
+  display:inline-block; color: var(--anu-red); font-weight:700; font-size:.78rem;
+  text-transform:uppercase; letter-spacing:.06em; margin-bottom:.6rem;
+}
+.message-card .message{
+  position:relative; z-index:1;
+  font-size: 1.08rem; line-height:1.8; color: var(--anu-ink);
+}
+.message-card .message.is-excerpt{ margin-bottom: .25rem; }
+.message-card .signature{ margin-top:1.2rem; padding-top:1rem; border-top:1px solid var(--anu-line); }
+.message-card .signature strong{ display:block; font-family: var(--font-display); font-size:1.1rem; }
+.message-card .signature span{ font-size:.85rem; color: var(--anu-ink-soft); }
+/* ============================================================
+   Leadership directory cards (VC + DVC listing) and single
+   leadership profile page. Kept separate from .message-card so a
+   very long welcome message never stretches or distorts the photo:
+   the photo keeps its own fixed aspect ratio (align-self: flex-start)
+   no matter how tall the text column grows next to it.
+   ============================================================ */
+.leader-card{
+  display:block; text-decoration:none; color:inherit; height:100%;
+  background: var(--anu-white); border-radius:14px; overflow:hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.leader-card:hover{ transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,.14); color:inherit; }
+.leader-card-photo{
+  position:relative; aspect-ratio: 4 / 3;
+  background: linear-gradient(150deg, var(--anu-black), #3a0000);
+}
+.leader-card-photo img{ width:100%; height:100%; object-fit:cover; object-position: top center; display:block; }
+.leader-card-photo .placeholder-icon{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  color: rgba(250,200,35,.5); font-size:3rem;
+}
+.leader-card-body{ padding: 1.4rem 1.5rem; }
+.leader-card-body h3{ font-family: var(--font-display); font-size:1.15rem; margin-bottom:.2rem; }
+.leader-card-body .role{ font-size:.85rem; color: var(--anu-red); font-weight:600; margin-bottom:.6rem; }
+.leader-card-body .excerpt{ font-size:.92rem; color: var(--anu-ink-soft); line-height:1.6; margin-bottom:.8rem; }
+.leader-card-featured{ display:flex; align-items:stretch; margin-bottom:1rem; }
+.leader-card-featured .leader-card-photo{ flex:0 0 320px; aspect-ratio:auto; }
+.leader-card-featured .leader-card-body{ flex:1 1 auto; display:flex; flex-direction:column; justify-content:center; padding:2rem 2.4rem; }
+@media (max-width: 767px){
+  .leader-card-featured{ flex-direction:column; }
+  .leader-card-featured .leader-card-photo{ flex-basis:auto; aspect-ratio: 4/3; }
+}
+
+.leader-profile{
+  display:flex; align-items:flex-start; gap:2.5rem;
+  background: var(--anu-white); border-radius:16px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.10);
+  padding: 2.5rem;
+}
+.leader-profile-photo{ flex: 0 0 280px; align-self:flex-start; }
+.leader-profile-photo img,
+.leader-profile-photo .placeholder-icon{
+  width:100%; aspect-ratio: 4 / 5; border-radius:12px; display:flex;
+}
+.leader-profile-photo img{ object-fit:cover; object-position: top center; }
+.leader-profile-photo .placeholder-icon{
+  align-items:center; justify-content:center; font-size:3.5rem;
+  background: linear-gradient(150deg, var(--anu-black), #3a0000); color: rgba(250,200,35,.5);
+}
+.leader-profile-name{ margin-top:1rem; text-align:center; }
+.leader-profile-name strong{ display:block; font-family: var(--font-display); font-size:1.15rem; }
+.leader-profile-name span{ display:block; font-size:.82rem; color: var(--anu-ink-soft); }
+.leader-profile-body{ flex:1 1 auto; min-width:0; position:relative; }
+.leader-profile-body .bi-quote{ position:absolute; top:-.5rem; right:0; font-size:4rem; color: var(--anu-panel); z-index:0; }
+.leader-profile-body .message{ position:relative; z-index:1; font-size:1.08rem; line-height:1.85; color: var(--anu-ink); }
+@media (max-width: 767px){
+  .leader-profile{ flex-direction:column; padding:1.6rem; gap:1.5rem; }
+  .leader-profile-photo{ flex-basis:auto; width:200px; margin:0 auto; }
+}
+
+@media (max-width: 767px){
+  .message-card{ grid-template-columns: 1fr; }
+  .message-card-photo{ min-height: 240px; }
+  .message-card-body{ padding: 1.8rem; }
+
+  /* Floating action buttons (WhatsApp + back-to-top): a touch-friendly
+     size on desktop reads as oversized on a 320-400px phone and eats
+     into the content below it. Shrink both and bring them in from the
+     edge slightly; back-to-top stays stacked directly above WhatsApp.
+     (This has to come after the base .whatsapp-float/.back-to-top rules
+     further up the file -- same specificity, so source order decides.) */
+  .whatsapp-float{ width:48px; height:48px; font-size:1.35rem; bottom:16px; right:16px; }
+  .back-to-top{ width:38px; height:38px; font-size:1rem; bottom:76px; right:16px; }
+}
+
+/* ---------- About hub tiles (quick links to History, Values, Governance...) ---------- */
+.about-tile{
+  display:flex; flex-direction:column; height:100%;
+  border: 1px solid var(--anu-line); border-radius: 10px; background: var(--anu-white);
+  padding: 1.6rem; text-decoration:none; color: inherit;
+  transition: box-shadow .2s, transform .2s, border-color .2s;
+}
+.about-tile:hover{ box-shadow: 0 14px 28px rgba(0,0,0,.1); transform: translateY(-4px); border-color: var(--anu-gold); color: inherit; }
+.about-tile .icon-badge{ margin-bottom: .9rem; }
+.about-tile h3{ font-size: 1.05rem; margin-bottom:.35rem; }
+.about-tile p{ font-size:.86rem; color: var(--anu-ink-soft); margin-bottom: 1rem; flex-grow:1; }
+.about-tile .tile-go{ font-size:.82rem; font-weight:700; color: var(--anu-red); }
+.about-tile:hover .tile-go{ color: var(--anu-black); }
+
+/* ---------- Simple inner-page hero: same real-photo treatment as every
+   unit site's hero, applied here so every main-site page carries one too,
+   at a consistent, compact size (2026-09 update). ---------- */
+.page-hero{
+  background: linear-gradient(0deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.24) 45%, rgba(0,0,0,0) 72%), url('../images/hero-people-1.jpg') center top / cover no-repeat;
+  border-bottom: 1px solid var(--anu-line);
+  padding: 2.5rem 0 2.75rem;
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+}
+.page-hero h1{ margin-bottom:.5rem; color:#fff; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+.page-hero p, .page-hero .text-muted{ color: rgba(255,255,255,.85) !important; }
+.page-hero .hero-eyebrow{ color: var(--anu-gold) !important; }
+
+/* ---------- Search result cards ---------- */
+.search-result-card{
+  display:flex; gap:1rem; align-items:flex-start;
+  padding: 1.1rem 1.2rem; border: 1px solid var(--anu-line); border-radius:8px;
+  margin-bottom: .8rem; text-decoration:none; color:inherit; background: var(--anu-white);
+  transition: box-shadow .2s, transform .2s, border-color .2s;
+}
+.search-result-card:hover{ box-shadow: 0 8px 20px rgba(0,0,0,.08); transform: translateY(-2px); border-color: var(--anu-gold); color:inherit; }
+.search-result-card .result-icon{
+  width:42px; height:42px; border-radius:8px; background: var(--anu-panel); color: var(--anu-red);
+  display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0;
+}
+.search-result-card .result-type{ font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color: var(--anu-red); }
+.search-result-card h3{ font-size:1rem; margin:.15rem 0; }
+.search-result-card p{ font-size:.85rem; color: var(--anu-ink-soft); margin:0; }
+.search-category-count{ font-size:.78rem; color: var(--anu-ink-soft); font-weight:500; }
+
+/* ============================================================
+   Schools listing -- hover-to-preview programme cards
+   ============================================================ */
+.school-card{
+  position:relative; border:1px solid var(--anu-line); border-radius:12px;
+  background: var(--anu-white); overflow:hidden; height:100%;
+  box-shadow: 0 4px 14px rgba(0,0,0,.05);
+  transition: box-shadow .25s, transform .25s;
+  display:flex; flex-direction:column;
+}
+.school-card:hover{ box-shadow: 0 18px 36px rgba(0,0,0,.12); transform: translateY(-4px); }
+.school-card-media{
+  position:relative; height:150px;
+  background: linear-gradient(135deg, var(--anu-black), #3a0000);
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.school-card-media img{ width:100%; height:100%; object-fit:cover; }
+.school-card-media i{ font-size:2.6rem; color: rgba(250,200,35,.6); }
+.school-card-num{
+  position:absolute; top:.6rem; left:.7rem; font-family: var(--font-display);
+  color: var(--anu-gold); font-size:1.3rem; opacity:.9;
+}
+.school-card-body{ padding: 1.3rem 1.3rem 1.1rem; flex-grow:1; display:flex; flex-direction:column; }
+.school-card-body h3{ font-size:1.1rem; margin-bottom:.4rem; }
+.school-card-body h3 a{ color: var(--anu-black); text-decoration:none; }
+.school-card-body h3 a:hover{ color: var(--anu-red); }
+.school-card-body p{ font-size:.86rem; color: var(--anu-ink-soft); flex-grow:1; }
+.school-card-toggle{
+  border:none; background:none; padding:0; text-align:left;
+  font-size:.82rem; font-weight:700; color: var(--anu-red);
+  display:flex; align-items:center; gap:.35rem; margin-top:.4rem;
+}
+.school-card-toggle i{ transition: transform .2s; }
+.school-card-programmes{
+  max-height:0; overflow:hidden; transition: max-height .3s ease;
+  background: var(--anu-panel); border-top: 1px solid var(--anu-line);
+}
+.school-card-programmes ul{ list-style:none; margin:0; padding: 1rem 1.3rem; }
+.school-card-programmes li{ margin-bottom:.5rem; font-size:.84rem; }
+.school-card-programmes li:last-child{ margin-bottom:0; }
+.school-card-programmes a{ color: var(--anu-ink); text-decoration:none; }
+.school-card-programmes a:hover{ color: var(--anu-red); }
+.school-card-programmes .see-all{ display:block; padding: 0 1.3rem 1rem; font-size:.82rem; font-weight:700; }
+/* Hover reveal on devices with a real pointer; touch devices use the toggle button + .open class instead */
+@media (hover: hover) and (pointer: fine){
+  .school-card:hover .school-card-programmes{ max-height: 320px; }
+  .school-card:hover .school-card-toggle i{ transform: rotate(180deg); }
+}
+.school-card.open .school-card-programmes{ max-height: 320px; }
+.school-card.open .school-card-toggle i{ transform: rotate(180deg); }
+
+/* ---------- Filter bar (programmes, resources, etc.) ---------- */
+.filter-bar{ display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; }
+.filter-bar .btn-sm{ border-radius:20px; }
+
+/* ---------- Programme sidebar card ---------- */
+.side-cta{ position: sticky; top: 100px; }
+
+/* ---------- Event card states ---------- */
+.event-card-past{ opacity:.7; }
+.event-date-badge{
+  display:inline-flex; flex-direction:column; align-items:center; justify-content:center;
+  width:56px; height:56px; border-radius:8px; background: var(--anu-black); color: var(--anu-white);
+  flex-shrink:0; line-height:1.1;
+}
+.event-date-badge .day{ font-family: var(--font-display); font-size:1.3rem; font-weight:700; }
+.event-date-badge .mon{ font-size:.65rem; text-transform:uppercase; color: var(--anu-gold); }
+
+/* ---------- Tabs (Upcoming / Past events) ---------- */
+.anu-tabs{ display:flex; gap:.5rem; border-bottom:1px solid var(--anu-line); margin-bottom:2rem; }
+.anu-tabs button{
+  border:none; background:none; padding: .8rem 1.2rem; font-weight:700; font-size:.92rem;
+  color: var(--anu-ink-soft); border-bottom:3px solid transparent; margin-bottom:-1px;
+}
+.anu-tabs button.active{ color: var(--anu-red); border-bottom-color: var(--anu-red); }
+
+/* ---------- Vacancy urgency badge ---------- */
+.badge-closing-soon{ background: var(--anu-red); color:#fff; font-size:.68rem; padding:.2rem .5rem; border-radius:10px; margin-left:.4rem; }
+
+/* ---------- Mega menu with icons (school name only, single line) ---------- */
+.mega-link-rich{ display:flex; align-items:center; gap:.65rem; padding:.55rem 0; }
+.mega-link-rich i{ color: var(--anu-red); font-size:1.05rem; flex-shrink:0; }
+.mega-link-rich .mega-link-title{ font-weight:600; color: var(--anu-black); display:block; }
+.mega-link-rich .mega-link-desc{ font-size:.76rem; color: var(--anu-ink-soft); }
+.mega-link-rich:hover .mega-link-title{ color: var(--anu-red); }
+
+/* ---------- Small share icons (news article page) ---------- */
+.social-row-mini{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:32px; height:32px; border-radius:50%; border:1px solid var(--anu-line);
+  color: var(--anu-ink); text-decoration:none; font-size:.9rem;
+}
+.social-row-mini:hover{ background: var(--anu-red); border-color: var(--anu-red); color:#fff; }
+
+/* ---------- School card as a plain link card (no programme sub-list) ---------- */
+.school-card-body h3{ color: var(--anu-black); }
+.school-card:hover .school-card-body h3{ color: var(--anu-red); }
+.school-card .tile-go{ font-size:.82rem; font-weight:700; color: var(--anu-red); }
+
+/* ---------- ANU Voice card variant (distinct from ASPIRE's red branding) ---------- */
+.mag-card-voice .cover-placeholder{ background: linear-gradient(160deg, var(--anu-gold), #b8860b); color: var(--anu-black); }
+.mag-card-voice .cover-type{ color: var(--anu-gold-dark, #9a7400); }
+.mag-card-voice .cover-body{ border-top: 3px solid var(--anu-gold); }
+.mag-card-grad .cover-placeholder{ background: linear-gradient(160deg, #1f6f4a, #14472f); color: #fff; }
+.mag-card-grad .cover-type{ color: #1f6f4a; }
+.mag-card-grad .cover-body{ border-top: 3px solid #1f6f4a; }
+
+/* ---------- Resources -> Tenders callout ---------- */
+.resources-callout{
+  display:flex; align-items:center; gap:1rem; padding:1.1rem 1.4rem; border-radius:10px;
+  background: var(--anu-black); color:#fff; text-decoration:none; transition: transform .2s ease, box-shadow .2s ease;
+}
+.resources-callout:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.18); color:#fff; }
+.resources-callout .icon-badge{ background: var(--anu-red); color:#fff; flex-shrink:0; }
+.resources-callout-text{ display:flex; flex-direction:column; gap:.15rem; }
+.resources-callout-text strong{ font-size:1.02rem; }
+.resources-callout-text span{ font-size:.85rem; color: rgba(255,255,255,.75); }
+
+/* ---------- Tenders & Procurement ---------- */
+.tender-card{
+  background: var(--anu-white); border:1px solid var(--anu-line); border-radius:10px; padding:1.4rem;
+  height:100%; display:flex; flex-direction:column; transition: transform .2s ease, box-shadow .2s ease;
+}
+.tender-card:hover{ transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.08); }
+.tender-card-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:.6rem; }
+.tender-ref{ font-size:.76rem; color: var(--anu-ink-soft); font-family: monospace; }
+.tender-category{ font-size:.78rem; color: var(--anu-red); font-weight:600; text-transform:uppercase; letter-spacing:.02em; }
+.tender-closing{ font-size:.82rem; color: var(--anu-ink-soft); margin-top:auto; margin-bottom:0; }
+.tender-badge{ display:inline-block; padding:.25rem .65rem; border-radius:20px; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; }
+.tender-badge-open{ background: rgba(25,135,84,.12); color:#198754; }
+.tender-badge-closed{ background: rgba(108,117,125,.15); color:#6c757d; }
+.tender-badge-awarded{ background: rgba(13,110,253,.12); color:#0d6efd; }
+
+/* ---------- CSR photo gallery ---------- */
+.csr-gallery-grid{
+  display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:1.2rem;
+}
+.csr-gallery-item{
+  position:relative; margin:0; border-radius:10px; overflow:hidden; aspect-ratio: 4/3;
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+}
+.csr-gallery-item img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .35s ease; }
+.csr-gallery-item:hover img{ transform: scale(1.06); }
+.csr-gallery-item figcaption{
+  position:absolute; inset:auto 0 0 0; padding: 1.6rem .9rem .8rem;
+  background: linear-gradient(0deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,0) 100%);
+  color:#fff; display:flex; flex-direction:column; gap:.15rem;
+}
+.csr-gallery-item .csr-gallery-tag{ font-size:.65rem; text-transform:uppercase; letter-spacing:.04em; color: var(--anu-gold); font-weight:700; }
+.csr-gallery-item strong{ font-size:.9rem; }
+.csr-gallery-item .csr-gallery-caption{ font-size:.78rem; color: rgba(255,255,255,.8); }
+
+/* ---------- Standalone About-ANU sub-pages (Who We Are / Affiliation) ---------- */
+.about-sub-hero{
+  background: linear-gradient(0deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.24) 45%, rgba(0,0,0,0) 72%), url('../images/hero-people-1.jpg') center top/cover no-repeat;
+  color:#fff; padding: 2.5rem 0 2.75rem; min-height: 420px; display:flex; align-items:flex-end; position:relative; overflow:hidden;
+}
+.about-sub-hero::after{
+  content:""; position:absolute; inset:0; background: radial-gradient(circle at 85% 20%, rgba(212,175,55,.15), transparent 55%);
+}
+.about-sub-hero .container{ position:relative; }
+.about-sub-hero .hero-eyebrow{ color: var(--anu-gold) !important; }
+.about-sub-hero h1{ color:#fff; }
+.about-sub-hero p{ color: rgba(255,255,255,.78); }
+.pillar-strip{ display:flex; flex-wrap:wrap; gap:.6rem; margin: 1.6rem 0 0; }
+.pillar-chip{
+  display:flex; align-items:center; gap:.5rem; background: rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18);
+  border-radius:30px; padding:.5rem 1.1rem; font-size:.85rem; color:#fff;
+}
+.pillar-chip i{ color: var(--anu-gold); }
+.motto-banner{
+  background: var(--anu-gold); color: var(--anu-black); text-align:center; padding: 1.6rem;
+  border-radius:10px; font-family: var(--font-display); font-size:1.3rem; font-style:italic;
+}
+.affiliation-card{
+  display:flex; gap:1.2rem; align-items:flex-start; background: var(--anu-white); border:1px solid var(--anu-line);
+  border-radius:10px; padding:1.6rem; height:100%;
+}
+.affiliation-card .icon-badge{ flex-shrink:0; }
+
+/* ---------- Programme single page ---------- */
+.program-hero{
+  background: linear-gradient(0deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.24) 45%, rgba(0,0,0,0) 72%), url('../images/hero-people-2.jpg') center top/cover no-repeat;
+  color:#fff; padding: 2.5rem 0 2.75rem; min-height: 420px; display:flex; align-items:flex-end;
+}
+.program-hero-back{ color: rgba(255,255,255,.7); text-decoration:none; font-size:.88rem; }
+.program-hero-back:hover{ color: var(--anu-gold); }
+.program-hero h1{ color:#fff; }
+.program-hero-school{ color: rgba(255,255,255,.75); }
+.program-hero-school a{ color: var(--anu-gold); }
+.program-level-badge{
+  display:inline-flex; align-items:center; gap:.4rem; background: var(--anu-red); color:#fff;
+  padding:.4rem .9rem; border-radius:20px; font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em;
+}
+.program-hero-image{ box-shadow: 0 12px 32px rgba(0,0,0,.14); }
+.program-section{ margin-bottom: 2.2rem; padding-bottom: 2.2rem; border-bottom: 1px solid var(--anu-line); }
+.program-section:last-child{ border-bottom:none; }
+.program-section-heading{ display:flex; align-items:center; gap:.5rem; font-size:1.15rem; margin-bottom:1rem; }
+.program-section-heading i{ color: var(--anu-red); }
+.program-side-card{
+  background: var(--anu-white); border:1px solid var(--anu-line); border-radius:12px; padding:1.6rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06); position: sticky; top: 90px;
+}
+.program-fact{ display:flex; align-items:flex-start; gap:.9rem; margin-bottom:1.2rem; }
+.program-fact:last-of-type{ margin-bottom:1.4rem; }
+.program-fact-icon{
+  width:40px; height:40px; border-radius:50%; background: var(--anu-panel); color: var(--anu-red);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1.05rem;
+}
+.program-fact strong{ display:block; font-size:.8rem; text-transform:uppercase; letter-spacing:.03em; color: var(--anu-ink-soft); }
+.program-fact > span > span:not(.program-mode-badge){ display:block; font-weight:600; }
+.program-mode-badge{
+  display:inline-block; margin-top:.15rem; padding:.2rem .7rem; border-radius:20px; font-size:.78rem; font-weight:700;
+}
+.program-mode-badge.is-online{ background: rgba(13,110,253,.12); color:#0d6efd; }
+.program-mode-badge.is-physical{ background: rgba(25,135,84,.12); color:#198754; }
+@media (max-width: 991px){ .program-side-card{ position:static; } }
+
+.history-timeline{ position:relative; padding-left: 2.4rem; }
+.history-timeline::before{ content:""; position:absolute; left: .55rem; top:.4rem; bottom:.4rem; width:2px; background: var(--anu-line); }
+.history-item{ position:relative; margin-bottom:1.8rem; }
+.history-item:last-child{ margin-bottom:0; }
+.history-item::before{
+  content:""; position:absolute; left: -2.4rem; top:.3rem; width:14px; height:14px; border-radius:50%;
+  background: var(--anu-red); border:3px solid var(--anu-white); box-shadow: 0 0 0 2px var(--anu-red);
+}
+.history-year{ font-family: var(--font-display); font-weight:700; color: var(--anu-red); font-size:1.05rem; margin-bottom:.35rem; }
+.history-body{ background: var(--anu-white); border:1px solid var(--anu-line); border-radius:8px; padding: 1.1rem 1.3rem; }
+@media (max-width: 575px){
+  .history-timeline{ padding-left: 1.8rem; }
+  .history-item::before{ left: -1.8rem; }
+}
+.school-card:hover .tile-go{ color: var(--anu-black); }

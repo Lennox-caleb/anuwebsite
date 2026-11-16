@@ -1,0 +1,193 @@
+/* ============================================================
+   Unit-site skin ("Daystar school sub-site" structure): slim black utility bar, white sticky header with
+   uppercase menu and red active underline, full-width dark hero, plain white sections with a red rule under
+   each heading, square cards with a red top edge, black "Start your career" band, black four-column footer.
+   Applies to: the 5 schools, Alumni, SEPC, Student Life and the Institute of Research.
+   Brand colours are EXACT: red #FF0000, gold #FAC823, black #000, white #FFF.
+   Readability rule used everywhere: text ON red is black (5.3:1) or white only when large+bold (>=3:1);
+   text ON gold/white is black; red is used for rules, edges, icons, date blocks - not for small text.
+   ============================================================ */
+body.unit-daystar{ --ud-red:#FF0000; --ud-gold:#FAC823; --ud-black:#000; --ud-line:#e2e2e2; --ud-soft:#f6f6f3; color:#111; background:#fff; }
+/* links in page content: black + red underline (red small text would be only 4:1) */
+body.unit-daystar main a:not(.btn):not([class*="btn-"]):not(.nav-link):not(.dropdown-item):not([class*="chip"]):not([class*="social"]){ color:#000; text-decoration:underline; text-decoration-color:#FF0000; text-decoration-thickness:2px; text-underline-offset:3px; }
+body.unit-daystar main a:not(.btn):not([class*="btn-"]):not([class*="chip"]):hover{ color:#000; text-decoration-color:#FAC823; background:rgba(250,200,35,.25); }
+body.unit-daystar main a.text-decoration-none{ font-weight:700; text-decoration:none !important; }
+body.unit-daystar main a.text-decoration-none:hover{ box-shadow:inset 0 -3px 0 #FF0000; background:transparent; }
+
+/* ---- CHROME (all 13 unit sites: body.unit-daystar or body.unit-chrome) ---- */
+/* utility bar: brand red, black text (5.3:1) */
+body:is(.unit-daystar,.unit-chrome) :is(.biz-topbar,.hum-topbar,.law-topbar,.rel-topbar,.sci-topbar,.alum-topbar,.sepc-topbar,.sl-topbar,.res-topbar,.adm-topbar,.chap-topbar,.lib-topbar,.online-topbar){ background:#FF0000 !important; color:#fff !important; font-size:.8rem; padding:7px 0; border:0; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-topbar,.hum-topbar,.law-topbar,.rel-topbar,.sci-topbar,.alum-topbar,.sepc-topbar,.sl-topbar,.res-topbar,.adm-topbar,.chap-topbar,.lib-topbar,.online-topbar) a{ color:#fff !important; font-weight:700; text-decoration:none; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-topbar,.hum-topbar,.law-topbar,.rel-topbar,.sci-topbar,.alum-topbar,.sepc-topbar,.sl-topbar,.res-topbar,.adm-topbar,.chap-topbar,.lib-topbar,.online-topbar) a:hover{ color:#fff !important; text-decoration:underline; }
+/* header / menu: brand gold, black text */
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav){ background:#FAC823 !important; border:0 !important; padding:.35rem 0; position:sticky; top:0; z-index:1030; box-shadow:0 2px 10px rgba(0,0,0,.18); }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .brand-mark img,
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .navbar-brand img{ height:54px; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .brand-name,
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .brand-name small{ color:#000 !important; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .nav-link{ color:#000 !important; font-weight:700; font-size:.8rem; letter-spacing:.05em; text-transform:uppercase; margin:0; padding:1.05rem .7rem; border-radius:0; box-shadow:inset 0 -4px 0 transparent; background:transparent; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .nav-link:hover{ box-shadow:inset 0 -4px 0 rgba(0,0,0,.4); }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .nav-link.active{ box-shadow:inset 0 -4px 0 #000; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .dropdown-menu{ background:#fff; border:0; border-top:4px solid #000; border-radius:0; box-shadow:0 12px 28px rgba(0,0,0,.2); }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .dropdown-header{ color:#000; font-weight:800; text-transform:uppercase; font-size:.72rem; letter-spacing:.06em; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .dropdown-item{ color:#000; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .dropdown-item:hover,
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .dropdown-item:focus{ background:#FAC823; color:#000; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .navbar-toggler{ border:2px solid #000; border-radius:0; padding:.35rem .6rem; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) .navbar-toggler:focus{ box-shadow:0 0 0 3px #000; }
+/* nav call-to-action on gold: black button, gold text */
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) :is(.btn,[class*="btn-"][class*="-cta"]){ background:#000 !important; color:#FAC823 !important; border:2px solid #000 !important; border-radius:0; font-weight:800; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; padding:.5rem 1.1rem; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-nav,.hum-nav,.law-nav,.rel-nav,.sci-nav,.alum-nav,.sepc-nav,.sl-nav,.res-nav,.adm-nav,.chap-nav,.lib-nav,.online-nav) :is(.btn,[class*="btn-"][class*="-cta"]):hover{ background:#FF0000 !important; border-color:#FF0000 !important; color:#fff !important; }
+
+/* ---- slide-in mobile menu (same behaviour as the main site: Bootstrap offcanvas from the right) ---- */
+@media (max-width:991.98px){
+  body:is(.unit-daystar,.unit-chrome) .mobile-nav-panel{ width:min(86vw,380px); background:#fff; border-top:4px solid #FF0000; box-shadow:-8px 0 32px rgba(0,0,0,.3); }
+  body:is(.unit-daystar,.unit-chrome) .mobile-nav-panel .offcanvas-header{ background:#FAC823; padding:1rem 1.25rem; }
+  body:is(.unit-daystar,.unit-chrome) .mobile-nav-panel .mobile-nav-brand img{ height:48px; width:auto; }
+  body:is(.unit-daystar,.unit-chrome) .mobile-nav-panel .btn-close{ filter:none; opacity:.85; }
+  body:is(.unit-daystar,.unit-chrome) .mobile-nav-panel .offcanvas-body{ display:flex; flex-direction:column; padding:.5rem 0 1.5rem; overflow-y:auto; }
+  body:is(.unit-daystar,.unit-chrome) .mobile-nav-panel .nav{ flex-direction:column; flex-wrap:nowrap !important; width:100%; margin:0 !important; padding:0 1.25rem; }
+  body:is(.unit-daystar,.unit-chrome) .mobile-nav-panel .nav-item{ width:100%; border-bottom:1px solid #e2e2e2; }
+  body:is(.unit-daystar,.unit-chrome) .mobile-nav-panel .nav-link{ color:#000 !important; padding:.95rem 0; font-size:.95rem; box-shadow:none !important; border:0; }
+  body:is(.unit-daystar,.unit-chrome) .mobile-nav-panel .nav-link.active{ box-shadow:inset 4px 0 0 #FF0000 !important; padding-left:.8rem; background:rgba(250,200,35,.25); }
+  body:is(.unit-daystar,.unit-chrome) .mobile-nav-panel .dropdown-menu{ position:static !important; transform:none !important; box-shadow:none; border:0; border-left:3px solid #FAC823; background:#f6f6f3; margin:0 0 .5rem; }
+  body:is(.unit-daystar,.unit-chrome) .mobile-nav-panel .nav-item.ms-lg-2,
+  body:is(.unit-daystar,.unit-chrome) .mobile-nav-panel .nav-item:has(> [class*="btn-"]){ border:0; padding-top:1rem; }
+  body:is(.unit-daystar,.unit-chrome) .mobile-nav-panel [class*="btn-"][class*="-cta"]{ display:block; width:100%; text-align:center; padding:.85rem; }
+  body:is(.unit-daystar,.unit-chrome) :is(.biz-topbar,.hum-topbar,.law-topbar,.rel-topbar,.sci-topbar,.alum-topbar,.sepc-topbar,.sl-topbar,.res-topbar,.adm-topbar,.chap-topbar,.lib-topbar,.online-topbar) .container{ justify-content:center !important; text-align:center; row-gap:2px; }
+  .navbar .dropdown-toggle::after{ transition:transform .2s ease; }
+  .navbar .dropdown-toggle[aria-expanded="true"]::after{ transform:rotate(180deg); }
+}
+
+/* ---- buttons: gold = primary (black text), outline = black border ---- */
+body.unit-daystar :is(.btn-biz-cta,.btn-hum-cta,.btn-law-cta,.btn-rel-cta,.btn-sci-cta,.btn-alum-cta,.btn-sepc-cta,.btn-sl-cta,.btn-res-cta){ background:#FAC823 !important; color:#000 !important; border:2px solid #FAC823 !important; border-radius:0; font-weight:800; font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; padding:.7rem 1.5rem; }
+body.unit-daystar :is(.btn-biz-cta,.btn-hum-cta,.btn-law-cta,.btn-rel-cta,.btn-sci-cta,.btn-alum-cta,.btn-sepc-cta,.btn-sl-cta,.btn-res-cta):hover{ background:#000 !important; color:#FAC823 !important; border-color:#000 !important; }
+body.unit-daystar :is(.btn-biz-outline,.btn-hum-outline,.btn-law-outline,.btn-rel-outline,.btn-sci-outline,.btn-alum-outline,.btn-sepc-outline,.btn-sl-outline,.btn-res-outline){ background:transparent; color:#000 !important; border:2px solid #000 !important; border-radius:0; font-weight:800; font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; padding:.7rem 1.5rem; }
+body.unit-daystar :is(.btn-biz-outline,.btn-hum-outline,.btn-law-outline,.btn-rel-outline,.btn-sci-outline,.btn-alum-outline,.btn-sepc-outline,.btn-sl-outline,.btn-res-outline):hover{ background:#000; color:#FAC823 !important; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) :is(.btn-biz-outline,.btn-hum-outline,.btn-law-outline,.btn-rel-outline,.btn-sci-outline,.btn-alum-outline,.btn-sepc-outline,.btn-sl-outline,.btn-res-outline){ color:#fff !important; border-color:#fff !important; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) :is(.btn-biz-outline,.btn-hum-outline,.btn-law-outline,.btn-rel-outline,.btn-sci-outline,.btn-alum-outline,.btn-sepc-outline,.btn-sl-outline,.btn-res-outline):hover{ background:#fff; color:#000 !important; }
+
+/* ---- hero: full-width, dark, left-aligned text ---- */
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero){ background-color:#000; color:#fff; min-height:480px; padding:3.5rem 0; position:relative; overflow:hidden; display:flex; align-items:center; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero):not(.has-image){ background-image:linear-gradient(120deg,#000 0%,#1c0000 60%,#6b0000 100%); }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero)::before{ display:none !important; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) .icon-badge{ display:none !important; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) :has(> h1){ display:flex; flex-direction:column; align-items:flex-start; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) :has(> h1) > h1{ order:1; margin-bottom:.9rem !important; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) :has(> h1) > p{ order:2; margin-bottom:0; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) :has(> h1) > :not(h1):not(p){ order:3; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero)::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.5) 55%,rgba(0,0,0,.2) 100%); z-index:1; pointer-events:none; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) .hero-bg-image,
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) video.hero-bg-image{ display:block !important; opacity:1 !important; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) > .container{ position:relative; z-index:2; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) h1{ color:#fff !important; text-shadow:none; font-weight:800; font-size:clamp(2.1rem,4.6vw,3.4rem); line-height:1.1; max-width:20ch; border-left:8px solid #FF0000; padding-left:1rem; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) .eyebrow{ color:#FAC823 !important; font-weight:800; letter-spacing:.12em; text-transform:uppercase; font-size:.85rem; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) p,
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) p.lead{ color:rgba(255,255,255,.95) !important; text-shadow:none; max-width:56ch; font-size:1.1rem; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) a:not(.btn):not([class*="btn-"]){ color:#FAC823; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) :is(.growth-bars,.scales-icon,.node-net,svg.hero-motif){ display:none; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero).compact{ min-height:0; padding:2.75rem 0; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) .hero-ctl{ z-index:3; }
+
+/* ---- sections ---- */
+body.unit-daystar :is(.biz-section,.hum-section,.law-section,.rel-section,.sci-section,.alum-section,.sepc-section,.sl-section,.res-section){ padding:4rem 0; background:#fff; }
+body.unit-daystar main > section.biz-section:nth-of-type(even),
+body.unit-daystar main > section:is(.biz-section,.hum-section,.law-section,.rel-section,.sci-section,.alum-section,.sepc-section,.sl-section,.res-section):nth-of-type(even){ background:var(--ud-soft); }
+body.unit-daystar :is(.biz-section,.hum-section,.law-section,.rel-section,.sci-section,.alum-section,.sepc-section,.sl-section,.res-section).dark{ background:#000; color:#fff; }
+body.unit-daystar :is(.biz-section,.hum-section,.law-section,.rel-section,.sci-section,.alum-section,.sepc-section,.sl-section,.res-section).dark h2,body.unit-daystar :is(.biz-section,.hum-section,.law-section,.rel-section,.sci-section,.alum-section,.sepc-section,.sl-section,.res-section).dark h3{ color:#fff; }
+body.unit-daystar :is(.biz-section-head,.hum-section-head,.law-section-head,.rel-section-head,.sci-section-head,.alum-section-head,.sepc-section-head,.sl-section-head,.res-section-head){ display:flex; justify-content:space-between; align-items:flex-end; gap:1rem; border-bottom:1px solid var(--ud-line) !important; padding-bottom:0 !important; margin-bottom:2rem; }
+body.unit-daystar :is(.biz-section-head,.hum-section-head,.law-section-head,.rel-section-head,.sci-section-head,.alum-section-head,.sepc-section-head,.sl-section-head,.res-section-head) h1,
+body.unit-daystar :is(.biz-section-head,.hum-section-head,.law-section-head,.rel-section-head,.sci-section-head,.alum-section-head,.sepc-section-head,.sl-section-head,.res-section-head) h2{ position:relative; margin:0; padding-bottom:.85rem; font-weight:800; font-size:1.9rem; color:#000; text-transform:none; }
+body.unit-daystar :is(.biz-section-head,.hum-section-head,.law-section-head,.rel-section-head,.sci-section-head,.alum-section-head,.sepc-section-head,.sl-section-head,.res-section-head) h1::after,
+body.unit-daystar :is(.biz-section-head,.hum-section-head,.law-section-head,.rel-section-head,.sci-section-head,.alum-section-head,.sepc-section-head,.sl-section-head,.res-section-head) h2::after{ content:""; position:absolute; left:0; bottom:-1px; width:72px; height:4px; background:#FF0000; }
+body.unit-daystar :is(.biz-section-head,.hum-section-head,.law-section-head,.rel-section-head,.sci-section-head,.alum-section-head,.sepc-section-head,.sl-section-head,.res-section-head) > a{ font-weight:800; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; padding-bottom:.85rem; }
+
+/* ---- cards ---- */
+body.unit-daystar :is(.biz-card,.hum-card,.law-card,.rel-card,.sci-card,.alum-card,.sepc-card,.sl-card,.res-card),
+body.unit-daystar :is(.biz-feature-card,.hum-feature-card,.law-feature-card,.rel-feature-card,.sci-feature-card,.alum-feature-card,.sepc-feature-card,.sl-feature-card,.res-feature-card){ background:#fff; border:1px solid var(--ud-line); border-top:4px solid #FF0000; border-radius:0; box-shadow:0 1px 3px rgba(0,0,0,.05); padding:1.4rem; transition:transform .2s, box-shadow .2s, border-color .2s; }
+body.unit-daystar :is(.biz-card,.hum-card,.law-card,.rel-card,.sci-card,.alum-card,.sepc-card,.sl-card,.res-card):hover,
+body.unit-daystar :is(.biz-feature-card,.hum-feature-card,.law-feature-card,.rel-feature-card,.sci-feature-card,.alum-feature-card,.sepc-feature-card,.sl-feature-card,.res-feature-card):hover{ transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,0,0,.12); border-top-color:#FAC823; }
+body.unit-daystar :is(.biz-card,.hum-card,.law-card,.rel-card,.sci-card,.alum-card,.sepc-card,.sl-card,.res-card) h3,
+body.unit-daystar :is(.biz-feature-card,.hum-feature-card,.law-feature-card,.rel-feature-card,.sci-feature-card,.alum-feature-card,.sepc-feature-card,.sl-feature-card,.res-feature-card) h3{ font-size:1.12rem; font-weight:800; color:#000; }
+body.unit-daystar :is(.biz-card,.hum-card,.law-card,.rel-card,.sci-card,.alum-card,.sepc-card,.sl-card,.res-card) img.thumb{ width:100%; height:170px; object-fit:cover; border-radius:0; }
+body.unit-daystar .level{ display:inline-block; background:#000; color:#FAC823; font-size:.7rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; padding:.2rem .55rem; border-radius:0; }
+body.unit-daystar .icon-badge{ background:#000 !important; color:#FAC823 !important; width:48px; height:48px; border-radius:50% !important; display:inline-flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:.75rem; }
+body.unit-daystar :is(.biz-programme-row,.hum-programme-row,.law-programme-row,.rel-programme-row,.sci-programme-row,.alum-programme-row,.sepc-programme-row,.sl-programme-row,.res-programme-row){ border-top:1px solid var(--ud-line); }
+body.unit-daystar :is(.biz-programme-row,.hum-programme-row,.law-programme-row,.rel-programme-row,.sci-programme-row,.alum-programme-row,.sepc-programme-row,.sl-programme-row,.res-programme-row) .level{ background:#000 !important; color:#FAC823 !important; border-radius:0; }
+body.unit-daystar :is(.biz-category-chip,.hum-category-chip,.law-category-chip,.rel-category-chip,.sci-category-chip){ background:#fff; color:#000; border:2px solid #000; border-radius:0; font-weight:700; }
+body.unit-daystar :is(.biz-category-chip,.hum-category-chip,.law-category-chip,.rel-category-chip,.sci-category-chip):hover,
+body.unit-daystar :is(.biz-category-chip,.hum-category-chip,.law-category-chip,.rel-category-chip,.sci-category-chip).active{ background:#000; color:#FAC823; }
+body.unit-daystar :is(.biz-category-chip,.hum-category-chip,.law-category-chip,.rel-category-chip,.sci-category-chip) span{ color:inherit; opacity:.85; }
+body.unit-daystar .faculty-card img{ border:4px solid #FAC823; }
+body.unit-daystar .faculty-card .role{ color:#000 !important; font-weight:700; }
+body.unit-daystar .leader-band .photo-frame,
+body.unit-daystar .leader-band .photo-placeholder{ border-radius:0; border-bottom:8px solid #FAC823; }
+
+/* ---- "Start your career" band ---- */
+body.unit-daystar .apply-band{ background:#000 !important; color:#fff; border-top:6px solid #FF0000; }
+body.unit-daystar .apply-band h2{ color:#fff; font-weight:800; font-size:2rem; }
+body.unit-daystar .apply-band p,
+body.unit-daystar .apply-band .text-muted{ color:rgba(255,255,255,.88) !important; }
+body.unit-daystar .apply-band a:not(.btn):not([class*="btn-"]){ color:#FAC823; }
+
+/* ---- exchange program page ---- */
+body.unit-daystar .exchange-checklist{ list-style:none; padding:0; margin:0; display:grid; gap:.7rem; }
+body.unit-daystar .exchange-checklist li{ display:flex; gap:.75rem; align-items:flex-start; padding:.75rem 1rem; background:#fff; border:1px solid var(--ud-line); border-left:5px solid #FAC823; }
+body.unit-daystar .exchange-checklist .bi{ color:#000; font-size:1.1rem; margin-top:.1rem; }
+body.unit-daystar .exchange-faq .accordion-item{ border-radius:0; border:1px solid var(--ud-line); }
+body.unit-daystar .exchange-faq .accordion-button{ font-weight:700; color:#000; border-radius:0; background:#fff; }
+body.unit-daystar .exchange-faq .accordion-button:not(.collapsed){ background:#FAC823; color:#000; box-shadow:none; }
+body.unit-daystar .exchange-faq .accordion-button:focus{ box-shadow:0 0 0 3px #000; }
+/* ---- forms ---- */
+body.unit-daystar .form-control,body.unit-daystar .form-select{ border-radius:0; border:1px solid #767676; }
+body.unit-daystar .form-control:focus,body.unit-daystar .form-select:focus{ border-color:#000; box-shadow:0 0 0 .2rem rgba(250,200,35,.6); }
+body.unit-daystar .alert-danger{ background:#fff; color:#000; border:2px solid #FF0000; border-radius:0; }
+body.unit-daystar .alert-success{ background:#fff; color:#000; border:2px solid #000; border-left:8px solid #FAC823; border-radius:0; }
+
+/* ---- footer: black, white writing, visible logo (all 13 unit sites) ---- */
+body:is(.unit-daystar,.unit-chrome) :is(.biz-footer,.hum-footer,.law-footer,.rel-footer,.sci-footer,.alum-footer,.sepc-footer,.sl-footer,.res-footer,.adm-footer,.chap-footer,.lib-footer,.online-footer){ background:#000 !important; color:#fff !important; border-top:6px solid #FF0000; padding:3.25rem 0 0; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-footer,.hum-footer,.law-footer,.rel-footer,.sci-footer,.alum-footer,.sepc-footer,.sl-footer,.res-footer,.adm-footer,.chap-footer,.lib-footer,.online-footer) :is(p,li,span,small,div,address){ color:#fff; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-footer,.hum-footer,.law-footer,.rel-footer,.sci-footer,.alum-footer,.sepc-footer,.sl-footer,.res-footer,.adm-footer,.chap-footer,.lib-footer,.online-footer) :is(h2,h3,h4,h5,h6,.h6){ color:#fff !important; text-transform:uppercase; letter-spacing:.08em; font-size:.82rem; font-weight:800; margin-bottom:1rem; padding-bottom:.55rem; border-bottom:3px solid #FAC823; display:inline-block; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-footer,.hum-footer,.law-footer,.rel-footer,.sci-footer,.alum-footer,.sepc-footer,.sl-footer,.res-footer,.adm-footer,.chap-footer,.lib-footer,.online-footer) a{ color:#fff !important; text-decoration:none; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-footer,.hum-footer,.law-footer,.rel-footer,.sci-footer,.alum-footer,.sepc-footer,.sl-footer,.res-footer,.adm-footer,.chap-footer,.lib-footer,.online-footer) a:hover{ color:#fff !important; text-decoration:underline; text-decoration-color:#FAC823; text-decoration-thickness:2px; text-underline-offset:3px; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-footer,.hum-footer,.law-footer,.rel-footer,.sci-footer,.alum-footer,.sepc-footer,.sl-footer,.res-footer,.adm-footer,.chap-footer,.lib-footer,.online-footer) img{ background:#fff; padding:6px 12px; height:46px !important; width:auto !important; max-width:100%; border-radius:0; display:block; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-footer,.hum-footer,.law-footer,.rel-footer,.sci-footer,.alum-footer,.sepc-footer,.sl-footer,.res-footer,.adm-footer,.chap-footer,.lib-footer,.online-footer) .back-to-main{ background:#000 !important; color:#fff !important; border-top:1px solid rgba(255,255,255,.25); margin-top:2rem !important; padding:1rem 0; text-align:center; font-size:.85rem; }
+body:is(.unit-daystar,.unit-chrome) :is(.biz-footer,.hum-footer,.law-footer,.rel-footer,.sci-footer,.alum-footer,.sepc-footer,.sl-footer,.res-footer,.adm-footer,.chap-footer,.lib-footer,.online-footer) .back-to-main a{ color:#fff !important; font-weight:700; text-decoration:underline; }
+body.unit-daystar .footer-logo-chip{ border-radius:0; }
+
+@media (max-width:991.98px){
+  body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero){ min-height:380px; }
+  body.unit-daystar :is(.biz-section,.hum-section,.law-section,.rel-section,.sci-section,.alum-section,.sepc-section,.sl-section,.res-section){ padding:2.75rem 0; }
+}
+@media (max-width:575.98px){
+  body.unit-daystar :is(.biz-section-head,.hum-section-head,.law-section-head,.rel-section-head,.sci-section-head,.alum-section-head,.sepc-section-head,.sl-section-head,.res-section-head) h1,body.unit-daystar :is(.biz-section-head,.hum-section-head,.law-section-head,.rel-section-head,.sci-section-head,.alum-section-head,.sepc-section-head,.sl-section-head,.res-section-head) h2{ font-size:1.5rem; }
+  body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero) h1{ border-left-width:6px; }
+}
+
+/* ---- v26: YouTube / video heroes on school + unit sites ----
+   The shared rule above forces every .hero-bg-image to width/height:100%, which letter-boxes
+   a YouTube iframe (black bars + player chrome). Re-apply the "cover" technique for iframes:
+   a 16:9 frame centred and scaled so it always fills the hero edge to edge. */
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero,.adm-hero,.chap-hero,.lib-hero,.online-hero) iframe.hero-bg-iframe{
+  display:block !important; position:absolute !important; top:50% !important; left:50% !important; right:auto !important; bottom:auto !important;
+  transform:translate(-50%,-50%) !important;
+  width:max(100%, 177.78vh) !important; height:auto !important; aspect-ratio:16/9; min-width:0 !important; min-height:0 !important;
+  border:0; pointer-events:none; z-index:0;
+}
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero,.adm-hero,.chap-hero,.lib-hero,.online-hero) video.hero-bg-video{
+  display:block !important; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0; background:#000;
+}
+/* the "hide on failure" rule from hero-fullscreen.css must still win */
+body.unit-daystar .hero-fullscreen.hero-video-failed > iframe.hero-bg-iframe,
+body.unit-daystar .hero-fullscreen.hero-video-failed > video.hero-bg-video{ display:none !important; }
+/* video / youtube heroes: slightly stronger left-to-right scrim so headline + buttons stay crisp over moving footage */
+body.unit-daystar .hero-fullscreen:has(> iframe.hero-bg-iframe)::after,
+body.unit-daystar .hero-fullscreen:has(> video.hero-bg-video)::after{
+  background:linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.45) 50%,rgba(0,0,0,.15) 100%), linear-gradient(0deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 40%);
+}
+
+/* hero copy is always left-aligned with the buttons (some school sheets centre the headline only) */
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero,.adm-hero,.chap-hero,.lib-hero,.online-hero),
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero,.adm-hero,.chap-hero,.lib-hero,.online-hero) .container{ text-align:left !important; }
+body.unit-daystar :is(.biz-hero,.hum-hero,.law-hero,.rel-hero,.sci-hero,.alum-hero,.sepc-hero,.sl-hero,.res-hero,.adm-hero,.chap-hero,.lib-hero,.online-hero) .container > :is(h1,p,.lead){ margin-left:0 !important; margin-right:auto !important; }
+

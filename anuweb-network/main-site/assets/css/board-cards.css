@@ -1,0 +1,28 @@
+/* Governance profile cards (Management, Board of Trustees, University Council, Governance).
+   Portrait card: rounded top-left corner, brand-red caption panel with white name + title. Red #FF0000, gold #FAC823. */
+.board-grid{ --bc-red:#FF0000; --bc-deep:#8B0000; --bc-gold:#FAC823; }
+.board-card{ height:100%; }
+.board-card-media{
+  position:relative; aspect-ratio:3/4; overflow:hidden; background:var(--bc-red);
+  border-radius:56px 8px 8px 8px; border-bottom:5px solid var(--bc-gold);
+  box-shadow:0 10px 24px rgba(0,0,0,.14); transition:transform .25s ease, box-shadow .25s ease;
+}
+.board-card:hover .board-card-media{ transform:translateY(-4px); box-shadow:0 16px 30px rgba(0,0,0,.2); }
+.board-card-media::before{ content:""; position:absolute; top:0; left:0; width:38%; height:6px; background:var(--bc-gold); z-index:3; }
+.board-card-media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 15%; display:block; }
+.board-card-placeholder{ position:absolute; inset:0; display:flex; align-items:flex-start; justify-content:center; padding-top:18%; background:linear-gradient(160deg,#FF0000,#B30000); color:rgba(255,255,255,.55); font-size:5.5rem; }
+.board-card-caption{
+  position:absolute; left:0; right:0; bottom:0; z-index:2; text-align:left; color:#fff;
+  padding:3.25rem 1rem .95rem;
+  background:linear-gradient(0deg, rgba(139,0,0,.97) 0%, rgba(160,0,0,.9) 55%, rgba(200,0,0,0) 100%);
+}
+.board-card-caption :is(h2,h3){ color:#fff; font-size:1.05rem; font-weight:800; line-height:1.2; margin:0 0 .2rem; }
+.board-card-caption .board-card-role{ color:#fff; font-size:.8rem; font-weight:500; line-height:1.35; margin:0; opacity:.97; }
+.board-card-bio{ font-size:.82rem; color:#555; margin:.7rem .1rem 0; }
+@media (max-width:575.98px){
+  .board-card-media{ border-radius:36px 6px 6px 6px; }
+  .board-card-caption{ padding:2.5rem .65rem .7rem; }
+  .board-card-caption :is(h2,h3){ font-size:.88rem; }
+  .board-card-caption .board-card-role{ font-size:.72rem; }
+  .board-card-placeholder{ font-size:3.5rem; }
+}

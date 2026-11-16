@@ -1,0 +1,342 @@
+/* ============================================================
+   School of Science & Technology -- custom design
+   Same four brand colors, light theme: white background with a
+   faint gold grid texture, red for active/highlight states, and a
+   monospace accent font for labels/tags to signal "technical" --
+   distinct from Law's chambers look and Business's growth look,
+   while keeping text clearly legible and uploaded hero photos
+   clearly visible.
+   ============================================================ */
+:root{
+  --sci-red:   #FF0000;
+  --sci-gold:  #FAC823;
+  --sci-black: #000000;
+  --sci-white: #FFFFFF;
+  --sci-ink-soft: rgba(0,0,0,.62);
+  --sci-line: rgba(0,0,0,.14);
+
+  --font-display: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+body{
+  font-family: var(--font-body);
+  background: var(--sci-white);
+  color: var(--sci-black);
+  line-height: 1.65;
+  background-image:
+    linear-gradient(rgba(0,0,0,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+h1,h2,h3,h4{ font-family: var(--font-display); font-weight:600; color: var(--sci-black); }
+a{ color: var(--sci-red); }
+a:hover{ color: var(--sci-black); }
+.container-narrow{ max-width: 1080px; margin-inline:auto; }
+.mono-tag{ font-family: var(--font-mono); font-size:.72rem; letter-spacing:.03em; }
+
+/* ---------- Top bar ---------- */
+.sci-topbar{ background: var(--sci-red); color: var(--sci-white); font-size:.82rem; padding:6px 0; }
+.sci-topbar a{ color: var(--sci-white); text-decoration:none; }
+.sci-topbar a:hover{ color: var(--sci-gold); }
+
+/* ---------- Nav ---------- */
+.sci-nav{ background: var(--sci-gold); border-bottom: 3px solid var(--sci-gold); padding: .6rem 0; }
+.sci-nav .brand-mark{ display:flex; align-items:center; gap:.7rem; text-decoration:none; }
+.sci-nav .brand-mark img{ height:60px; }
+.sci-nav .nav-link{ color: var(--sci-black); font-weight:500; margin:0 .5rem; }
+.sci-nav .nav-link:hover, .sci-nav .nav-link.active{ color: var(--sci-red); }
+.btn-sci-cta{ background: var(--sci-red); color: var(--sci-white); font-weight:700; border-radius:2px; padding:.55rem 1.4rem; border:1px solid var(--sci-red); font-family: var(--font-mono); font-size:.85rem; }
+.btn-sci-cta:hover{ background: var(--sci-black); border-color: var(--sci-black); }
+.btn-sci-outline{ border:1px solid var(--sci-black); color: var(--sci-black); border-radius:2px; font-weight:600; font-family: var(--font-mono); font-size:.85rem; }
+.btn-sci-outline:hover{ background: var(--sci-black); color: var(--sci-white); }
+.btn-sci-outline.on-dark{ border-color: var(--sci-white); color: var(--sci-white); }
+.btn-sci-outline.on-dark:hover{ background: var(--sci-white); color: var(--sci-black); }
+.sci-nav .navbar-toggler{ border-color: rgba(0,0,0,.3); }
+
+/* ---------- Hero with node/network motif ---------- */
+.sci-hero{ min-height:460px; display:flex; align-items:center; position:relative; padding: 2.5rem 0; background: var(--sci-white); border-bottom: 1px solid var(--sci-gold); overflow:hidden; }
+.sci-hero.has-image{ color: var(--sci-white); }
+.sci-hero.has-image::after{ content:""; position:absolute; inset:0; background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.15) 45%, transparent 70%); }
+.sci-hero .hero-bg-image{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.95; object-position:center top; }
+.sci-hero .eyebrow{ position:relative; color: var(--sci-red); font-family: var(--font-mono); font-weight:600; letter-spacing:.06em; text-transform:uppercase; font-size:.8rem; }
+.sci-hero.has-image .eyebrow{ color: var(--sci-gold); }
+.sci-hero h1{ position:relative; font-size: clamp(2.2rem, 4.4vw, 3.4rem); max-width: 16ch; line-height:1.1; }
+.sci-hero.has-image h1{ color: var(--sci-white); text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+.sci-hero p.lead{ position:relative; color: var(--sci-ink-soft); max-width:48ch; font-size:1.08rem; }
+.sci-hero.has-image p.lead{ color: rgba(255,255,255,.9); text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+.node-net{ position:relative; }
+.node-net line{ stroke: var(--sci-gold); stroke-width:1; opacity:.7; }
+.node-net circle{ fill: var(--sci-gold); }
+.node-net circle.active{ fill: var(--sci-red); }
+.sci-hero.compact{ padding: 3.5rem 0; }
+
+/* ---------- Sections ---------- */
+.sci-section{ padding: 4.5rem 0; }
+.sci-section.tint{ background: rgba(250,200,35,.06); }
+.sci-section-head{ border-bottom: 1px solid var(--sci-gold); padding-bottom: .9rem; margin-bottom: 2rem; }
+.sci-section-head h2{ margin:0; font-size:1.9rem; }
+.sci-section-head .mono-tag{ color: var(--sci-red); }
+
+/* ---------- Cards ---------- */
+.sci-card{ border: 1px solid var(--sci-line); padding: 1.6rem; height:100%; background: var(--sci-white); position:relative; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.sci-card::before{ content:""; position:absolute; top:0; left:0; width:22px; height:2px; background: var(--sci-red); }
+.sci-card .index{ font-family: var(--font-mono); color: var(--sci-red); font-size:.85rem; }
+.sci-card h3{ font-size:1.15rem; margin-top:.4rem; }
+
+/* ---------- Faculty ---------- */
+.faculty-card{ text-align:center; }
+.faculty-card img{ width:120px; height:120px; object-fit:cover; border-radius:4px; border:2px solid var(--sci-gold); margin-bottom:1rem; }
+.faculty-card h3{ font-size:1.05rem; margin-bottom:.15rem; }
+.faculty-card .role{ color: var(--sci-red); font-family: var(--font-mono); font-size:.78rem; }
+.faculty-placeholder{ width:120px; height:120px; background:rgba(0,0,0,.04); border:2px solid var(--sci-gold); margin:0 auto 1rem; }
+
+/* ---------- Programme list ---------- */
+.sci-programme-row{ display:flex; justify-content:space-between; align-items:center; padding: 1.1rem 0; border-top: 1px solid var(--sci-line); }
+.sci-programme-row:last-child{ border-bottom: 1px solid var(--sci-line); }
+.sci-programme-row .level{ font-family: var(--font-mono); font-size:.7rem; font-weight:700; color: var(--sci-black); background: var(--sci-gold); padding:.2rem .6rem; border-radius:2px; margin-right:1rem; }
+.sci-programme-row .thumb{ width:52px; height:52px; border-radius:4px; object-fit:cover; margin-right:1rem; flex-shrink:0; }
+.sci-programme-row .thumb-placeholder{ width:52px; height:52px; border-radius:4px; background: rgba(0,0,0,.05); margin-right:1rem; flex-shrink:0; }
+
+/* ---------- Footer ---------- */
+.sci-footer{ background: var(--sci-black); color: var(--sci-white); padding: 3rem 0 1.5rem; border-top:3px solid var(--sci-gold); }
+.sci-footer a{ color: var(--sci-white); }
+.sci-footer a:hover{ color: var(--sci-gold); }
+.sci-footer .back-to-main{ background: var(--sci-gold); color: var(--sci-black); padding: .9rem 0; text-align:center; font-size:.85rem; font-family: var(--font-mono); margin-top: 1.5rem; }
+.sci-footer .back-to-main a{ color: var(--sci-black); font-weight:700; }
+.footer-logo-chip{ display:inline-block; background: var(--sci-white); padding:4px 8px; border-radius:3px; }
+
+.form-control{ border-radius:2px; }
+.form-control:focus{ border-color: var(--sci-gold); box-shadow: 0 0 0 .2rem rgba(250,200,35,.2); }
+
+/* ---------- Leadership message band (photo + quote, not circular) ---------- */
+.leader-band{ padding: 1rem 0; }
+.leader-band .photo-frame{ width:100%; aspect-ratio: 4/3; object-fit:cover; border-radius: 8px; display:block; }
+.leader-band .photo-placeholder{ width:100%; aspect-ratio: 4/3; border-radius: 8px; background: rgba(0,0,0,.04); border: 2px solid var(--sci-gold); display:flex; align-items:center; justify-content:center; color: var(--sci-gold); font-size:3rem; }
+.leader-band .quote-mark{ font-family: var(--font-display); font-size:3rem; color: var(--sci-gold); line-height:1; margin-bottom:.5rem; }
+.leader-band .message{ font-size:1.05rem; line-height:1.75; }
+.leader-band .signature{ margin-top:1.2rem; padding-top:1rem; border-top:1px solid var(--sci-line); }
+.leader-band .signature strong{ display:block; font-family: var(--font-display); font-size:1.05rem; }
+.leader-band .signature span{ font-size:.85rem; opacity:.7; }
+
+/* ---------- WhatsApp floating button ---------- */
+.whatsapp-float{
+  position:fixed; bottom:24px; right:24px; z-index:1050;
+  width:56px; height:56px; border-radius:50%;
+  background:#25D366; color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.6rem; box-shadow:0 4px 18px rgba(37,211,102,.45);
+  transition:transform .2s, box-shadow .2s; text-decoration:none;
+}
+.whatsapp-float:hover{ transform:scale(1.1); box-shadow:0 6px 28px rgba(37,211,102,.6); color:#fff; }
+.whatsapp-float .pulse-dot{
+  position:absolute; top:-3px; right:-3px; width:14px; height:14px;
+  border-radius:50%; background: var(--sci-red); border:2px solid #fff;
+  animation: waPulse 2s infinite;
+}
+@keyframes waPulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.4); opacity:.6; } }
+
+
+/* ============================================================
+   Responsive + polish pass (advance.css block)
+   ============================================================ */
+.skip-link{
+  position:absolute; left:-9999px; top:auto;
+  background: var(--sci-black); color: var(--sci-white);
+  padding: .75rem 1.25rem; z-index: 2000; border-radius: 0 0 4px 0;
+}
+.skip-link:focus{ left:0; top:0; }
+
+/* Scroll-reveal (progressive enhancement -- content is visible without JS) */
+.reveal{ opacity:0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+
+/* Back-to-top button */
+.back-to-top{
+  position: fixed; bottom: 24px; left: 24px; z-index: 1050;
+  width:44px; height:44px; border-radius:50%; border:none;
+  background: var(--sci-black); color: var(--sci-white);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; box-shadow:0 4px 14px rgba(0,0,0,.25);
+  opacity:0; visibility:hidden; transform: translateY(8px);
+  transition: opacity .25s, transform .25s, visibility .25s, background .2s;
+}
+.back-to-top.show{ opacity:1; visibility:visible; transform:none; }
+.back-to-top:hover{ background: var(--sci-red); color: var(--sci-white); }
+
+/* ---------- Mobile / tablet responsiveness ---------- */
+@media (max-width: 991px){
+  .sci-hero{ min-height:auto; padding: 2.75rem 0; text-align:left; }
+  .sci-hero .row.align-items-center{ flex-direction: column-reverse; }
+  .growth-bars, .node-net, .scales-icon{ max-width: 200px; opacity:.2; margin: 0 auto 1rem; display:block; }
+}
+@media (max-width: 767px){
+  .sci-topbar .container{ flex-direction: column; gap:.25rem; text-align:center; }
+  .sci-hero{ padding: 2.25rem 0; }
+  .sci-hero h1{ font-size: clamp(1.6rem, 6vw, 2.2rem); max-width:none; }
+  .sci-hero p.lead{ font-size: .96rem; max-width:none; }
+  .sci-hero .d-flex.gap-3{ flex-direction: column; align-items: stretch; }
+  .sci-hero .d-flex.gap-3 .btn{ width:100%; text-align:center; }
+  .sci-section{ padding: 2.75rem 0; }
+  .sci-section-head h2{ font-size:1.5rem; }
+  .sci-programme-row{ flex-direction: column; align-items: flex-start; gap:.6rem; }
+  .sci-programme-row > a{ align-self: flex-end; }
+  .sci-footer .row > div{ text-align:center; margin-bottom:1.25rem; }
+  .back-to-top{ left:16px; bottom:16px; width:40px; height:40px; }
+  .whatsapp-float{ right:16px; bottom:16px; }
+}
+
+/* ==========================================================================
+   Hero photo, unified (2026-09 v2): one consistent size across every hero
+   on every site (min-height 420px), text bottom-anchored, and only a light
+   bottom-fade gradient so the photo itself reads clearly -- no dark wash
+   over the top/middle of the image.
+   ========================================================================== */
+.sci-hero:not(.has-image){
+  min-height: 420px !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 2.5rem 0 2.75rem !important;
+  background: linear-gradient(0deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.24) 45%, rgba(0,0,0,0) 72%), url('../images/hero-people-1.jpg') center top / cover no-repeat !important;
+  color: #fff !important;
+}
+.sci-hero.has-image{
+  min-height: 420px !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 2.5rem 0 2.75rem !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  color: #fff !important;
+}
+.sci-hero.compact{ min-height: 420px !important; padding: 2.5rem 0 2.75rem !important; }
+.sci-hero .hero-bg-image{ display:none; }
+.sci-hero .container{ position:relative; z-index:2; }
+.sci-hero .eyebrow{ color: var(--sci-gold) !important; }
+.sci-hero h1{ color: #fff !important; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+.sci-hero p.lead{ color: rgba(255,255,255,.92) !important; text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+.sci-hero .icon-badge{ background: rgba(255,255,255,.24) !important; color:#fff !important; margin-bottom: .9rem; }
+
+/* ---------- Homepage "why choose" cards, cream-panel style (2026-09) ---------- */
+.sci-feature-card{
+  border: 1px solid var(--sci-line);
+  border-radius: 8px;
+  padding: 1.6rem; height:100%;
+  background: rgba(250,200,35,.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  transition: box-shadow .2s, transform .2s;
+}
+.sci-feature-card:hover{ box-shadow: 0 12px 24px rgba(0,0,0,.1); transform: translateY(-4px); }
+.sci-feature-card .icon-badge{
+  width:56px; height:56px; border-radius:50%;
+  background: rgba(255,255,255,.7); color: var(--sci-red);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.4rem; margin-bottom: 1rem;
+}
+.sci-feature-card h3{ font-size:1.15rem; margin-top:.2rem; }
+
+/* Phase 1 (2026-09): school code badge, shown next to the logo in the nav.
+   Spacing comes from the existing .{prefix}-nav .brand-mark{ gap } rule
+   above, not repeated here. */
+
+/* Phase 2 (2026-09): hero video/YouTube support, reusing the existing
+   .sci-hero.has-image styling (eyebrow/h1/lead colors, gradient
+   overlay) for all media kinds, not just images. */
+.sci-hero .hero-bg-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.95; object-position:center top; }
+.sci-hero .hero-bg-iframe{
+  position:absolute; top:50%; left:50%;
+  width:100%; height:100%;
+  min-width: 177.77vh; min-height: 56.25vw;
+  transform: translate(-50%,-50%);
+  border:0; opacity:.95;
+}
+
+/* ---------- Phase 5: category chips (Programmes), departments & news cards ---------- */
+.sci-category-bar{ display:flex; flex-wrap:wrap; gap:.6rem; }
+.sci-category-chip{
+  display:inline-flex; align-items:center; gap:.35rem;
+  border:1px solid var(--sci-line, rgba(0,0,0,.14)); border-radius:2px;
+  padding:.45rem 1rem; font-size:.85rem; font-weight:600;
+  color: var(--sci-black); text-decoration:none; background: var(--sci-white);
+}
+.sci-category-chip span{ color: var(--sci-ink-soft, rgba(0,0,0,.55)); font-weight:400; }
+.sci-category-chip.active{ background: var(--sci-gold); border-color: var(--sci-gold); }
+.sci-category-chip:hover{ border-color: var(--sci-gold); }
+
+/* ============================================================
+   Mobile navigation panel (Bootstrap offcanvas) -- slide-in from the
+   side below the "lg" breakpoint, with a sticky Apply Now + quick-links
+   footer. Matches the same treatment as the main site's mobile nav.
+   ============================================================ */
+@media (max-width: 991px){
+  .mobile-nav-panel{
+    width: min(86vw, 360px);
+    box-shadow: -8px 0 32px rgba(0,0,0,.25);
+    border-top: 4px solid var(--sci-gold);
+  }
+  .mobile-nav-panel .offcanvas-header{
+    /* The whole header bar is gold now (not just a chip around the logo)
+       -- a dark bar behind the logo was still swallowing it regardless of
+       the logo's own background, so the fix is to make the full bar gold. */
+    background: var(--sci-gold);
+    padding: 1rem 1.25rem;
+  }
+  .mobile-nav-brand{
+    display: inline-flex;
+    align-items: center;
+  }
+  .mobile-nav-brand img{ height: 44px; width: auto; }
+  /* Bootstrap's .btn-close-white renders a white X, which disappears
+     against this gold bar -- switch back to the default dark X. */
+  .mobile-nav-panel .offcanvas-header .btn-close{
+    filter: none;
+    opacity: .75;
+  }
+  .mobile-nav-panel .offcanvas-header .btn-close:hover{ opacity: 1; }
+  .mobile-nav-panel .offcanvas-body{ display:flex; flex-direction:column; }
+  .mobile-nav-panel .nav{ padding: .25rem 1.25rem 0; }
+  .mobile-nav-panel .nav-link{
+    padding: .85rem .25rem !important;
+    border-bottom: 1px solid var(--sci-line);
+    font-size: .98rem;
+  }
+  .mobile-nav-footer{
+    margin-top: auto;
+    padding: 1.1rem 1.25rem 1.4rem;
+    border-top: 1px solid var(--sci-line);
+  }
+  .mobile-nav-apply{ display:block; width:100%; text-align:center; padding:.85rem; font-size:.98rem; }
+  .mobile-nav-quicklinks{
+    display:flex; flex-wrap:wrap; gap:.4rem .9rem; justify-content:center;
+    margin-top:.85rem;
+  }
+  .mobile-nav-quicklinks a{ font-size:.82rem; font-weight:600; color: var(--sci-black); text-decoration:none; }
+  .mobile-nav-quicklinks a:hover{ color: var(--sci-red); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .offcanvas{ transition: none !important; }
+}
+
+/* Phase 5b: programme search bar (homepage + Programmes page). */
+.sci-programme-search{ display:flex; gap:.6rem; max-width:640px; }
+.sci-programme-search .form-control{ border-radius:2px; border-color: var(--sci-line, rgba(0,0,0,.14)); padding:.6rem .9rem; }
+.sci-programme-search .btn{ white-space:nowrap; }
+@media (max-width: 575px){ .sci-programme-search{ flex-direction:column; } }
+
+/* ---------- Faculty & staff: speech-bubble photo cards ---------- */
+.tb-card{ text-align:center; }
+.tb-photo{ position:relative; margin:0 6px 40px 0; border:2px solid #111; border-radius:12px; box-shadow:6px 6px 0 #111; background:var(--tb-bg,#FAC823); aspect-ratio:4/5; }
+.tb-photo img,.tb-photo .tb-ph{ position:absolute; inset:0; width:100%; height:100%; border-radius:10px; object-fit:cover; object-position:top center; display:block; border:0; margin:0; }
+.tb-photo .tb-ph{ display:flex; align-items:center; justify-content:center; font-size:5rem; color:rgba(0,0,0,.35); }
+.tb-photo::after{ content:""; position:absolute; left:22px; bottom:-30px; width:30px; height:30px; background:#111; clip-path:polygon(0 0,100% 0,100% 100%); }
+.tb-photo::before{ content:""; position:absolute; left:26px; bottom:-22px; width:22px; height:22px; background:var(--tb-bg,#FAC823); clip-path:polygon(0 0,100% 0,100% 100%); z-index:2; }
+.tb-c0{ --tb-bg:#FFC857; } .tb-c1{ --tb-bg:#98DB7C; } .tb-c2{ --tb-bg:#7FB2F5; } .tb-c3{ --tb-bg:#F58F8F; }
+.tb-card h3{ font-size:1.05rem; font-weight:700; margin:0 0 .15rem; }
+.tb-card .role{ font-size:.85rem; font-weight:600; color:#6b6b6b; margin:0 0 .35rem; }
+.tb-card .tb-bio{ font-size:.82rem; color:#6b6b6b; margin:0; }
+@media (max-width:575px){ .tb-photo{ max-width:260px; margin-left:auto; margin-right:auto; } }

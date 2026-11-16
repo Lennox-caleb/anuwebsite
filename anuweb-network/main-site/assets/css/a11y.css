@@ -1,0 +1,96 @@
+/* ============================================================
+   Accessibility fixes (WCAG 2.1 AA colour contrast) shared by the main site and every unit site.
+   Brand colours stay exactly: red #FF0000, gold #FAC823, black, white. Contrast is solved by choosing the
+   TEXT colour (black on red = 5.3:1, black on gold = 12:1, red only for large/bold text >= 3:1) - never by
+   changing the brand colours.
+   ============================================================ */
+/* gold link on red top bar: use white (gold-on-red was 2.5:1) */
+.donate-link{ color: #fff !important; text-decoration: underline; }
+.donate-link:hover{ color: #FAC823 !important; }
+/* active main-nav item: red on gold failed (2.5:1) -> black text + red underline */
+.navbar-anu .nav-link.active, .navbar .nav-link.active{ color: #000 !important; box-shadow: inset 0 -3px 0 #FF0000; }
+/* muted/secondary text: Bootstrap grey too light on white/cream */
+.text-muted, .form-text, small.text-muted{ color: #595959 !important; }
+.form-label{ color: #333; }
+/* muted text on dark backgrounds */
+footer .text-muted, .bg-dark .text-muted, .bg-black .text-muted, [class*="-footer"] .text-muted{ color: rgba(255,255,255,.78) !important; }
+/* visible keyboard focus everywhere */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible{
+  outline: 3px solid #FAC823; outline-offset: 2px;
+}
+/* page-level h1 that reuses the section-head look */
+.section-head h1{ font-size: 2rem; margin: 0; }
+@media (max-width: 767px){ .section-head h1{ font-size: 1.5rem; } }
+/* respect reduced motion for the scroll-reveal animations */
+@media (prefers-reduced-motion: reduce){ .reveal{ opacity: 1 !important; transform: none !important; transition: none !important; } }
+
+/* ============================================================
+   Brand red #FF0000 text rules (v5). White on #FF0000 and #FF0000 on white are both 4.0:1 - below 4.5:1 for
+   normal-size text. We keep the exact brand colours and fix the TEXT colour instead:
+   black on red = 5.3:1. Red stays on large decorative things (rules, edges, icons, big numerals).
+   ============================================================ */
+/* 1) text sitting ON a red background -> WHITE everywhere (requested): buttons, tags, labels and the utility bars. White on #FF0000 = 4.0:1, so these are kept bold. */
+.btn-apply, .btn-apply:focus, #anuCookieAccept,
+:is(.btn-adm-cta,.btn-chap-cta,.btn-lib-cta,.btn-online-cta,.btn-apply){ color:#fff !important; font-weight:700; }
+.btn-apply:hover, #anuCookieAccept:hover,
+:is(.btn-adm-cta,.btn-chap-cta,.btn-lib-cta,.btn-online-cta):hover{ color:#fff !important; }
+.hero-content .btn-apply:hover{ color:#000 !important; }
+.utility-bar, .utility-bar a, .utility-bar .divider, .utility-bar i, .donate-link,
+:is(.adm-topbar,.chap-topbar,.lib-topbar,.online-topbar), :is(.adm-topbar,.chap-topbar,.lib-topbar,.online-topbar) a{ color:#fff !important; font-weight:700; }
+.utility-bar a:hover, .donate-link:hover, :is(.adm-topbar,.chap-topbar,.lib-topbar,.online-topbar) a:hover{ color:#fff !important; text-decoration:underline; }
+/* 2) plain (un-classed) links in page content: black + red underline instead of small red text */
+a:not([class]):not(:is(.bg-dark,.bg-black,.dark,[class*="hero"],.apply-band,.text-white,footer,[class*="-footer"],[class*="topbar"],.utility-bar,nav,.offcanvas) a){ color:#000; text-decoration:underline; text-decoration-color:#FF0000; text-decoration-thickness:2px; text-underline-offset:3px; }
+a:not([class]):not(:is(.bg-dark,.bg-black,.dark,[class*="hero"],.apply-band,.text-white,footer,[class*="-footer"],[class*="topbar"],.utility-bar,nav,.offcanvas) a):hover{ color:#000; background:rgba(250,200,35,.3); }
+/* 3) small red labels / "view all" / tile arrows -> black, keep the red as an underline/edge */
+.see-all, .message-card-eyebrow, .eyebrow-label, .tile-go, [class*="tile-"] > .small, a.tile-go,
+:is(.alum-card,.chap-card,.lib-card) :is(.ti,.til,.small:last-child){ color:#000 !important; }
+.see-all{ text-decoration:underline; text-decoration-color:#FF0000; text-decoration-thickness:2px; text-underline-offset:3px; }
+.message-card-eyebrow, .eyebrow-label{ border-bottom:3px solid #FF0000; display:inline-block; padding-bottom:2px; }
+/* 4) gold small text on white is 1.6:1 -> black with a gold highlight */
+.sticky-apply-bar strong{ color:#000 !important; background:linear-gradient(transparent 60%, #FAC823 60%); }
+/* 5) decorative light-grey numerals (01, 02...) were 1.4:1 -> mid grey that still reads as decoration but passes 4.5:1 */
+.school-row .num{ color:#767676 !important; }
+/* 6) remaining red-on-light / white-on-red labels (main site + Science & Tech) */
+.card-anu .tag, .feature-card .tag{ color:#fff !important; }   /* tags inside cards sit on a red background */
+.tag{ color:#000; }
+.faculty-card .role, .date-tag, .history-year, .mono-tag, [data-tab-target].active, #management > .small,
+.news-card .date-tag{ color:#000 !important; }
+.date-tag, .mono-tag{ border-bottom:2px solid #FF0000; }
+.history-year{ border-left:4px solid #FF0000; padding-left:.5rem; }
+
+/* 7) Footers everywhere: black, white writing, logo on a white chip so it is always visible */
+footer.site-footer, footer[class*="-footer"]{ background:#000; color:#fff; }
+.site-footer :is(p,li,span,small,div,address,.text-muted,.text-gold){ color:#fff !important; }
+.site-footer :is(h2,h3,h4,h5,h6){ color:#fff !important; border-bottom:3px solid #FAC823; display:inline-block; padding-bottom:.45rem; }
+.site-footer a{ color:#fff !important; }
+.site-footer a:hover{ color:#fff !important; text-decoration:underline; text-decoration-color:#FAC823; text-decoration-thickness:2px; text-underline-offset:3px; }
+.site-footer img[src*="anu-logo"]{ background:#fff; padding:6px 12px; height:46px; width:auto; }
+[class*="-footer"] .text-muted{ color:#fff !important; }
+/* the gold accreditation strip inside the black footer keeps BLACK text (white on gold would be 1.6:1) */
+.site-footer .footer-accreditation, .site-footer .footer-accreditation *{ color:#000 !important; }
+/* 8) Hero text legibility over bright photos: add a left-side scrim to the existing vertical overlay (white text on a light shirt was ~1.5:1) */
+.hero-fullscreen::after{
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.66) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.08) 80%),
+    linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.32) 55%, rgba(0,0,0,.62) 100%);
+}
+
+/* 9) Main utility bar: one straight row on desktop, tidy centred rows on tablets (it used to wrap with the links stranded on a second, left-aligned row) */
+@media (min-width:1200px){
+  .utility-bar .container{ flex-wrap:nowrap; }
+  .utility-bar .container > div{ white-space:nowrap; }
+  .utility-bar .divider{ margin:0 .3rem; }
+  .utility-bar a[href^="mailto:"], .utility-bar .divider.d-md-inline{ display:none !important; }   /* e-mail is also in the footer and contact page; frees room so the row stays single */
+}
+@media (min-width:1400px){
+  .utility-bar a[href^="mailto:"]{ display:inline !important; }
+  .utility-bar .divider.d-md-inline{ display:inline !important; }
+}
+@media (max-width:1199.98px){
+  /* one swipeable row (Bootstrap's .flex-wrap !important was overriding the site's own nowrap rule, which stacked the two groups) */
+  .utility-bar .container{ flex-wrap:nowrap !important; overflow-x:auto; justify-content:flex-start !important; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  .utility-bar .container::-webkit-scrollbar{ display:none; }
+  .utility-bar .container > div{ flex-shrink:0; white-space:nowrap; }
+  .utility-bar .container > div:first-child::after{ content:""; display:inline-block; width:1px; height:12px; background:rgba(255,255,255,.7); margin:0 .6rem; vertical-align:middle; }
+  .utility-bar a[href^="mailto:"], .utility-bar .divider.d-md-inline{ display:none !important; }
+}

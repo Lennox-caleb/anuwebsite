@@ -1,0 +1,43 @@
+# Performance rules for law-school-site
+
+# ---- Performance (Audit): compression + browser caching. Every block is wrapped in
+# <IfModule>, so if a module is not enabled on the server nothing breaks.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript text/javascript application/json image/svg+xml font/ttf
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  # CSS/JS are loaded with a ?v= version stamp (asset_v), so a long cache is safe
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(php)$">
+    Header set Cache-Control "no-cache, private"
+  </FilesMatch>
+</IfModule>
+
+# BEGIN ANU-CLEAN-URLS (managed block - remove with: sudo bash enable-clean-urls.sh --remove)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # 1) /folder/index.php  ->  /folder/   and   /page.php  ->  /page   (permanent redirects; GET/HEAD only so forms still POST normally)
+  RewriteCond %{THE_REQUEST} ^(GET|HEAD)\s+/[^?\s]*\.php(\?[^\s]*)?\s+HTTP/
+  RewriteCond %{REQUEST_URI} ^(.*/)index\.php$
+  RewriteRule ^ %1 [R=301,L]
+  RewriteCond %{THE_REQUEST} ^(GET|HEAD)\s+/[^?\s]*\.php(\?[^\s]*)?\s+HTTP/
+  RewriteCond %{REQUEST_URI} ^(.*)\.php$
+  RewriteRule ^ %1 [R=301,L]
+  # 2) /page  ->  page.php  (internally, only when no real file/folder of that name exists)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.php -f
+  RewriteRule ^(.+?)/?$ $1.php [L]
+</IfModule>
+# END ANU-CLEAN-URLS

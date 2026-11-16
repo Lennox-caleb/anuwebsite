@@ -1,0 +1,184 @@
+/* ============================================================
+   Institute of Research, Innovation & Outreach -- custom design
+   Same four brand colors as the main site (red/gold/black/white).
+   ============================================================ */
+:root{
+  --res-red:   #FF0000;
+  --res-gold:  #FAC823;
+  --res-black: #000000;
+  --res-white: #FFFFFF;
+  --res-ink-soft: rgba(0,0,0,.62);
+  --res-line: rgba(0,0,0,.14);
+
+  --font-display: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+body{ font-family: var(--font-body); background: var(--res-white); color: var(--res-black); line-height: 1.65; }
+h1,h2,h3,h4{ font-family: var(--font-display); font-weight:600; color: var(--res-black); }
+a{ color: var(--res-red); }
+a:hover{ color: var(--res-black); }
+.container-narrow{ max-width: 1080px; margin-inline:auto; }
+
+/* ---------- Top bar ---------- */
+.res-topbar{ background: var(--res-red); color: var(--res-white); font-size:.82rem; padding:6px 0; }
+.res-topbar a{ color: var(--res-white); text-decoration:none; }
+.res-topbar a:hover{ color: var(--res-gold); }
+
+/* ---------- Nav ---------- */
+.res-nav{ background: var(--res-gold); border-bottom: 3px solid var(--res-gold); padding: .6rem 0; }
+.res-nav .brand-mark{ display:flex; align-items:center; gap:.7rem; text-decoration:none; }
+.res-nav .brand-mark img{ height:60px; }
+.res-nav .nav-link{ color: var(--res-black); font-weight:500; margin:0 .5rem; }
+.res-nav .nav-link:hover, .res-nav .nav-link.active{ color: var(--res-red); }
+.res-nav .navbar-toggler{ border-color: rgba(0,0,0,.3); }
+.btn-res-cta{ background: var(--res-red); color: var(--res-white); font-weight:700; border-radius:2px; padding:.55rem 1.4rem; border:1px solid var(--res-red); }
+.btn-res-cta:hover{ background: var(--res-black); border-color: var(--res-black); }
+.btn-res-outline{ border:1px solid var(--res-black); color: var(--res-black); border-radius:2px; font-weight:600; }
+.btn-res-outline:hover{ background: var(--res-black); color: var(--res-white); }
+
+/* ---------- Hero ---------- */
+.res-hero{ min-height:420px; display:flex; align-items:center; position:relative; padding: 2.5rem 0; background: var(--res-white); border-bottom: 4px solid var(--res-gold); overflow:hidden; }
+.res-hero .icon-badge{
+  width:84px; height:84px; border-radius:50%; background: rgba(250,200,35,.14);
+  color: var(--res-red); font-size:2.1rem; display:flex; align-items:center; justify-content:center;
+  margin-bottom:1.25rem;
+}
+.res-hero .eyebrow{ color: var(--res-red); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.85rem; }
+.res-hero h1{ font-size: clamp(2.1rem, 4.2vw, 3.2rem); max-width: 18ch; line-height:1.1; }
+.res-hero p.lead{ color: var(--res-ink-soft); max-width:52ch; font-size:1.06rem; }
+.res-hero.compact{ min-height:auto; padding: 3.25rem 0; }
+
+/* ---------- Section styling ---------- */
+.res-section{ padding: 4.5rem 0; }
+.res-section.tint{ background: rgba(250,200,35,.06); }
+.res-section.dark{ background: var(--res-black); color: rgba(255,255,255,.85); }
+.res-section.dark h2, .res-section.dark h3{ color: var(--res-white); }
+.res-section-head{ border-bottom: 2px solid var(--res-gold); padding-bottom: .9rem; margin-bottom: 2rem; }
+.res-section-head h2{ margin:0; font-size:1.9rem; }
+.res-section.dark .res-section-head{ border-bottom-color: var(--res-gold); }
+
+/* ---------- Cards ---------- */
+.res-card{ border: 1px solid var(--res-line); border-top: 3px solid var(--res-gold); padding: 1.6rem; height:100%; background: var(--res-white); box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.res-card .index{ font-family: var(--font-display); color: var(--res-red); font-size:1.6rem; }
+.res-card h3{ font-size:1.15rem; margin-top:.4rem; }
+
+/* ---------- Faculty / leadership cards ---------- */
+.faculty-card{ text-align:center; }
+.faculty-card img{ width:120px; height:120px; object-fit:cover; border-radius:50%; border:3px solid var(--res-gold); margin-bottom:1rem; }
+.faculty-card h3{ font-size:1.05rem; margin-bottom:.15rem; }
+.faculty-card .role{ color: var(--res-red); font-size:.85rem; font-weight:600; }
+.faculty-placeholder{ width:120px; height:120px; border-radius:50%; background:rgba(0,0,0,.05); border:3px solid var(--res-gold); margin:0 auto 1rem; }
+
+/* ---------- Programme / listing rows ---------- */
+.res-programme-row{ display:flex; justify-content:space-between; align-items:center; padding: 1.1rem 0; border-top: 1px solid var(--res-line); }
+.res-programme-row:last-child{ border-bottom: 1px solid var(--res-line); }
+.res-programme-row .level{ font-size:.72rem; font-weight:700; color: var(--res-black); background: var(--res-gold); padding:.2rem .6rem; border-radius:2px; margin-right:1rem; }
+.res-programme-row .thumb{ width:52px; height:52px; border-radius:4px; object-fit:cover; margin-right:1rem; flex-shrink:0; }
+.res-programme-row .thumb-placeholder{ width:52px; height:52px; border-radius:4px; background: rgba(0,0,0,.05); margin-right:1rem; flex-shrink:0; }
+
+/* ---------- Footer ---------- */
+.res-footer{ background: var(--res-black); color: var(--res-white); padding: 3rem 0 1.5rem; }
+.res-footer a{ color: var(--res-white); }
+.res-footer a:hover{ color: var(--res-gold); }
+.res-footer .back-to-main{ background: var(--res-gold); color: var(--res-black); padding: .9rem 0; text-align:center; font-size:.85rem; margin-top: 2rem; }
+.res-footer .back-to-main a{ color: var(--res-black); font-weight:700; }
+
+.form-control{ border-radius:2px; }
+.form-control:focus{ border-color: var(--res-gold); box-shadow: 0 0 0 .2rem rgba(250,200,35,.25); }
+
+/* ---------- Leadership message band ---------- */
+.leader-band{ padding: 1rem 0; }
+.leader-band .photo-frame{ width:100%; aspect-ratio: 4/3; object-fit:cover; border-radius: 8px; display:block; }
+.leader-band .photo-placeholder{ width:100%; aspect-ratio: 4/3; border-radius: 8px; background: rgba(0,0,0,.04); border: 2px solid var(--res-gold); display:flex; align-items:center; justify-content:center; color: var(--res-gold); font-size:3rem; }
+.leader-band .quote-mark{ font-family: var(--font-display); font-size:3rem; color: var(--res-gold); line-height:1; margin-bottom:.5rem; }
+.leader-band .message{ font-size:1.05rem; line-height:1.75; }
+.leader-band .signature{ margin-top:1.2rem; padding-top:1rem; border-top:1px solid var(--res-line); }
+.leader-band .signature strong{ display:block; font-family: var(--font-display); font-size:1.05rem; }
+.leader-band .signature span{ font-size:.85rem; opacity:.7; }
+
+/* ---------- WhatsApp floating button ---------- */
+.whatsapp-float{ position:fixed; bottom:24px; right:24px; z-index:1050; width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.6rem; box-shadow:0 4px 18px rgba(37,211,102,.45); transition:transform .2s, box-shadow .2s; text-decoration:none; }
+.whatsapp-float:hover{ transform:scale(1.1); box-shadow:0 6px 28px rgba(37,211,102,.6); color:#fff; }
+.whatsapp-float .pulse-dot{ position:absolute; top:-3px; right:-3px; width:14px; height:14px; border-radius:50%; background: var(--res-red); border:2px solid #fff; animation: waPulse 2s infinite; }
+@keyframes waPulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.4); opacity:.6; } }
+
+/* ============================================================
+   Responsive + polish pass (advance.css block)
+   ============================================================ */
+.skip-link{ position:absolute; left:-9999px; top:auto; background: var(--res-black); color: var(--res-white); padding: .75rem 1.25rem; z-index: 2000; border-radius: 0 0 4px 0; }
+.skip-link:focus{ left:0; top:0; }
+
+.reveal{ opacity:0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+
+.back-to-top{ position: fixed; bottom: 24px; left: 24px; z-index: 1050; width:44px; height:44px; border-radius:50%; border:none; background: var(--res-black); color: var(--res-white); display:flex; align-items:center; justify-content:center; font-size:1.1rem; box-shadow:0 4px 14px rgba(0,0,0,.25); opacity:0; visibility:hidden; transform: translateY(8px); transition: opacity .25s, transform .25s, visibility .25s, background .2s; }
+.back-to-top.show{ opacity:1; visibility:visible; transform:none; }
+.back-to-top:hover{ background: var(--res-red); color: var(--res-white); }
+
+@media (max-width: 767px){
+  .res-topbar .container{ flex-direction: column; gap:.25rem; text-align:center; }
+  .res-hero{ padding: 2.25rem 0; min-height:auto; }
+  .res-hero h1{ font-size: clamp(1.6rem, 6vw, 2.2rem); max-width:none; }
+  .res-hero p.lead{ font-size: .96rem; max-width:none; }
+  .res-hero .d-flex.gap-3{ flex-direction: column; align-items: stretch; }
+  .res-hero .d-flex.gap-3 .btn{ width:100%; text-align:center; }
+  .res-section{ padding: 2.75rem 0; }
+  .res-section-head h2{ font-size:1.5rem; }
+  .res-programme-row{ flex-direction: column; align-items: flex-start; gap:.6rem; }
+  .res-programme-row > a{ align-self: flex-end; }
+  .res-footer .row > div{ text-align:center; margin-bottom:1.25rem; }
+  .back-to-top{ left:16px; bottom:16px; width:40px; height:40px; }
+  .whatsapp-float{ right:16px; bottom:16px; }
+}
+
+/* ==========================================================================
+   Hero photo, unified (2026-09 v2): one consistent size across every hero
+   on every site (min-height 420px), text bottom-anchored, and only a light
+   bottom-fade gradient so the photo itself reads clearly -- no dark wash
+   over the top/middle of the image.
+   ========================================================================== */
+.res-hero:not(.has-image){
+  min-height: 420px !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 2.5rem 0 2.75rem !important;
+  background: linear-gradient(0deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.24) 45%, rgba(0,0,0,0) 72%), url('../images/hero-people-2.jpg') center top / cover no-repeat !important;
+  color: #fff !important;
+}
+.res-hero.has-image{
+  min-height: 420px !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 2.5rem 0 2.75rem !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  color: #fff !important;
+}
+.res-hero.compact{ min-height: 420px !important; padding: 2.5rem 0 2.75rem !important; }
+.res-hero .hero-bg-image{ display:none; }
+.res-hero .container{ position:relative; z-index:2; }
+.res-hero .eyebrow{ color: var(--res-gold) !important; }
+.res-hero h1{ color: #fff !important; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+.res-hero p.lead{ color: rgba(255,255,255,.92) !important; text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+.res-hero .icon-badge{ background: rgba(255,255,255,.24) !important; color:#fff !important; margin-bottom: .9rem; }
+
+/* ---------- Homepage "why choose" cards, cream-panel style (2026-09) ---------- */
+.res-feature-card{
+  border: 1px solid var(--res-line);
+  border-radius: 8px;
+  padding: 1.6rem; height:100%;
+  background: rgba(250,200,35,.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  transition: box-shadow .2s, transform .2s;
+}
+.res-feature-card:hover{ box-shadow: 0 12px 24px rgba(0,0,0,.1); transform: translateY(-4px); }
+.res-feature-card .icon-badge{
+  width:56px; height:56px; border-radius:50%;
+  background: rgba(255,255,255,.7); color: var(--res-red);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.4rem; margin-bottom: 1rem;
+}
+.res-feature-card h3{ font-size:1.15rem; margin-top:.2rem; }

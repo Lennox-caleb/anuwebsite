@@ -1,0 +1,49 @@
+Options -Indexes
+Options -FollowSymLinks +SymLinksIfOwnerMatch
+
+# Protect sensitive files
+<FilesMatch "(config\.php|database\.sql)$">
+  Require all denied
+</FilesMatch>
+
+# PHP error handling
+php_flag display_errors Off
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript
+</IfModule>
+
+# Cache static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg  "access plus 1 month"
+  ExpiresByType image/png  "access plus 1 month"
+  ExpiresByType text/css   "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
+# Disable caching for PHP pages so admin changes reflect immediately
+<FilesMatch "\.php$">
+  Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+  Header set Pragma "no-cache"
+  Header set Expires "Thu, 01 Jan 1970 00:00:00 GMT"
+</FilesMatch>
+
+# BEGIN ANU-CLEAN-URLS (managed block - remove with: sudo bash enable-clean-urls.sh --remove)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # 1) /folder/index.php  ->  /folder/   and   /page.php  ->  /page   (permanent redirects; GET/HEAD only so forms still POST normally)
+  RewriteCond %{THE_REQUEST} ^(GET|HEAD)\s+/[^?\s]*\.php(\?[^\s]*)?\s+HTTP/
+  RewriteCond %{REQUEST_URI} ^(.*/)index\.php$
+  RewriteRule ^ %1 [R=301,L]
+  RewriteCond %{THE_REQUEST} ^(GET|HEAD)\s+/[^?\s]*\.php(\?[^\s]*)?\s+HTTP/
+  RewriteCond %{REQUEST_URI} ^(.*)\.php$
+  RewriteRule ^ %1 [R=301,L]
+  # 2) /page  ->  page.php  (internally, only when no real file/folder of that name exists)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.php -f
+  RewriteRule ^(.+?)/?$ $1.php [L]
+</IfModule>
+# END ANU-CLEAN-URLS

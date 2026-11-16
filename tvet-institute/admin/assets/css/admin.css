@@ -1,0 +1,87 @@
+/* ============================================================
+   ANU TVET Institute -- Admin panel styles
+   Same brand palette: red / gold / black / white
+   ============================================================ */
+:root{
+  --tvet-red:#FF0000; --tvet-red-dark:#C40000; --tvet-gold:#FAC823; --tvet-black:#000; --tvet-white:#fff;
+  --admin-sidebar-w: 264px;
+  --font-display:"Poppins","Roboto",sans-serif; --font-body:"Roboto",sans-serif;
+}
+*{ box-sizing:border-box; }
+body{ font-family:var(--font-body); background:#F4F5F7; margin:0; color:#1c1c1c; }
+a{ text-decoration:none; }
+
+.admin-shell{ display:flex; min-height:100vh; }
+
+/* ---- Sidebar ---- */
+.admin-sidebar{ width:var(--admin-sidebar-w); background:var(--tvet-black); color:#fff; position:fixed; top:0; bottom:0; left:0; display:flex; flex-direction:column; z-index:1040; transition:transform .2s; }
+.admin-brand{ display:flex; align-items:center; gap:.7rem; padding:1.3rem 1.2rem; border-bottom:1px solid rgba(255,255,255,.1); color:#fff; }
+.admin-brand img{ height:38px; background:#fff; border-radius:4px; padding:2px; }
+.admin-brand span{ font-family:var(--font-display); font-weight:700; font-size:.95rem; line-height:1.2; }
+.admin-brand small{ display:block; color:var(--tvet-gold); font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; font-weight:700; }
+
+.admin-nav{ flex:1; overflow-y:auto; padding:1rem .8rem; }
+.nav-group-label{ font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,.35); font-weight:700; margin:1.1rem .6rem .4rem; }
+.nav-group-label:first-child{ margin-top:0; }
+.admin-nav-link{ display:flex; align-items:center; gap:.65rem; padding:.6rem .7rem; border-radius:6px; color:rgba(255,255,255,.78); font-size:.88rem; font-weight:500; margin-bottom:.15rem; }
+.admin-nav-link i{ font-size:1rem; width:1.1rem; text-align:center; color:rgba(255,255,255,.5); }
+.admin-nav-link:hover{ background:rgba(255,255,255,.08); color:#fff; }
+.admin-nav-link.active{ background:var(--tvet-red); color:#fff; }
+.admin-nav-link.active i{ color:#fff; }
+
+.admin-sidebar-footer{ padding:1rem .8rem 1.3rem; border-top:1px solid rgba(255,255,255,.1); }
+
+/* ---- Main ---- */
+.admin-main{ margin-left:var(--admin-sidebar-w); flex:1; min-width:0; display:flex; flex-direction:column; }
+.admin-topbar{ background:#fff; border-bottom:1px solid #e6e6e6; padding:.9rem 1.6rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:1020; }
+.admin-page-title{ font-family:var(--font-display); font-size:1.15rem; font-weight:700; margin:0; flex:1; }
+.admin-user-chip{ display:flex; align-items:center; gap:.5rem; font-size:.85rem; }
+.admin-user-chip i{ font-size:1.7rem; color:var(--tvet-red); }
+.admin-user-chip small{ font-size:.7rem; }
+
+.admin-content{ padding:1.6rem; flex:1; }
+
+/* ---- Cards / panels ---- */
+.admin-card{ background:#fff; border:1px solid #e9e9e9; border-radius:10px; padding:1.4rem; }
+.admin-card-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem; flex-wrap:wrap; gap:.7rem; }
+.admin-card-header h2{ font-family:var(--font-display); font-size:1.05rem; font-weight:700; margin:0; }
+
+.stat-tile{ background:#fff; border:1px solid #e9e9e9; border-top:4px solid var(--tvet-red); border-radius:10px; padding:1.2rem 1.3rem; }
+.stat-tile.gold{ border-top-color: var(--tvet-gold); }
+.stat-tile.black{ border-top-color: var(--tvet-black); }
+.stat-tile b{ font-family:var(--font-display); font-size:1.8rem; display:block; }
+.stat-tile span{ font-size:.78rem; color:#777; text-transform:uppercase; letter-spacing:.04em; }
+.stat-tile a{ font-size:.78rem; font-weight:700; color:var(--tvet-red); }
+
+/* ---- Buttons ---- */
+.btn-admin-primary{ background:var(--tvet-red); border-color:var(--tvet-red); color:#fff; font-weight:600; }
+.btn-admin-primary:hover{ background:var(--tvet-red-dark); border-color:var(--tvet-red-dark); color:#fff; }
+.btn-admin-gold{ background:var(--tvet-gold); border-color:var(--tvet-gold); color:#000; font-weight:700; }
+.btn-admin-dark{ background:var(--tvet-black); border-color:var(--tvet-black); color:#fff; font-weight:600; }
+
+/* ---- Tables ---- */
+.table-admin{ font-size:.88rem; }
+.table-admin thead th{ font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; color:#888; border-bottom-width:1px; white-space:nowrap; }
+.table-admin td{ vertical-align:middle; }
+.table-admin img.thumb-sm{ width:42px; height:42px; object-fit:cover; border-radius:4px; }
+.badge-status-new{ background:var(--tvet-red); }
+.badge-status-submitted{ background:#6c757d; }
+.badge-status-under_review{ background:#fd7e14; }
+.badge-status-shortlisted{ background:#0d6efd; }
+.badge-status-admitted{ background:#198754; }
+.badge-status-rejected{ background:#6c757d; }
+.badge-status-read{ background:#0d6efd; }
+.badge-status-replied{ background:#198754; }
+
+/* ---- Login page ---- */
+.admin-login-wrap{ min-height:100vh; display:flex; align-items:center; justify-content:center; background: radial-gradient(circle at top left, #1a1a1a, #000 60%); padding:1.5rem; }
+.admin-login-card{ background:#fff; border-radius:14px; padding:2.6rem 2.4rem; width:100%; max-width:400px; box-shadow:0 30px 70px rgba(0,0,0,.4); border-top:6px solid var(--tvet-gold); }
+.admin-login-card img{ height:54px; display:block; margin:0 auto 1rem; }
+.admin-login-card h1{ font-family:var(--font-display); font-size:1.25rem; text-align:center; margin-bottom:.2rem; }
+.admin-login-card p.subtitle{ text-align:center; color:#777; font-size:.85rem; margin-bottom:1.6rem; }
+
+@media (max-width: 991px){
+  .admin-sidebar{ transform:translateX(-100%); }
+  .admin-sidebar.show{ transform:translateX(0); }
+  .admin-main{ margin-left:0; }
+}

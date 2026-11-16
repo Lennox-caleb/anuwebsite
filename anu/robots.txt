@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /includes/
+Disallow: /uploads/attachments/
+Disallow: /setup
+Disallow: /dbtest
+Disallow: /fix_db
+Disallow: /reset_admin
+Disallow: /migrate_analytics
+Disallow: /migrate_campus
+Disallow: /migrate_livestream
+Disallow: /migrate_portal_urls
+Disallow: /migrate_programs
+Disallow: /migrate_slides
+Disallow: /migrate_support
+Disallow: /sync_slides
+
+Sitemap: https://anu.ac.ke/sitemap.xml

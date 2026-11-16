@@ -1,0 +1,219 @@
+/* ============================================================
+   Centre for Short Courses & Professional Studies -- custom design
+   Same four brand colors as the main site (red/gold/black/white).
+   ============================================================ */
+:root{
+  --sepc-red:   #FF0000;
+  --sepc-gold:  #FAC823;
+  --sepc-black: #000000;
+  --sepc-white: #FFFFFF;
+  --sepc-ink-soft: rgba(0,0,0,.62);
+  --sepc-line: rgba(0,0,0,.14);
+
+  --font-display: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+body{ font-family: var(--font-body); background: var(--sepc-white); color: var(--sepc-black); line-height: 1.65; }
+h1,h2,h3,h4{ font-family: var(--font-display); font-weight:600; color: var(--sepc-black); }
+a{ color: var(--sepc-red); }
+a:hover{ color: var(--sepc-black); }
+.container-narrow{ max-width: 1080px; margin-inline:auto; }
+
+/* ---------- Top bar ---------- */
+.sepc-topbar{ background: var(--sepc-red); color: var(--sepc-white); font-size:.82rem; padding:6px 0; }
+.sepc-topbar a{ color: var(--sepc-white); text-decoration:none; }
+.sepc-topbar a:hover{ color: var(--sepc-gold); }
+
+/* ---------- Nav ---------- */
+.sepc-nav{ background: var(--sepc-gold); border-bottom: 3px solid var(--sepc-gold); padding: .6rem 0; }
+.sepc-nav .brand-mark{ display:flex; align-items:center; gap:.7rem; text-decoration:none; }
+.sepc-nav .brand-mark img{ height:60px; }
+.sepc-nav .nav-link{ color: var(--sepc-black); font-weight:500; margin:0 .5rem; }
+.sepc-nav .nav-link:hover, .sepc-nav .nav-link.active{ color: var(--sepc-red); }
+.sepc-nav .navbar-toggler{ border-color: rgba(0,0,0,.3); }
+.btn-sepc-cta{ background: var(--sepc-red); color: var(--sepc-white); font-weight:700; border-radius:2px; padding:.55rem 1.4rem; border:1px solid var(--sepc-red); }
+.btn-sepc-cta:hover{ background: var(--sepc-black); border-color: var(--sepc-black); }
+.btn-sepc-outline{ border:1px solid var(--sepc-black); color: var(--sepc-black); border-radius:2px; font-weight:600; }
+.btn-sepc-outline:hover{ background: var(--sepc-black); color: var(--sepc-white); }
+
+/* ---------- Hero ---------- */
+.sepc-hero{ min-height:420px; display:flex; align-items:center; position:relative; padding: 2.5rem 0; background: var(--sepc-white); border-bottom: 4px solid var(--sepc-gold); overflow:hidden; }
+.sepc-hero .icon-badge{
+  width:84px; height:84px; border-radius:50%; background: rgba(250,200,35,.14);
+  color: var(--sepc-red); font-size:2.1rem; display:flex; align-items:center; justify-content:center;
+  margin-bottom:1.25rem;
+}
+.sepc-hero .eyebrow{ color: var(--sepc-red); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.85rem; }
+.sepc-hero h1{ font-size: clamp(2.1rem, 4.2vw, 3.2rem); max-width: 18ch; line-height:1.1; }
+.sepc-hero p.lead{ color: var(--sepc-ink-soft); max-width:52ch; font-size:1.06rem; }
+.sepc-hero.compact{ min-height:auto; padding: 3.25rem 0; }
+
+/* ---------- Section styling ---------- */
+.sepc-section{ padding: 4.5rem 0; }
+.sepc-section.tint{ background: rgba(250,200,35,.06); }
+.sepc-section.dark{ background: var(--sepc-black); color: rgba(255,255,255,.85); }
+.sepc-section.dark h2, .sepc-section.dark h3{ color: var(--sepc-white); }
+.sepc-section-head{ border-bottom: 2px solid var(--sepc-gold); padding-bottom: .9rem; margin-bottom: 2rem; }
+.sepc-section-head h2{ margin:0; font-size:1.9rem; }
+.sepc-section.dark .sepc-section-head{ border-bottom-color: var(--sepc-gold); }
+
+/* ---------- Cards ---------- */
+.sepc-card{ border: 1px solid var(--sepc-line); border-top: 3px solid var(--sepc-gold); padding: 1.6rem; height:100%; background: var(--sepc-white); box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.sepc-card .index{ font-family: var(--font-display); color: var(--sepc-red); font-size:1.6rem; }
+.sepc-card h3{ font-size:1.15rem; margin-top:.4rem; }
+
+/* ---------- Faculty / leadership cards ---------- */
+.faculty-card{ text-align:center; }
+.faculty-card img{ width:120px; height:120px; object-fit:cover; border-radius:50%; border:3px solid var(--sepc-gold); margin-bottom:1rem; }
+.faculty-card h3{ font-size:1.05rem; margin-bottom:.15rem; }
+.faculty-card .role{ color: var(--sepc-red); font-size:.85rem; font-weight:600; }
+.faculty-placeholder{ width:120px; height:120px; border-radius:50%; background:rgba(0,0,0,.05); border:3px solid var(--sepc-gold); margin:0 auto 1rem; }
+
+/* ---------- Programme / listing rows ---------- */
+.sepc-programme-row{ display:flex; justify-content:space-between; align-items:center; padding: 1.1rem 0; border-top: 1px solid var(--sepc-line); }
+.sepc-programme-row:last-child{ border-bottom: 1px solid var(--sepc-line); }
+.sepc-programme-row .level{ font-size:.72rem; font-weight:700; color: var(--sepc-black); background: var(--sepc-gold); padding:.2rem .6rem; border-radius:2px; margin-right:1rem; }
+.sepc-programme-row .thumb{ width:52px; height:52px; border-radius:4px; object-fit:cover; margin-right:1rem; flex-shrink:0; }
+.sepc-programme-row .thumb-placeholder{ width:52px; height:52px; border-radius:4px; background: rgba(0,0,0,.05); margin-right:1rem; flex-shrink:0; }
+
+/* ---------- Footer ---------- */
+.sepc-footer{ background: var(--sepc-black); color: var(--sepc-white); padding: 3rem 0 1.5rem; }
+.sepc-footer a{ color: var(--sepc-white); }
+.sepc-footer a:hover{ color: var(--sepc-gold); }
+.sepc-footer .back-to-main{ background: var(--sepc-gold); color: var(--sepc-black); padding: .9rem 0; text-align:center; font-size:.85rem; margin-top: 2rem; }
+.sepc-footer .back-to-main a{ color: var(--sepc-black); font-weight:700; }
+
+.form-control{ border-radius:2px; }
+.form-control:focus{ border-color: var(--sepc-gold); box-shadow: 0 0 0 .2rem rgba(250,200,35,.25); }
+
+/* ---------- Leadership message band ---------- */
+.leader-band{ padding: 1rem 0; }
+.leader-band .photo-frame{ width:100%; aspect-ratio: 4/3; object-fit:cover; border-radius: 8px; display:block; }
+.leader-band .photo-placeholder{ width:100%; aspect-ratio: 4/3; border-radius: 8px; background: rgba(0,0,0,.04); border: 2px solid var(--sepc-gold); display:flex; align-items:center; justify-content:center; color: var(--sepc-gold); font-size:3rem; }
+.leader-band .quote-mark{ font-family: var(--font-display); font-size:3rem; color: var(--sepc-gold); line-height:1; margin-bottom:.5rem; }
+.leader-band .message{ font-size:1.05rem; line-height:1.75; }
+.leader-band .signature{ margin-top:1.2rem; padding-top:1rem; border-top:1px solid var(--sepc-line); }
+.leader-band .signature strong{ display:block; font-family: var(--font-display); font-size:1.05rem; }
+.leader-band .signature span{ font-size:.85rem; opacity:.7; }
+
+/* ---------- WhatsApp floating button ---------- */
+.whatsapp-float{ position:fixed; bottom:24px; right:24px; z-index:1050; width:56px; height:56px; border-radius:50%; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.6rem; box-shadow:0 4px 18px rgba(37,211,102,.45); transition:transform .2s, box-shadow .2s; text-decoration:none; }
+.whatsapp-float:hover{ transform:scale(1.1); box-shadow:0 6px 28px rgba(37,211,102,.6); color:#fff; }
+.whatsapp-float .pulse-dot{ position:absolute; top:-3px; right:-3px; width:14px; height:14px; border-radius:50%; background: var(--sepc-red); border:2px solid #fff; animation: waPulse 2s infinite; }
+@keyframes waPulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.4); opacity:.6; } }
+
+/* ============================================================
+   Responsive + polish pass (advance.css block)
+   ============================================================ */
+.skip-link{ position:absolute; left:-9999px; top:auto; background: var(--sepc-black); color: var(--sepc-white); padding: .75rem 1.25rem; z-index: 2000; border-radius: 0 0 4px 0; }
+.skip-link:focus{ left:0; top:0; }
+
+.reveal{ opacity:0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+
+.back-to-top{ position: fixed; bottom: 24px; left: 24px; z-index: 1050; width:44px; height:44px; border-radius:50%; border:none; background: var(--sepc-black); color: var(--sepc-white); display:flex; align-items:center; justify-content:center; font-size:1.1rem; box-shadow:0 4px 14px rgba(0,0,0,.25); opacity:0; visibility:hidden; transform: translateY(8px); transition: opacity .25s, transform .25s, visibility .25s, background .2s; }
+.back-to-top.show{ opacity:1; visibility:visible; transform:none; }
+.back-to-top:hover{ background: var(--sepc-red); color: var(--sepc-white); }
+
+@media (max-width: 767px){
+  .sepc-topbar .container{ flex-direction: column; gap:.25rem; text-align:center; }
+  .sepc-hero{ padding: 2.25rem 0; min-height:auto; }
+  .sepc-hero h1{ font-size: clamp(1.6rem, 6vw, 2.2rem); max-width:none; }
+  .sepc-hero p.lead{ font-size: .96rem; max-width:none; }
+  .sepc-hero .d-flex.gap-3{ flex-direction: column; align-items: stretch; }
+  .sepc-hero .d-flex.gap-3 .btn{ width:100%; text-align:center; }
+  .sepc-section{ padding: 2.75rem 0; }
+  .sepc-section-head h2{ font-size:1.5rem; }
+  .sepc-programme-row{ flex-direction: column; align-items: flex-start; gap:.6rem; }
+  .sepc-programme-row > a{ align-self: flex-end; }
+  .sepc-footer .row > div{ text-align:center; margin-bottom:1.25rem; }
+  .back-to-top{ left:16px; bottom:16px; width:40px; height:40px; }
+  .whatsapp-float{ right:16px; bottom:16px; }
+}
+
+/* ============================================================
+   Content-page components (icon badges, generic cards, utilities)
+   ============================================================ */
+.max-ch-60{ max-width: 60ch; }
+
+.icon-badge{
+  width:64px; height:64px; border-radius:50%; background: rgba(250,200,35,.14);
+  color: var(--sepc-red); font-size:1.6rem; display:flex; align-items:center; justify-content:center;
+  margin-bottom:1rem;
+}
+.sepc-hero .icon-badge{ width:84px; height:84px; font-size:2.1rem; margin-bottom:1.25rem; }
+
+.sepc-card{ display:flex; flex-direction:column; }
+.sepc-card .icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:56px; height:56px; border-radius:50%; background: rgba(250,200,35,.14);
+  color: var(--sepc-red); font-size:1.5rem; margin-bottom:.9rem;
+}
+.sepc-card.text-center .icon{ margin-left:auto; margin-right:auto; }
+.sepc-card .body{ flex:1; }
+.sepc-card .body h3{ font-size:1.05rem; margin-top:.2rem; }
+.sepc-card .duration-badge{
+  display:inline-block; font-size:.72rem; font-weight:700; color: var(--sepc-black);
+  background: var(--sepc-gold); padding:.2rem .6rem; border-radius:2px; margin-bottom:.5rem;
+}
+.sepc-card .thumb{ width:100%; height:140px; object-fit:cover; border-radius:4px 4px 0 0; margin:-1.6rem -1.6rem 1rem; width:calc(100% + 3.2rem); }
+.sepc-card .thumb-placeholder{ height:110px; border-radius:4px; background: rgba(0,0,0,.05); display:flex; align-items:center; justify-content:center; color: var(--sepc-gold); font-size:1.8rem; margin-bottom:1rem; }
+
+/* Chaplaincy: small flame accent used on ministry cards */
+.flame{
+  width:36px; height:36px; margin-bottom:.9rem; border-radius:50% 50% 50% 0;
+  background: linear-gradient(135deg, var(--sepc-gold), var(--sepc-red));
+  transform: rotate(45deg);
+}
+
+/* ==========================================================================
+   Hero photo, unified (2026-09 v2): one consistent size across every hero
+   on every site (min-height 420px), text bottom-anchored, and only a light
+   bottom-fade gradient so the photo itself reads clearly -- no dark wash
+   over the top/middle of the image.
+   ========================================================================== */
+.sepc-hero:not(.has-image){
+  min-height: 420px !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 2.5rem 0 2.75rem !important;
+  background: linear-gradient(0deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.24) 45%, rgba(0,0,0,0) 72%), url('../images/hero-people-2.jpg') center top / cover no-repeat !important;
+  color: #fff !important;
+}
+.sepc-hero.has-image{
+  min-height: 420px !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 2.5rem 0 2.75rem !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  color: #fff !important;
+}
+.sepc-hero.compact{ min-height: 420px !important; padding: 2.5rem 0 2.75rem !important; }
+.sepc-hero .hero-bg-image{ display:none; }
+.sepc-hero .container{ position:relative; z-index:2; }
+.sepc-hero .eyebrow{ color: var(--sepc-gold) !important; }
+.sepc-hero h1{ color: #fff !important; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+.sepc-hero p.lead{ color: rgba(255,255,255,.92) !important; text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+.sepc-hero .icon-badge{ background: rgba(255,255,255,.24) !important; color:#fff !important; margin-bottom: .9rem; }
+
+/* ---------- Homepage "why choose" cards, cream-panel style (2026-09) ---------- */
+.sepc-feature-card{
+  border: 1px solid var(--sepc-line);
+  border-radius: 8px;
+  padding: 1.6rem; height:100%;
+  background: rgba(250,200,35,.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  transition: box-shadow .2s, transform .2s;
+}
+.sepc-feature-card:hover{ box-shadow: 0 12px 24px rgba(0,0,0,.1); transform: translateY(-4px); }
+.sepc-feature-card .icon-badge{
+  width:56px; height:56px; border-radius:50%;
+  background: rgba(255,255,255,.7); color: var(--sepc-red);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.4rem; margin-bottom: 1rem;
+}
+.sepc-feature-card h3{ font-size:1.15rem; margin-top:.2rem; }

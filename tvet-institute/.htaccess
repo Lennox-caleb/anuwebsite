@@ -1,0 +1,28 @@
+# Africa Nazarene University -- TVET Institute
+# Basic Apache hardening.
+
+# Protect sensitive folders from direct browser access
+<IfModule mod_alias.c>
+    RedirectMatch 403 ^/config/
+    RedirectMatch 403 ^/database/
+</IfModule>
+
+Options -Indexes
+
+# BEGIN ANU-CLEAN-URLS (managed block - remove with: sudo bash enable-clean-urls.sh --remove)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # 1) /folder/index.php  ->  /folder/   and   /page.php  ->  /page   (permanent redirects; GET/HEAD only so forms still POST normally)
+  RewriteCond %{THE_REQUEST} ^(GET|HEAD)\s+/[^?\s]*\.php(\?[^\s]*)?\s+HTTP/
+  RewriteCond %{REQUEST_URI} ^(.*/)index\.php$
+  RewriteRule ^ %1 [R=301,L]
+  RewriteCond %{THE_REQUEST} ^(GET|HEAD)\s+/[^?\s]*\.php(\?[^\s]*)?\s+HTTP/
+  RewriteCond %{REQUEST_URI} ^(.*)\.php$
+  RewriteRule ^ %1 [R=301,L]
+  # 2) /page  ->  page.php  (internally, only when no real file/folder of that name exists)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.php -f
+  RewriteRule ^(.+?)/?$ $1.php [L]
+</IfModule>
+# END ANU-CLEAN-URLS

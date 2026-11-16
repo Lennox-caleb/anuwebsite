@@ -1,0 +1,102 @@
+/* Orientation page: motion and polish for first-time visitors.
+   Layered on top of style.css / design-system.css; every animation is off for people who ask their device for reduced motion. */
+
+/* thin reading-progress line under the header */
+.orient-scrollbar{ position:fixed; left:0; right:0; top:0; height:3px; z-index:1100; pointer-events:none; }
+.orient-scrollbar span{ display:block; height:100%; width:100%; transform-origin:0 50%; transform:scaleX(0);
+  background:linear-gradient(90deg,var(--anu-gold),var(--anu-red)); }
+
+/* hero */
+.orient-hero .orient-glow{ position:absolute; border-radius:50%; filter:blur(70px); opacity:.45; z-index:0; pointer-events:none; }
+.orient-hero .orient-glow.g1{ width:42vmax; height:42vmax; left:-12vmax; top:-14vmax; background:radial-gradient(circle,#FF0000 0%,rgba(255,0,0,0) 65%); }
+.orient-hero .orient-glow.g2{ width:36vmax; height:36vmax; right:-10vmax; bottom:-16vmax; background:radial-gradient(circle,#FAC823 0%,rgba(250,200,35,0) 65%); opacity:.38; }
+.orient-hero h1{ letter-spacing:-.01em; }
+.orient-cta{ display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center; margin-top:1.6rem; }
+.orient-cta .btn{ min-width:12rem; }
+.orient-cta .btn-ghost{ border:2px solid rgba(255,255,255,.85); color:#fff; background:transparent; font-weight:600; border-radius:8px; padding:.6rem 1.2rem; text-decoration:none; transition:background .25s,color .25s,transform .25s; }
+.orient-cta .btn-ghost:hover{ background:#fff; color:#000; transform:translateY(-2px); }
+.orient-cue{ position:absolute; left:50%; bottom:1.4rem; transform:translateX(-50%); z-index:2; width:26px; height:42px; border:2px solid rgba(255,255,255,.8); border-radius:14px; }
+.orient-cue::after{ content:""; position:absolute; left:50%; top:7px; width:4px; height:8px; margin-left:-2px; border-radius:2px; background:var(--anu-gold); }
+
+/* section navigation */
+.orient-subnav a{ padding:.3rem .7rem; border-radius:99px; transition:background .25s,color .25s,transform .25s; }
+.orient-subnav a:hover{ background:rgba(250,200,35,.25); color:#000; transform:translateY(-1px); }
+
+/* quick facts strip */
+.orient-quickinfo .item i{ transition:transform .3s; }
+.orient-quickinfo .item:hover i{ transform:scale(1.25) rotate(-6deg); }
+
+/* journey cards */
+.journey-card{ transition:transform .3s ease, box-shadow .3s ease; }
+.journey-card:hover{ transform:translateY(-6px); box-shadow:0 14px 28px rgba(0,0,0,.12); }
+.journey-card .journey-icon{ transition:transform .35s ease; }
+.journey-card:hover .journey-icon{ transform:scale(1.2) rotate(-8deg); }
+
+/* week timeline: the line fills as the visitor scrolls down it */
+.orient-steps::before{ background:rgba(0,0,0,.12); }
+.orient-steps::after{ content:""; position:absolute; left:1.05rem; top:.5rem; width:2px; height:calc((100% - 1rem) * var(--orient-p, 0));
+  background:linear-gradient(180deg,var(--anu-red),var(--anu-gold)); border-radius:2px; transition:height .15s linear; }
+.orient-step > div{ background:#fff; border:1px solid var(--anu-line); border-radius:12px; padding:1rem 1.2rem; width:100%;
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+.orient-step:hover > div{ transform:translateX(6px); box-shadow:0 10px 24px rgba(0,0,0,.08); border-color:var(--anu-gold); }
+.orient-step-num{ transition:background .3s,color .3s,transform .3s; }
+.orient-step.is-visible .orient-step-num{ animation:orientPop .6s cubic-bezier(.2,1.4,.4,1) both; }
+.orient-step:hover .orient-step-num{ background:var(--anu-gold); color:#000; }
+
+/* what to bring */
+.orient-check{ transition:transform .3s ease, box-shadow .3s ease, background .3s, border-color .3s; }
+.orient-check:hover{ transform:translateY(-5px); box-shadow:0 12px 26px rgba(0,0,0,.10); }
+.orient-check .icon-badge{ transition:transform .35s ease; }
+.orient-check:hover .icon-badge{ transform:scale(1.12) rotate(-8deg); }
+.orient-check.is-done .icon-badge{ animation:orientTick .5s ease; }
+.orient-progress-bar span{ background:linear-gradient(90deg,var(--anu-gold),var(--anu-red)); transition:width .5s cubic-bezier(.2,.8,.2,1); }
+.orient-allset{ position:relative; overflow:hidden; display:flex; align-items:center; gap:.9rem; margin:0 0 1.25rem; padding:1rem 1.25rem;
+  background:var(--anu-gold); color:#000; border-radius:12px; font-weight:600; }
+.orient-allset[hidden]{ display:none; }
+.orient-allset i{ font-size:1.5rem; }
+.orient-allset .dot{ position:absolute; top:50%; left:2.2rem; width:8px; height:8px; border-radius:50%; background:var(--anu-red); opacity:0; }
+.orient-allset.burst .dot{ animation:orientBurst .9s ease-out both; }
+
+/* meeting card */
+.orient-meeting{ display:flex; flex-wrap:wrap; align-items:center; gap:1.25rem 1.75rem; background:#fff; border:1px solid var(--anu-line);
+  border-left:5px solid var(--anu-gold); border-radius:14px; padding:1.6rem 1.75rem; box-shadow:0 10px 30px rgba(0,0,0,.06); }
+.orient-meeting-icon{ position:relative; flex:0 0 auto; width:64px; height:64px; border-radius:50%; background:var(--anu-gold); color:#000;
+  display:flex; align-items:center; justify-content:center; font-size:1.7rem; }
+.orient-meeting-icon::after{ content:""; position:absolute; inset:-6px; border-radius:50%; border:2px solid var(--anu-gold); opacity:.7; }
+.orient-meeting-body{ flex:1 1 260px; }
+.orient-meeting-body p{ margin:0; }
+
+/* documents + FAQ */
+.book-card{ transition:transform .3s ease, box-shadow .3s ease; }
+.book-card:hover{ transform:translateY(-6px) rotate(-1deg); box-shadow:0 14px 26px rgba(0,0,0,.18); }
+.accordion-button{ transition:background .25s,color .25s; }
+.accordion-item{ border-radius:10px !important; overflow:hidden; margin-bottom:.6rem; border:1px solid var(--anu-line) !important; }
+
+@keyframes orientRise{ from{ opacity:0; transform:translateY(26px); } to{ opacity:1; transform:none; } }
+@keyframes orientFloat{ from{ transform:translate3d(0,0,0) scale(1); } to{ transform:translate3d(4vmax,3vmax,0) scale(1.12); } }
+@keyframes orientCue{ 0%{ transform:translateY(0); opacity:1; } 70%{ transform:translateY(14px); opacity:0; } 100%{ opacity:0; } }
+@keyframes orientPop{ 0%{ transform:scale(.3); } 100%{ transform:scale(1); } }
+@keyframes orientTick{ 0%{ transform:scale(1); } 40%{ transform:scale(1.35) rotate(-10deg); } 100%{ transform:scale(1); } }
+@keyframes orientBurst{ 0%{ opacity:1; transform:translate(0,0) scale(1); } 100%{ opacity:0; transform:translate(var(--dx),var(--dy)) scale(.4); } }
+@keyframes orientRing{ 0%{ transform:scale(1); opacity:.7; } 100%{ transform:scale(1.5); opacity:0; } }
+
+@media (prefers-reduced-motion: no-preference){
+  .orient-hero .hero-eyebrow, .orient-hero h1, .orient-hero p, .orient-cta{ animation:orientRise .9s cubic-bezier(.2,.8,.2,1) both; }
+  .orient-hero h1{ animation-delay:.15s; } .orient-hero p{ animation-delay:.3s; } .orient-cta{ animation-delay:.45s; }
+  .orient-hero .orient-glow.g1{ animation:orientFloat 14s ease-in-out infinite alternate; }
+  .orient-hero .orient-glow.g2{ animation:orientFloat 17s ease-in-out infinite alternate-reverse; }
+  .orient-cue::after{ animation:orientCue 1.8s ease-in-out infinite; }
+  .orient-meeting-icon::after{ animation:orientRing 2.2s ease-out infinite; }
+}
+@media (prefers-reduced-motion: reduce){
+  .orient-step.is-visible .orient-step-num, .orient-check.is-done .icon-badge, .orient-allset.burst .dot{ animation:none; }
+  .orient-check:hover, .orient-step:hover > div, .journey-card:hover, .book-card:hover{ transform:none; }
+  .orient-scrollbar{ display:none; }
+}
+@media (max-width:767px){
+  .orient-cue{ display:none; }
+  .orient-cta .btn, .orient-cta .btn-ghost{ width:100%; }
+  .orient-meeting{ padding:1.25rem; }
+}
+@media print{ .orient-scrollbar, .orient-cue, .orient-glow, .orient-cta{ display:none !important; } }
+.orient-cta > a{ display:inline-flex; align-items:center; justify-content:center; font-size:1rem; line-height:1.2; padding:.75rem 1.4rem; border-radius:8px; }

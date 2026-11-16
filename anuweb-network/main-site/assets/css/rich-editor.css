@@ -1,0 +1,15 @@
+/* Admin rich-text editor (Quill "snow" theme) look for ANU */
+.rt-editor-wrap{background:#fff;border-radius:6px}
+.rt-editor-wrap .ql-toolbar.ql-snow{border:1px solid #ced4da;border-radius:6px 6px 0 0;background:#f8f8f6;position:sticky;top:76px;z-index:5}
+.rt-editor-wrap .ql-container.ql-snow{border:1px solid #ced4da;border-top:0;border-radius:0 0 6px 6px;font-family:Arial,Helvetica,sans-serif;font-size:16px}
+.rt-editor-wrap .ql-editor{min-height:340px;line-height:1.6;color:#222}
+.rt-editor-wrap .ql-editor img{max-width:100%;height:auto}
+.rt-editor-wrap .ql-editor a{color:#000;text-decoration:underline}
+.rt-editor-wrap .ql-editor.ql-blank::before{color:#777;font-style:normal}
+.rt-editor-wrap .ql-snow .ql-picker.ql-header .ql-picker-label::before,.rt-editor-wrap .ql-snow .ql-picker.ql-header .ql-picker-item::before{content:'Normal text'}
+.rt-editor-wrap .ql-snow .ql-picker.ql-header .ql-picker-label[data-value="2"]::before,.rt-editor-wrap .ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before{content:'Heading'}
+.rt-editor-wrap .ql-snow .ql-picker.ql-header .ql-picker-label[data-value="3"]::before,.rt-editor-wrap .ql-snow .ql-picker.ql-header .ql-picker-item[data-value="3"]::before{content:'Sub-heading'}
+.rt-editor-wrap .ql-snow .ql-picker.ql-header{width:118px}
+/* Save / Publish buttons stay in view at the bottom of the screen */
+form.card-anu.rt-form{overflow:visible}
+.rt-actionbar{position:sticky;bottom:0;z-index:15;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:1.25rem -1.25rem -1.25rem;padding:.8rem 1.25rem;background:#fff;border-top:1px solid #e2dfd2;border-radius:0 0 8px 8px;box-shadow:0 -4px 12px rgba(0,0,0,.06)}

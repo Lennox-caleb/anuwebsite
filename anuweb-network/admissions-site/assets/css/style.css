@@ -1,0 +1,192 @@
+/* ============================================================
+   Admissions -- custom design
+   Same four brand colors, boldest composition of the network:
+   black hero, oversized red numbered steps, gold highlight bar,
+   a persistent sticky Apply bar. This site exists to convert a
+   visitor into an applicant, so it reads more "landing page" than
+   "institutional page" -- vs. the calmer editorial Research site
+   or the chambers/growth/circuit/workshop school & unit sites.
+   ============================================================ */
+:root{
+  --adm-red:   #FF0000;
+  --adm-gold:  #FAC823;
+  --adm-black: #000000;
+  --adm-white: #FFFFFF;
+
+  --font-display: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+body{
+  font-family: var(--font-body);
+  background: var(--adm-white);
+  color: var(--adm-black);
+  line-height: 1.65;
+  padding-bottom: 64px; /* room for the sticky apply bar */
+}
+
+h1,h2,h3,h4{ font-family: var(--font-display); font-weight:700; color: var(--adm-black); }
+a{ color: var(--adm-red); }
+a:hover{ color: var(--adm-black); }
+.container-narrow{ max-width: 1000px; margin-inline:auto; }
+
+/* ---------- Top bar ---------- */
+.adm-topbar{ background: var(--adm-red); color: var(--adm-white); font-size:.82rem; padding:6px 0; }
+.adm-topbar a{ color: var(--adm-white); text-decoration:none; }
+.adm-topbar a:hover{ color: var(--adm-gold); }
+
+/* ---------- Nav ---------- */
+.adm-nav{ background: var(--adm-gold); border-bottom: 4px solid var(--adm-red); padding: .6rem 0; }
+.adm-nav .brand-mark{ display:flex; align-items:center; gap:.7rem; text-decoration:none; }
+.adm-nav .brand-mark img{ height:60px; }
+.adm-nav .brand-name{ font-family: var(--font-display); color: var(--adm-black); font-size:1.05rem; line-height:1.1; }
+.adm-nav .brand-name small{ display:block; color: var(--adm-red); font-family: var(--font-body); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; font-weight:700; }
+.adm-nav .nav-link{ color: var(--adm-black); font-weight:600; margin:0 .5rem; }
+.adm-nav .nav-link:hover, .adm-nav .nav-link.active{ color: var(--adm-red); }
+.adm-nav .navbar-toggler{ border-color: rgba(0,0,0,.3); }
+.btn-adm-cta{ background: var(--adm-red); color: var(--adm-white); font-weight:800; border-radius:2px; padding:.6rem 1.6rem; border:1px solid var(--adm-red); text-transform:uppercase; font-size:.85rem; letter-spacing:.03em; }
+.btn-adm-cta:hover{ background: var(--adm-black); border-color: var(--adm-black); }
+.btn-adm-outline{ border:2px solid var(--adm-black); color: var(--adm-black); border-radius:2px; font-weight:700; }
+.btn-adm-outline:hover{ background: var(--adm-white); color: var(--adm-black); }
+.btn-adm-outline.on-dark{ border-color: var(--adm-white); color: var(--adm-white); }
+.btn-adm-outline.on-dark:hover{ background: var(--adm-white); color: var(--adm-black); }
+
+/* ---------- Sticky apply bar ---------- */
+.sticky-apply-bar{
+  position: fixed; left:0; right:0; bottom:0; z-index: 1030;
+  background: var(--adm-white); color: var(--adm-black);
+  padding: .9rem 0; text-align:center;
+}
+.sticky-apply-bar strong{ color: var(--adm-gold); }
+
+/* ---------- Hero ---------- */
+.adm-hero{ min-height:460px; display:flex; align-items:center; position:relative; padding: 2.5rem 0; background: var(--adm-white); color: var(--adm-black); overflow:hidden; }
+.adm-hero.has-image{ color: var(--adm-white); }
+.adm-hero.has-image::after{ content:""; position:absolute; inset:0; background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.15) 45%, transparent 70%); }
+.adm-hero .hero-bg-image{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.95; object-position:center top; }
+
+.adm-hero.has-image .eyebrow{ color: var(--adm-gold); }
+.adm-hero.has-image h1{ color: var(--adm-white); text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+.adm-hero.has-image p.lead{ color: rgba(255,255,255,.9); text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+.adm-hero.compact{ padding: 3.5rem 0; }
+.adm-hero::after{ content:""; position:absolute; right:-60px; bottom:-60px; width:280px; height:280px; border-radius:50%; background: var(--adm-gold); opacity:.12; }
+.adm-hero .eyebrow{ color: var(--adm-red); font-weight:800; letter-spacing:.1em; text-transform:uppercase; font-size:.85rem; }
+.adm-hero h1{ color: var(--adm-black); font-size: clamp(2.3rem, 4.6vw, 3.6rem); max-width: 16ch; line-height:1.08; }
+.adm-hero p.lead{ color: rgba(0,0,0,.8); max-width:50ch; font-size:1.1rem; }
+
+/* ---------- Sections ---------- */
+.adm-section{ padding: 4.5rem 0; }
+.adm-section.dark{ background: var(--adm-white); color: var(--adm-black); }
+.adm-section.dark h2, .adm-section.dark h3{ color: var(--adm-black); }
+.adm-section-head{ margin-bottom: 2rem; }
+.adm-section-head h2{ font-size:2rem; margin:0; }
+
+/* ---------- Numbered step cards ---------- */
+.adm-step{ text-align:center; padding: 1.5rem; }
+.adm-step .num{
+  width:64px; height:64px; border-radius:50%; background: var(--adm-red); color: var(--adm-white);
+  display:flex; align-items:center; justify-content:center; font-family: var(--font-display); font-size:1.6rem;
+  margin: 0 auto 1rem;
+}
+.adm-step h3{ font-size:1.1rem; }
+
+/* ---------- Requirements list ---------- */
+.adm-req-row{ display:flex; align-items:flex-start; gap:1rem; padding: 1.1rem 0; border-top: 1px solid rgba(0,0,0,.12); }
+.adm-req-row:last-child{ border-bottom: 1px solid rgba(0,0,0,.12); }
+.adm-section.dark .adm-req-row{ border-color: rgba(0,0,0,.12); }
+.adm-req-row i{ color: var(--adm-gold); font-size:1.3rem; flex-shrink:0; }
+.adm-req-row.no-top{ border-top:none; }
+
+/* ---------- Footer ---------- */
+.adm-footer{ background: var(--adm-black); color: var(--adm-white); padding: 3rem 0 0; }
+.adm-footer a{ color: var(--adm-white); }
+.adm-footer a:hover{ color: var(--adm-gold); }
+.adm-footer .back-to-main{ background: var(--adm-gold); color: var(--adm-black); padding: .9rem 0; text-align:center; font-size:.85rem; margin-top: 2rem; }
+.adm-footer .back-to-main a{ color: var(--adm-black); font-weight:700; }
+.footer-logo-chip{ display:inline-block; background: var(--adm-white); padding:4px 8px; border-radius:3px; }
+
+.form-control{ border-radius:2px; }
+.form-control:focus{ border-color: var(--adm-red); box-shadow: 0 0 0 .2rem rgba(255,0,0,.15); }
+
+/* ---------- Leadership message band (photo + quote, not circular) ---------- */
+.leader-band{ padding: 1rem 0; }
+.leader-band .photo-placeholder{ width:100%; aspect-ratio: 4/3; border-radius: 8px; background: rgba(0,0,0,.04); border: 2px solid var(--adm-gold); display:flex; align-items:center; justify-content:center; color: var(--adm-gold); font-size:3rem; }
+.leader-band .quote-mark{ font-family: var(--font-display); font-size:3rem; color: var(--adm-gold); line-height:1; margin-bottom:.5rem; }
+.leader-band .message{ font-size:1.05rem; line-height:1.75; }
+.leader-band .signature{ margin-top:1.2rem; padding-top:1rem; border-top:1px solid rgba(0,0,0,.12); }
+.leader-band .signature strong{ display:block; font-family: var(--font-display); font-size:1.05rem; }
+.leader-band .signature span{ font-size:.85rem; opacity:.7; }
+
+/* ---------- WhatsApp floating button ---------- */
+.whatsapp-float{
+  position:fixed; bottom:24px; right:24px; z-index:1050;
+  width:56px; height:56px; border-radius:50%;
+  background:#25D366; color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.6rem; box-shadow:0 4px 18px rgba(37,211,102,.45);
+  transition:transform .2s, box-shadow .2s; text-decoration:none;
+}
+.whatsapp-float:hover{ transform:scale(1.1); box-shadow:0 6px 28px rgba(37,211,102,.6); color:#fff; }
+.whatsapp-float .pulse-dot{
+  position:absolute; top:-3px; right:-3px; width:14px; height:14px;
+  border-radius:50%; background: var(--adm-red); border:2px solid #fff;
+  animation: waPulse 2s infinite;
+}
+@keyframes waPulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.4); opacity:.6; } }
+
+/* Phase 24 -- at-a-glance facts, Good to Know list, contact cards */
+.adm-section.bg-cream{ background: #FFF8E7; }
+.adm-fact-row{ margin: 0; }
+.adm-fact{ display:flex; flex-direction:column; align-items:center; gap:.35rem; }
+.adm-fact i{ font-size:1.6rem; color: var(--adm-red); }
+.adm-fact strong{ font-family: var(--font-display); font-size:1.3rem; color: var(--adm-black); }
+.adm-fact span{ font-size:.8rem; color: rgba(0,0,0,.6); text-align:center; }
+
+.adm-good-to-know{ list-style:none; padding:0; margin:1.5rem 0 0; }
+.adm-good-to-know li{ display:flex; align-items:flex-start; gap:.7rem; padding:.6rem 0; border-top:1px solid rgba(0,0,0,.08); }
+.adm-good-to-know li:first-child{ border-top:none; }
+.adm-good-to-know i{ color: var(--adm-red); margin-top:.2rem; flex-shrink:0; }
+
+.adm-contact-card{ border:1px solid rgba(0,0,0,.1); border-top:3px solid var(--adm-red); padding:1.6rem; height:100%; background:#fff; }
+.adm-contact-card i{ font-size:1.5rem; color: var(--adm-red); margin-bottom:.5rem; display:block; }
+.tile-go{ display:inline-block; font-size:.85rem; font-weight:700; color: var(--adm-red); text-decoration:none; }
+.tile-go:hover{ color: var(--adm-black); }
+
+/* Meet the Team */
+.team-card{ text-align:center; }
+.team-card img{ width:120px; height:120px; object-fit:cover; border-radius:50%; border:3px solid var(--adm-gold); margin-bottom:1rem; }
+.team-placeholder{ width:120px; height:120px; border-radius:50%; background:rgba(0,0,0,.06); display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; font-size:2rem; color:rgba(0,0,0,.3); }
+.team-card h3{ font-size:1.05rem; margin-bottom:.15rem; }
+.team-card .role{ color: var(--adm-red); font-size:.85rem; font-weight:600; }
+
+/* ==========================================================================
+   Hero photo, unified (2026-09 v2): one consistent size across every hero
+   on every site (min-height 420px), text bottom-anchored, and only a light
+   bottom-fade gradient so the photo itself reads clearly -- no dark wash
+   over the top/middle of the image.
+   ========================================================================== */
+.adm-hero:not(.has-image){
+  min-height: 420px !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 2.5rem 0 2.75rem !important;
+  background: linear-gradient(0deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.24) 45%, rgba(0,0,0,0) 72%), url('../images/hero-people-1.jpg') center top / cover no-repeat !important;
+  color: #fff !important;
+}
+.adm-hero.has-image{
+  min-height: 420px !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  padding: 2.5rem 0 2.75rem !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  color: #fff !important;
+}
+.adm-hero.compact{ min-height: 420px !important; padding: 2.5rem 0 2.75rem !important; }
+.adm-hero .hero-bg-image{ display:none; }
+.adm-hero .container{ position:relative; z-index:2; }
+.adm-hero .eyebrow{ color: var(--adm-gold) !important; }
+.adm-hero h1{ color: #fff !important; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+.adm-hero p.lead{ color: rgba(255,255,255,.92) !important; text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+.adm-hero .icon-badge{ background: rgba(255,255,255,.24) !important; color:#fff !important; margin-bottom: .9rem; }

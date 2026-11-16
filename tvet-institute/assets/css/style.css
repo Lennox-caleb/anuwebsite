@@ -1,0 +1,216 @@
+/* ============================================================
+   ANU TVET Institute -- public site styles
+   Brand palette retained exactly: red / gold / black / white
+   Industrial workshop motif: gold/black hazard stripes, red CTAs
+   ============================================================ */
+:root{
+  --tvet-red:   #FF0000;
+  --tvet-red-dark: #C40000;
+  --tvet-gold:  #FAC823;
+  --tvet-black: #000000;
+  --tvet-white: #FFFFFF;
+  --tvet-ink-soft: rgba(0,0,0,.62);
+  --tvet-surface: #F7F7F5;
+
+  --font-display: "Poppins", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+*{ box-sizing:border-box; }
+body{
+  font-family: var(--font-body);
+  background: var(--tvet-white);
+  color: var(--tvet-black);
+  line-height: 1.65;
+}
+
+h1,h2,h3,h4{ font-family: var(--font-display); font-weight:700; color: var(--tvet-black); }
+a{ color: var(--tvet-red); text-decoration:none; }
+a:hover{ color: var(--tvet-black); }
+.container-narrow{ max-width: 900px; margin-inline:auto; }
+
+/* ---------- Top utility bar (retained) ---------- */
+.tvet-topbar{ background: var(--tvet-black); color: var(--tvet-white); font-size:.78rem; padding:7px 0; }
+.tvet-topbar a{ color: rgba(255,255,255,.85); text-decoration:none; margin: 0 2px; }
+.tvet-topbar a:hover{ color: var(--tvet-gold); }
+.tvet-topbar .topbar-right span{ color: rgba(255,255,255,.3); margin: 0 4px; }
+
+/* ---------- Nav (retained + extended) ---------- */
+.tvet-nav{ background: var(--tvet-white); border-bottom: 3px solid var(--tvet-red); padding: .55rem 0; z-index:1030; transition: box-shadow .2s; }
+.tvet-nav .brand-mark{ display:flex; align-items:center; gap:.7rem; text-decoration:none; }
+.tvet-nav .brand-mark img{ height:42px; }
+.tvet-nav .brand-name{ font-family: var(--font-display); color: var(--tvet-black); font-size:1rem; line-height:1.15; font-weight:700; }
+.tvet-nav .brand-name small{ display:block; color: var(--tvet-red); font-family: var(--font-body); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; }
+.tvet-nav .nav-link{ color: var(--tvet-black); font-weight:600; margin:0 .45rem; font-size:.94rem; }
+.tvet-nav .nav-link:hover, .tvet-nav .nav-link.active{ color: var(--tvet-red); }
+.tvet-nav .navbar-toggler{ border-color: rgba(0,0,0,.3); }
+.btn-tvet-cta{ background: var(--tvet-red); color: var(--tvet-white); font-weight:700; border-radius:3px; padding:.6rem 1.5rem; border:1px solid var(--tvet-red); }
+.btn-tvet-cta:hover{ background: var(--tvet-black); border-color: var(--tvet-black); color:var(--tvet-white); }
+.btn-tvet-outline{ border:1.5px solid var(--tvet-black); color: var(--tvet-black); border-radius:3px; font-weight:700; padding:.6rem 1.5rem; }
+.btn-tvet-outline:hover{ background: var(--tvet-black); color: var(--tvet-white); }
+.btn-tvet-outline.on-dark{ border-color: var(--tvet-white); color: var(--tvet-white); }
+.btn-tvet-outline.on-dark:hover{ background: var(--tvet-white); color: var(--tvet-black); }
+.btn-gold{ background: var(--tvet-gold); color: var(--tvet-black); font-weight:700; border-radius:3px; border:1px solid var(--tvet-gold); padding:.6rem 1.5rem; }
+.btn-gold:hover{ background:#e0b100; color: var(--tvet-black); }
+
+/* ---------- Hero / slider ---------- */
+.tvet-hero{ min-height:520px; display:flex; align-items:center; position:relative; padding: 3rem 0; background: linear-gradient(135deg, #fff 0%, var(--tvet-surface) 100%); color: var(--tvet-black); overflow:hidden; }
+.tvet-hero::before{ content:""; position:absolute; top:0; right:0; width:38%; height:100%; display:none; opacity:.08; }
+.tvet-hero.has-image{ color: var(--tvet-white); }
+.tvet-hero.has-image::after{ content:""; position:absolute; inset:0; background: linear-gradient(90deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.15) 100%); }
+.tvet-hero .hero-bg-image{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.95; object-position:center top; }
+.tvet-hero .eyebrow{ color: var(--tvet-red); font-weight:800; letter-spacing:.1em; text-transform:uppercase; font-size:.82rem; }
+.tvet-hero.has-image .eyebrow{ color: var(--tvet-gold); }
+.tvet-hero h1{ color: var(--tvet-black); font-size: clamp(2.1rem, 4.4vw, 3.3rem); max-width: 16ch; line-height:1.12; position:relative; z-index:1; }
+.tvet-hero.has-image h1{ color: var(--tvet-white); text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+.tvet-hero p.lead{ color: rgba(0,0,0,.72); max-width:46ch; font-size:1.08rem; position:relative; z-index:1; }
+.tvet-hero.has-image p.lead{ color: rgba(255,255,255,.92); text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+.tvet-hero.compact{ min-height:280px; padding: 3rem 0; }
+.hero-stats{ position:relative; z-index:1; }
+.hero-stats .stat{ background:var(--tvet-white); border:1px solid rgba(0,0,0,.1); border-top:4px solid var(--tvet-gold); padding:1rem 1.2rem; text-align:center; border-radius:4px; }
+.hero-stats .stat b{ display:block; font-size:1.7rem; font-family:var(--font-display); color:var(--tvet-red); }
+.hero-stats .stat span{ font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; color:var(--tvet-ink-soft); }
+
+/* ---------- Sections ---------- */
+.tvet-section{ padding: 4.5rem 0; }
+.tvet-section.alt{ background: var(--tvet-surface); }
+.tvet-section.dark{ background: var(--tvet-black); color: var(--tvet-white); }
+.tvet-section.dark h2, .tvet-section.dark h3{ color: var(--tvet-white); }
+.tvet-section.dark p{ color: rgba(255,255,255,.75); }
+.tvet-section-head{ border-bottom: 4px solid var(--tvet-gold); padding-bottom: .9rem; margin-bottom: 2.2rem; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem; }
+.tvet-section-head h2{ margin:0; font-size:1.9rem; }
+.tvet-section-head .eyebrow{ color: var(--tvet-red); font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:.78rem; display:block; margin-bottom:.3rem; }
+.tvet-section.dark .tvet-section-head{ border-color: var(--tvet-gold); }
+
+/* ---------- Cards ---------- */
+.tvet-card{ border: 1px solid rgba(0,0,0,.1); padding: 1.7rem; height:100%; background: var(--tvet-white); position:relative; padding-top: 2rem; border-radius:6px; transition: transform .15s, box-shadow .15s; }
+.tvet-card:hover{ transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.08); }
+.tvet-card::before{ content:""; position:absolute; top:0; left:0; right:0; height:6px; border-radius:6px 6px 0 0; display:none; }
+.tvet-card .index{ font-family: var(--font-display); color: var(--tvet-red); font-size:1.6rem; font-weight:800; }
+.tvet-card h3{ font-size:1.15rem; margin-top:.4rem; }
+.tvet-card i.card-icon{ font-size:1.8rem; color:var(--tvet-red); }
+
+/* Department chip cards */
+.dept-card{ display:block; background:var(--tvet-white); border:1px solid rgba(0,0,0,.1); border-radius:8px; padding:1.5rem; text-align:center; height:100%; transition:.15s; }
+.dept-card:hover{ border-color:var(--tvet-red); box-shadow:0 10px 24px rgba(0,0,0,.08); transform:translateY(-3px); }
+.dept-card i{ font-size:2.1rem; color:var(--tvet-red); }
+.dept-card h3{ font-size:1.02rem; margin:.7rem 0 .3rem; }
+.dept-card p{ font-size:.85rem; color:var(--tvet-ink-soft); margin:0; }
+
+/* ---------- Programme listing ---------- */
+.level-badge{ font-size:.68rem; font-weight:800; padding:.28rem .65rem; border-radius:3px; text-transform:uppercase; letter-spacing:.03em; display:inline-block; }
+.lvl-artisan{ background:#EDEDED; color:#333; }
+.lvl-craft{ background: var(--tvet-gold); color: var(--tvet-black); }
+.lvl-diploma{ background: var(--tvet-red); color: var(--tvet-white); }
+.lvl-short{ background: var(--tvet-black); color: var(--tvet-white); }
+
+.programme-card{ background:var(--tvet-white); border:1px solid rgba(0,0,0,.1); border-radius:8px; overflow:hidden; height:100%; transition:.15s; display:flex; flex-direction:column; }
+.programme-card:hover{ box-shadow:0 12px 28px rgba(0,0,0,.1); transform:translateY(-3px); }
+.programme-card .thumb-area{ height:170px; background:linear-gradient(135deg, var(--tvet-black), #222); position:relative; overflow:hidden; }
+.programme-card .thumb-area img{ width:100%; height:100%; object-fit:cover; }
+.programme-card .thumb-area .level-badge{ position:absolute; top:.8rem; left:.8rem; }
+.programme-card .body{ padding:1.2rem 1.3rem 1.4rem; flex:1; display:flex; flex-direction:column; }
+.programme-card h3{ font-size:1.05rem; margin-bottom:.4rem; }
+.programme-card .meta{ font-size:.8rem; color:var(--tvet-ink-soft); margin-bottom:.7rem; }
+.programme-card .meta i{ color:var(--tvet-red); margin-right:.2rem; }
+.programme-card .stretched-link-wrap{ margin-top:auto; }
+
+.tvet-programme-row{ display:flex; justify-content:space-between; align-items:center; padding: 1.1rem 0; border-top: 1px solid rgba(0,0,0,.12); flex-wrap:wrap; gap:.6rem; }
+.tvet-programme-row:last-child{ border-bottom: 1px solid rgba(0,0,0,.12); }
+.tvet-programme-row .thumb{ width:52px; height:52px; border-radius:4px; object-fit:cover; margin-right:1rem; flex-shrink:0; }
+.tvet-programme-row .thumb-placeholder{ width:52px; height:52px; border-radius:4px; background: rgba(0,0,0,.06); margin-right:1rem; flex-shrink:0; }
+
+/* Filter bar */
+.filter-bar{ background:var(--tvet-surface); border:1px solid rgba(0,0,0,.08); border-radius:8px; padding:1.1rem; margin-bottom:2rem; }
+
+/* ---------- Faculty / staff ---------- */
+.faculty-card{ text-align:center; }
+.faculty-card img{ width:130px; height:130px; object-fit:cover; border-radius:6px; border:3px solid var(--tvet-gold); margin-bottom:1rem; }
+.faculty-placeholder{ width:130px; height:130px; background:rgba(0,0,0,.06); border:3px solid var(--tvet-gold); margin:0 auto 1rem; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:2.4rem; color:rgba(0,0,0,.2); }
+.faculty-card h3{ font-size:1.05rem; margin-bottom:.15rem; }
+.faculty-card .role{ color: var(--tvet-red); font-size:.85rem; font-weight:700; }
+
+/* ---------- Leadership message band ---------- */
+.leader-band{ padding: 1rem 0; }
+.leader-band .photo-frame{ width:100%; aspect-ratio: 4/3; object-fit:cover; border-radius: 8px; display:block; }
+.leader-band .photo-placeholder{ width:100%; aspect-ratio: 4/3; border-radius: 8px; background: rgba(0,0,0,.05); border: 2px solid var(--tvet-gold); display:flex; align-items:center; justify-content:center; color: var(--tvet-gold); font-size:3rem; }
+.leader-band .quote-mark{ font-family: var(--font-display); font-size:3rem; color: var(--tvet-gold); line-height:1; margin-bottom:.5rem; }
+.leader-band .message{ font-size:1.05rem; line-height:1.75; }
+.leader-band .signature{ margin-top:1.2rem; padding-top:1rem; border-top:1px solid rgba(0,0,0,.12); }
+.leader-band .signature strong{ display:block; font-family: var(--font-display); font-size:1.05rem; }
+.leader-band .signature span{ font-size:.85rem; opacity:.7; }
+
+/* ---------- Testimonials ---------- */
+.testimonial-card{ background:var(--tvet-white); border:1px solid rgba(0,0,0,.1); border-radius:8px; padding:1.8rem; height:100%; position:relative; }
+.testimonial-card .quote-mark{ font-family:var(--font-display); font-size:2.4rem; color:var(--tvet-gold); line-height:1; }
+.testimonial-card p{ font-style:italic; color:var(--tvet-ink-soft); }
+.testimonial-card .who{ font-weight:700; font-size:.92rem; }
+.testimonial-card .prog{ font-size:.8rem; color:var(--tvet-red); }
+
+/* ---------- Timeline (admissions steps) ---------- */
+.step-timeline{ counter-reset:step; }
+.step-timeline .step{ position:relative; padding-left:3.2rem; margin-bottom:1.8rem; }
+.step-timeline .step::before{ counter-increment:step; content:counter(step); position:absolute; left:0; top:0; width:2.4rem; height:2.4rem; background:var(--tvet-red); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-family:var(--font-display); }
+.step-timeline .step h4{ font-size:1.05rem; margin-bottom:.25rem; }
+
+/* ---------- Partners strip ---------- */
+.partners-strip{ background:var(--tvet-surface); padding:2rem 0; border-top:1px solid rgba(0,0,0,.08); border-bottom:1px solid rgba(0,0,0,.08); }
+.partners-strip .chip{ background:#fff; border:1px solid rgba(0,0,0,.1); border-radius:6px; padding:.7rem 1.1rem; font-size:.82rem; font-weight:700; color:var(--tvet-black); text-align:center; height:100%; display:flex; align-items:center; justify-content:center; }
+
+/* ---------- Gallery ---------- */
+.gallery-item{ position:relative; border-radius:6px; overflow:hidden; aspect-ratio:4/3; }
+.gallery-item img{ width:100%; height:100%; object-fit:cover; transition:.25s; }
+.gallery-item:hover img{ transform:scale(1.08); }
+
+/* ---------- News ---------- */
+.news-card{ border:1px solid rgba(0,0,0,.1); border-radius:8px; overflow:hidden; height:100%; background:#fff; transition:.15s; }
+.news-card:hover{ box-shadow:0 12px 28px rgba(0,0,0,.1); transform:translateY(-3px); }
+.news-card .thumb{ height:180px; background:linear-gradient(135deg,#111,#333); }
+.news-card .thumb img{ width:100%; height:100%; object-fit:cover; }
+.news-card .body{ padding:1.2rem 1.3rem; }
+.news-card .cat{ font-size:.7rem; font-weight:800; text-transform:uppercase; color:var(--tvet-red); letter-spacing:.04em; }
+.news-card h3{ font-size:1.02rem; margin:.4rem 0; }
+.news-card .date{ font-size:.78rem; color:var(--tvet-ink-soft); }
+
+/* ---------- FAQ accordion tweak ---------- */
+.accordion-button:not(.collapsed){ background: var(--tvet-gold); color: var(--tvet-black); }
+.accordion-button:focus{ box-shadow: 0 0 0 .2rem rgba(250,200,35,.35); }
+
+/* ---------- Forms ---------- */
+.form-control, .form-select{ border-radius:4px; border-color: rgba(0,0,0,.18); }
+.form-control:focus, .form-select:focus{ border-color: var(--tvet-gold); box-shadow: 0 0 0 .2rem rgba(250,200,35,.25); }
+.form-label{ font-weight:600; font-size:.88rem; }
+.form-section-title{ font-family:var(--font-display); font-weight:700; font-size:1.05rem; color:var(--tvet-red); border-bottom:2px solid var(--tvet-gold); padding-bottom:.4rem; margin: 1.6rem 0 1.1rem; }
+.form-section-title:first-child{ margin-top:0; }
+
+/* ---------- Footer (retained) ---------- */
+.tvet-footer{ background: var(--tvet-black); color: rgba(255,255,255,.75); padding: 3rem 0 0; }
+.tvet-footer a{ color: rgba(255,255,255,.7); }
+.tvet-footer a:hover{ color: var(--tvet-gold); }
+.tvet-footer .back-to-main{ background: var(--tvet-gold); color: var(--tvet-black); padding: .9rem 0; text-align:center; font-size:.85rem; margin-top: 2rem; }
+.tvet-footer .back-to-main a{ color: var(--tvet-black); font-weight:700; }
+.footer-logo-chip{ display:inline-block; background: var(--tvet-white); padding:4px 8px; border-radius:3px; }
+.footer-social a{ display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border:1px solid rgba(255,255,255,.25); border-radius:50%; margin-right:.4rem; margin-top:.8rem; }
+.footer-social a:hover{ background: var(--tvet-gold); border-color: var(--tvet-gold); color:var(--tvet-black); }
+
+/* ---------- WhatsApp floating button (retained) ---------- */
+.whatsapp-float{
+  position:fixed; bottom:24px; right:24px; z-index:1050;
+  width:56px; height:56px; border-radius:50%;
+  background:#25D366; color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.6rem; box-shadow:0 4px 18px rgba(37,211,102,.45);
+  transition:transform .2s, box-shadow .2s; text-decoration:none;
+}
+.whatsapp-float:hover{ transform:scale(1.1); box-shadow:0 6px 28px rgba(37,211,102,.6); color:#fff; }
+.whatsapp-float .pulse-dot{
+  position:absolute; top:-3px; right:-3px; width:14px; height:14px;
+  border-radius:50%; background: var(--tvet-red); border:2px solid #fff;
+  animation: waPulse 2s infinite;
+}
+@keyframes waPulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.4); opacity:.6; } }
+
+/* ---------- Breadcrumb/misc ---------- */
+.badge-soft-gold{ background: rgba(250,200,35,.18); color:#8a6d00; font-weight:700; }
+.text-red{ color:var(--tvet-red) !important; }
+.bg-surface{ background: var(--tvet-surface); }

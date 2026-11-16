@@ -1,0 +1,181 @@
+/* ============================================================
+   Shared full-screen hero (Phase 5b, 2026-09)
+   One component, used on: the main homepage carousel, the Orientation
+   Pack hero, and every school site's homepage hero. Loaded from the
+   main site and linked by every unit site (same pattern as the shared
+   hero_render.php PHP helper), so this only needs to be built/fixed once.
+
+   Behaviour required:
+   - Video/YouTube background fills the entire first screen edge to
+     edge -- no side gaps, no black bars.
+   - Height is always viewport-based, never a fixed pixel value:
+     100svh minus the real, measured header height, with a 100vh
+     fallback for browsers without svh support (or before JS has run).
+   - Adapts automatically to phone/tablet/laptop/wide monitor, portrait
+     and landscape -- nothing here is a fixed breakpoint-specific height.
+   - prefers-reduced-motion hides the moving background, leaving the
+     poster/fallback image in its place.
+   ============================================================ */
+
+:root{ --header-h: 0px; } /* set by hero-fullscreen.js once the real header has rendered */
+
+.hero-fullscreen{
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  width: 100%;
+  /* Fallback for browsers with no svh support, and for the instant
+     before hero-fullscreen.js has measured the header (avoids a flash
+     of a too-short/too-tall hero). */
+  height: 100vh;
+  /* A floor only -- not the primary sizing rule -- so an extreme
+     landscape-phone viewport (shorter than the header itself) never
+     collapses the hero to nothing. */
+  min-height: 420px;
+}
+@supports (height: 100svh){
+  .hero-fullscreen{ height: calc(100svh - var(--header-h, 0px)); }
+}
+
+/* Background media: image, uploaded <video>, YouTube iframe, or the
+   poster <img> rendered behind either of those (see hero_render.php) --
+   all fill the hero edge to edge via object-fit (video/image) or the
+   oversized-then-cropped technique (iframe, since object-fit doesn't
+   apply to iframes). Covers every markup variant already produced by
+   render_hero_media() / each site's own hero markup.
+
+   z-index is EXPLICIT (not "auto") here so the media layer's stacking is
+   never at the mercy of whatever other class a page's <section> also
+   happens to carry. A real bug was found and fixed this way: one page
+   combined this component with an older, unrelated "page-hero" class
+   whose own ::after overlay used z-index:1 -- an explicit z-index on an
+   ancestor's pseudo-element always paints above a z-index:auto sibling
+   REGARDLESS of source order, which visually buried the video under a
+   near-opaque gradient. The fix on that page was to drop the stray old
+   class; this explicit z-index is the belt-and-suspenders so the same
+   thing can't happen again if a page ever mixes hero-fullscreen with
+   another component's overlay. */
+.hero-fullscreen > .hero-bg-video,
+.hero-fullscreen > .hero-media,
+.hero-fullscreen > .hero-bg-image,
+.hero-fullscreen > .hero-bg-poster,
+.hero-fullscreen > img{
+  position: absolute; inset: 0;
+  z-index: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero-fullscreen > .hero-bg-iframe{
+  position: absolute; top: 50%; left: 50%;
+  z-index: 0;
+  width: 100%; height: 100%;
+  min-width: 177.78vh;  /* 16:9 scaled so the shorter viewport dimension is always fully covered */
+  min-height: 56.25vw;
+  transform: translate(-50%, -50%);
+  border: 0;
+  pointer-events: none;
+}
+/* The poster sits UNDER the video/iframe in normal document order
+   already (render_hero_media() emits it first) -- this just makes that
+   explicit so it's never accidentally reordered above the moving media. */
+.hero-fullscreen > .hero-bg-poster{ z-index: 0; }
+.hero-fullscreen > .hero-bg-video ~ .hero-bg-poster,
+.hero-fullscreen > .hero-bg-iframe ~ .hero-bg-poster{ z-index: -1; }
+
+/* Set by hero-media-fallback.js: playback couldn't be confirmed within
+   its timeout (or the video/iframe errored outright), so the moving
+   media is hidden and the poster image underneath (or the hero's own
+   background-color, if no poster was set) shows instead -- never a
+   blank/broken box. */
+.hero-fullscreen.hero-video-failed > .hero-bg-video,
+.hero-fullscreen.hero-video-failed > .hero-bg-iframe{
+  display: none;
+}
+
+/* Dark gradient overlay so text/buttons stay readable over any photo or
+   footage, on every site regardless of its own brand colors. Explicit
+   z-index:1 -- always above the z-index:0 media layer, always below the
+   z-index:2 text content, regardless of what other CSS a page also
+   loads. */
+.hero-fullscreen::after{
+  content: "";
+  position: absolute; inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.32) 55%, rgba(0,0,0,.62) 100%);
+  pointer-events: none;
+}
+
+/* Text/eyebrow/buttons sit above the overlay. Optional by design -- a
+   media-only hero simply never gets this wrapper rendered (see PHP:
+   $hasText / hero_media_kind() checks already in place), so there's
+   never an empty content box floating over the video. Padded for iOS
+   Safari's notch / home-indicator safe areas so text is never clipped
+   under them in either orientation. */
+.hero-fullscreen .hero-fullscreen-content{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-left: max(0px, env(safe-area-inset-left));
+  padding-right: max(0px, env(safe-area-inset-right));
+}
+/* The section sets color:#fff (see .hero-fullscreen above), but the
+   site's global "h1,h2,h3,h4{ color: var(--anu-black) }" rule targets
+   headings directly, and a direct rule always beats inherited color
+   regardless of how the ancestor is styled -- so without this, any page
+   using this shared component gets black, unreadable headings over its
+   video/photo unless it also happens to add its own override (as the
+   school sites' own CSS does for their hero, e.g. ".law-hero.has-image
+   h1"). Setting it once here, self-contained in the shared component,
+   means a NEW page adopting hero-fullscreen never has to remember to. */
+.hero-fullscreen-content h1,
+.hero-fullscreen-content h2,
+.hero-fullscreen-content h3,
+.hero-fullscreen-content h4{
+  color: #fff;
+}
+
+/* prefers-reduced-motion: no moving background -- the poster/fallback
+   image (already set as a CSS background-image or <img> by the PHP
+   side for exactly this case) shows instead. */
+@media (prefers-reduced-motion: reduce){
+  .hero-fullscreen > .hero-bg-video,
+  .hero-fullscreen > .hero-bg-iframe{
+    display: none;
+  }
+}
+
+/* Small phones in landscape can be shorter than the header + min-height
+   floor combined; let the hero scroll into view rather than clipping. */
+@media (max-height: 420px){
+  .hero-fullscreen{ height: auto; min-height: 100vh; }
+  @supports (height: 100svh){
+    .hero-fullscreen{ min-height: calc(100svh - var(--header-h, 0px)); }
+  }
+}
+
+/* ---- Hero video controls (hero-controls.js) ----
+   Bottom-LEFT so they never sit under the WhatsApp bubble (fixed, bottom-right, z-index 1050),
+   which is what made them hard to click. Large, always-visible buttons with a generous hit area. */
+.hero-fullscreen .hero-controls{
+  position: absolute; left: max(18px, env(safe-area-inset-left)); right: auto; bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 40; display: flex; gap: .75rem; pointer-events: auto;
+}
+.hero-ctl{
+  position: relative; width: 52px; height: 52px; min-width: 52px; padding: 0; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,.65); color: #fff; border: 2px solid rgba(255,255,255,.9); cursor: pointer;
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  transition: background .15s, color .15s, border-color .15s;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.hero-ctl::before{ content:""; position:absolute; inset:-8px; border-radius:50%; }  /* bigger invisible hit area */
+.hero-ctl svg{ width: 24px; height: 24px; pointer-events: none; }
+.hero-ctl:hover, .hero-ctl:active{ background: #FAC823; color: #111; border-color: #FAC823; }
+.hero-ctl:focus-visible{ outline: 3px solid #FAC823; outline-offset: 3px; }
+@media (max-width: 575px){ .hero-ctl{ width: 48px; height: 48px; min-width: 48px; } .hero-fullscreen .hero-controls{ gap: .6rem; } }
+.hero-video-failed .hero-controls{ display: none; }
+@media (prefers-reduced-motion: reduce){ .hero-fullscreen .hero-controls{ display: none; } }
+@media print{ .hero-fullscreen .hero-controls{ display: none; } }

@@ -1,0 +1,94 @@
+/* ============================================================
+   ANU shared design system layer (loaded after each site's own CSS).
+   --accent (#FAC823) is the one "pop" colour for hover/focus states of
+   cards and key highlights. Base brand colours stay as in style.css.
+   ============================================================ */
+:root{
+  --accent: #FAC823;
+  --accent-ink: #111111;
+  --accent-soft: rgba(250, 200, 35,.16);
+  --radius: 14px;
+  --shadow-pop: 0 14px 30px rgba(0,0,0,.14);
+}
+
+/* ---- Card pop: lift + #FAC823 fill on hover/focus ---- */
+.card-anu, .news-card, .school-row, .network-tile, .journey-card, .accred-card, .event-row, .t-card{
+  transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease, color .2s ease;
+}
+.card-anu:hover, .card-anu:focus-within,
+.news-card:hover, .news-card:focus-visible,
+.network-tile:hover, .network-tile:focus-visible,
+.journey-card:hover, .journey-card:focus-visible,
+.accred-card:hover, .accred-card:focus-visible{
+  background-color: var(--accent) !important; border-color: var(--accent) !important;
+  color: var(--accent-ink); box-shadow: var(--shadow-pop); transform: translateY(-4px);
+}
+.card-anu:hover *, .news-card:hover .excerpt, .news-card:hover .date-tag,
+.journey-card:hover p, .accred-card:hover p{ color: var(--accent-ink) !important; }
+.school-row:hover, .school-row:focus-visible, .event-row:hover{ background-color: var(--accent-soft); }
+a:focus-visible, button:focus-visible{ outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ---- Stats: #FAC823 pop on hover, number stays readable ---- */
+.facts-strip .fact{ border-radius: var(--radius); transition: background-color .2s, transform .2s; }
+.facts-strip .fact:hover{ background: var(--accent); transform: translateY(-3px); }
+.facts-strip .fact:hover .value, .facts-strip .fact:hover .label{ color: var(--accent-ink); }
+
+/* ---- Director's message ---- */
+.director-card{ display:grid; grid-template-columns: 220px 1fr; gap: 2rem; align-items:center;
+  background: var(--anu-cream, #FFFDE0); border: 1px solid var(--anu-line, rgba(0,0,0,.15)); border-radius: var(--radius); padding: 1.75rem; }
+.director-photo img, .director-photo-placeholder{ width:220px; height:220px; border-radius: 50%; object-fit:cover; display:flex; align-items:center; justify-content:center;
+  background: var(--accent-soft); font-size:4rem; color: var(--anu-gold-dark, #9A7400); border: 4px solid var(--accent); }
+.director-quote{ font-size: 1.15rem; line-height: 1.65; margin: .6rem 0 1rem; border-left: 4px solid var(--accent); padding-left: 1rem; }
+@media (max-width: 767px){
+  .director-card{ grid-template-columns: 1fr; text-align:center; padding: 1.25rem; }
+  .director-photo{ display:flex; justify-content:center; }
+  .director-photo img, .director-photo-placeholder{ width:150px; height:150px; }
+  .director-quote{ border-left:0; padding-left:0; font-size:1.05rem; }
+}
+
+/* ---- Journey cards ---- */
+.journey-card{ position:relative; display:block; height:100%; padding: 1.4rem 1.1rem 1.2rem; background:#fff; color: inherit;
+  border: 1px solid var(--anu-line, rgba(0,0,0,.15)); border-radius: var(--radius); text-decoration:none; }
+.journey-card h3{ font-size: 1.02rem; font-weight: 700; margin: .5rem 0 .35rem; }
+.journey-card p{ font-size:.88rem; color: var(--anu-ink-soft, rgba(0,0,0,.65)); margin:0; }
+.journey-num{ position:absolute; top:.7rem; right:.9rem; font-weight:900; font-size:1.6rem; color: var(--accent); -webkit-text-stroke: 1px rgba(0,0,0,.25); }
+.journey-icon{ font-size: 1.7rem; color: var(--anu-red, #f00); }
+.journey-card:hover .journey-icon{ color: var(--accent-ink); }
+
+/* ---- Accreditation ---- */
+.accred-card{ display:flex; gap: 1.1rem; align-items:flex-start; height:100%; padding: 1.5rem; background:#fff; color:inherit;
+  border: 2px solid var(--accent); border-radius: var(--radius); text-decoration:none; }
+.accred-icon{ font-size: 2.4rem; color: var(--anu-red, #f00); flex-shrink:0; }
+.accred-card:hover .accred-icon{ color: var(--accent-ink); }
+
+/* ---- Testimonials (compact, scroll-snap slider) ---- */
+.testimonial-section{ background: var(--accent-soft); }
+.t-slider{ position:relative; }
+.t-track{ display:flex; gap: 1rem; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; padding: .25rem .1rem .6rem; }
+.t-track::-webkit-scrollbar{ display:none; }
+.t-card{ flex: 0 0 min(100%, 420px); scroll-snap-align:start; margin:0; background:#fff; border-radius: var(--radius); padding: 1rem 1.15rem;
+  border-left: 5px solid var(--accent); box-shadow: 0 4px 14px rgba(0,0,0,.07); }
+.t-card:hover{ background: var(--accent); transform: translateY(-3px); }
+.t-card blockquote{ font-size:.95rem; line-height:1.5; margin:0 0 .7rem; }
+.t-card figcaption{ display:flex; align-items:center; gap:.65rem; font-size:.85rem; }
+.t-card figcaption img{ width:40px; height:40px; border-radius:50%; object-fit:cover; }
+.t-controls{ display:flex; gap:.5rem; justify-content:flex-end; margin-top:.25rem; }
+.t-btn{ width:40px; height:40px; border-radius:50%; border:2px solid var(--anu-black,#000); background:#fff; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+.t-btn:hover{ background: var(--accent); border-color: var(--accent); }
+@media (prefers-reduced-motion: reduce){
+  .card-anu, .news-card, .school-row, .network-tile, .journey-card, .accred-card, .facts-strip .fact, .t-card{ transition:none; }
+  .card-anu:hover, .news-card:hover, .journey-card:hover, .accred-card:hover, .t-card:hover, .facts-strip .fact:hover{ transform:none; }
+  .t-track{ scroll-behavior:auto; }
+}
+
+/* ---- Orientation Pack interactivity ---- */
+.orient-check{ cursor:pointer; display:block; }
+.orient-check-box{ position:absolute; top:.9rem; right:1rem; }
+.orient-check-box input{ width:22px; height:22px; accent-color:#FAC823; cursor:pointer; }
+.orient-check.is-done{ background: var(--accent-soft); border-color: var(--accent); }
+.orient-check.is-done h3{ text-decoration: line-through; text-decoration-color: rgba(0,0,0,.35); }
+.orient-progress{ display:flex; align-items:center; gap:.75rem; flex-wrap:wrap; margin: -.5rem 0 1.25rem; }
+.orient-progress-bar{ flex:1 1 200px; height:10px; background: rgba(0,0,0,.1); border-radius:99px; overflow:hidden; }
+.orient-progress-bar span{ display:block; height:100%; width:0; background: var(--accent); transition: width .3s; }
+.orient-subnav a.active{ background: var(--accent); color: var(--accent-ink); }
+@media print{ .orient-progress .btn, .orient-subnav, .orient-hero{ display:none !important; } }

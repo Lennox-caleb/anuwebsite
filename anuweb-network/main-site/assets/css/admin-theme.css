@@ -1,0 +1,161 @@
+/* ANU admin theme v1: calm neutral workspace, dark sidebar, gold used as the accent, red only for the main action. */
+:root{
+  --ad-bg:#F5F4F0; --ad-surface:#FFFFFF; --ad-ink:#17150F; --ad-muted:#6A6558; --ad-line:#E6E2D6; --ad-soft:#FBFAF6;
+  --ad-side:#16140F; --ad-side-2:#211E16; --ad-side-ink:#D9D4C4; --ad-side-mute:#948E7A;
+  --ad-gold:#FAC823; --ad-gold-soft:rgba(250,200,35,.16); --ad-red:#E10600; --ad-red-dark:#B80500;
+  --ad-ok:#127A45; --ad-ok-bg:#E4F4EB; --ad-off:#6A6558; --ad-off-bg:#ECE9DF; --ad-bad:#B3261E; --ad-bad-bg:#FBE7E5;
+  --ad-radius:12px;
+}
+body{background:var(--ad-bg)!important;color:var(--ad-ink);font-family:"Roboto","Helvetica Neue",Arial,sans-serif;font-size:.95rem;line-height:1.5}
+.admin-shell .admin-main{background:var(--ad-bg)!important;padding:0 2rem 3rem!important}
+
+/* ---------- Sidebar ---------- */
+.admin-shell .admin-sidebar{background:var(--ad-side)!important;color:var(--ad-side-ink);width:268px;border-right:1px solid #000}
+.admin-shell .admin-sidebar::-webkit-scrollbar{width:8px}
+.admin-shell .admin-sidebar::-webkit-scrollbar-thumb{background:#3a362a;border-radius:4px}
+.admin-sidebar .brand{background:transparent!important;border-bottom:1px solid #2b2820!important;padding:1.1rem 1.1rem .9rem!important}
+.admin-sidebar .brand img{max-width:100%;height:auto}
+.admin-sidebar .brand .site-name{color:#fff!important;font-size:1rem;font-weight:700}
+.admin-sidebar .brand .sub-name{color:var(--ad-gold)!important;font-size:.68rem;letter-spacing:.1em}
+.admin-sidebar .ad-find{padding:.8rem 1rem .4rem}
+.admin-sidebar .ad-find input{width:100%;background:var(--ad-side-2);border:1px solid #302c20;color:#fff;border-radius:8px;padding:.5rem .75rem .5rem 2rem;font-size:.86rem;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23948E7A' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:.65rem 50%}
+.admin-sidebar .ad-find input::placeholder{color:var(--ad-side-mute)}
+.admin-sidebar .ad-find input:focus{outline:none;border-color:var(--ad-gold);box-shadow:0 0 0 3px var(--ad-gold-soft)}
+.admin-sidebar nav a{color:var(--ad-side-ink)!important;font-size:.9rem;font-weight:400;padding:.5rem .9rem!important;margin:1px 10px!important;border-radius:8px!important;background:transparent!important;border-left:3px solid transparent}
+.admin-sidebar nav a i{color:var(--ad-side-mute);width:1.25rem;text-align:center;margin-right:.55rem!important;font-size:1rem}
+.admin-sidebar nav a:hover:not(.active){background:var(--ad-side-2)!important;color:#fff!important}
+.admin-sidebar nav a:hover:not(.active) i{color:var(--ad-gold)}
+.admin-sidebar nav a.active{background:var(--ad-gold-soft)!important;color:#fff!important;font-weight:600;border-left-color:var(--ad-gold)}
+.admin-sidebar nav a.active i{color:var(--ad-gold)}
+.admin-sidebar .nav-group-label{display:flex!important;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;
+  color:var(--ad-side-mute)!important;font-size:.68rem!important;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  border-top:1px solid #2b2820!important;margin:.55rem 10px 0!important;padding:.85rem .9rem .35rem!important}
+.admin-sidebar .nav-group-label:hover{color:#fff!important}
+.admin-sidebar .nav-group-label::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .15s;margin-right:.2rem}
+.admin-sidebar .nav-group-label.is-collapsed::after{transform:rotate(-45deg)}
+.admin-sidebar .nav-group-label:first-of-type{border-top:0!important}
+.admin-sidebar .is-hidden{display:none!important}
+.admin-sidebar .logout-block{border-top:1px solid #2b2820!important;margin-top:.8rem!important}
+.admin-sidebar .logout-block a{color:#f2b8b5!important}
+.admin-sidebar .logout-block a:hover{background:rgba(225,6,0,.16)!important;color:#fff!important}
+
+/* ---------- Top bar ---------- */
+.admin-shell .admin-topbar{background:var(--ad-surface)!important;border:0!important;border-bottom:1px solid var(--ad-line)!important;border-radius:0!important;box-shadow:none!important;
+  margin:0 -2rem 1.6rem!important;padding:.8rem 2rem!important;position:sticky;top:0;z-index:30}
+.admin-topbar h1{font-family:"Roboto",sans-serif!important;font-size:1.35rem!important;font-weight:700;letter-spacing:-.01em;color:var(--ad-ink);margin:0}
+.admin-topbar .btn-outline-anu,.admin-topbar .btn-sm{border-radius:8px}
+.admin-user-pill{background:transparent!important;border:0!important;padding:0!important;display:flex;align-items:center;gap:.65rem;font-size:.82rem;color:var(--ad-muted)}
+.admin-user-pill .ad-av{width:36px;height:36px;border-radius:50%;background:var(--ad-ink);color:var(--ad-gold);display:grid;place-items:center;font-weight:700;font-size:.85rem;flex:none}
+.admin-user-pill .ad-who{display:flex;flex-direction:column;line-height:1.2;text-align:left}
+.admin-user-pill .ad-who b{color:var(--ad-ink);font-size:.88rem}
+.admin-user-pill .ad-who span{font-size:.72rem;text-transform:capitalize}
+.admin-menu-btn{border:1px solid var(--ad-line)!important;border-radius:8px!important}
+
+/* ---------- Type hierarchy ---------- */
+.admin-main h1,.admin-main .h1{font-size:1.5rem;font-weight:700;letter-spacing:-.01em}
+.admin-main h2,.admin-main .h2{font-size:1.2rem;font-weight:700}
+.admin-main h3,.admin-main .h3,.admin-main h4,.admin-main .h4{font-size:1.05rem;font-weight:700;color:var(--ad-ink)}
+.admin-main h5,.admin-main .h5{font-size:.95rem;font-weight:700}
+.admin-main .text-muted,.admin-main .small.text-muted,.admin-main p.small{color:var(--ad-muted)!important}
+.admin-main .form-label{font-size:.82rem;font-weight:600;color:var(--ad-ink);margin-bottom:.3rem}
+
+/* ---------- Cards, tables ---------- */
+.admin-main .card-anu{background:var(--ad-surface)!important;border:1px solid var(--ad-line)!important;border-radius:var(--ad-radius)!important;box-shadow:0 1px 2px rgba(23,21,15,.04)!important;overflow:hidden}
+.admin-main .card-anu .body{padding:1.25rem 1.4rem}
+.admin-main .table,.admin-main .table-anu{--bs-table-bg:transparent;margin:0;font-size:.92rem}
+.admin-main .table thead,.admin-main .table-anu thead{background:var(--ad-soft)!important}
+.admin-main .table thead th{font-size:.7rem!important;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ad-muted)!important;
+  background:var(--ad-soft)!important;border-bottom:1px solid var(--ad-line)!important;padding:.8rem 1.1rem!important}
+.admin-main .table tbody td{padding:.9rem 1.1rem!important;border-color:var(--ad-line)!important;vertical-align:middle}
+.admin-main .table tbody tr:hover{background:var(--ad-gold-soft)!important}
+.admin-main .table td:first-child{font-weight:600}
+
+/* ---------- Buttons ---------- */
+.admin-main .btn{border-radius:8px;font-weight:600;font-size:.86rem;padding:.45rem .9rem;transition:background .15s,border-color .15s,color .15s}
+.admin-main .btn-sm{padding:.3rem .7rem;font-size:.8rem}
+.admin-main .btn-apply,.admin-main .btn-danger-anu{background:var(--ad-red)!important;border:1px solid var(--ad-red)!important;color:#fff!important}
+.admin-main .btn-apply:hover{background:var(--ad-red-dark)!important;border-color:var(--ad-red-dark)!important}
+.admin-main .btn-outline-anu,.admin-topbar .btn-outline-anu{background:var(--ad-surface)!important;border:1px solid var(--ad-line)!important;color:var(--ad-ink)!important}
+.admin-main .btn-outline-anu:hover,.admin-topbar .btn-outline-anu:hover{background:var(--ad-gold)!important;border-color:var(--ad-gold)!important;color:#000!important}
+.admin-main .btn-outline-danger{background:var(--ad-surface);border:1px solid #efc5c2;color:var(--ad-bad)}
+.admin-main .btn-outline-danger:hover{background:var(--ad-bad);border-color:var(--ad-bad);color:#fff}
+.admin-main .btn-dark{background:var(--ad-ink);border-color:var(--ad-ink)}
+.admin-main .btn:focus-visible,.admin-sidebar a:focus-visible{outline:3px solid var(--ad-gold);outline-offset:2px}
+
+/* ---------- Status badges as soft pills ---------- */
+.admin-main .badge{font-weight:600;font-size:.72rem;letter-spacing:.02em;border-radius:999px;padding:.32em .7em}
+.admin-main .badge.bg-success{background:var(--ad-ok-bg)!important;color:var(--ad-ok)!important}
+.admin-main .badge.bg-secondary{background:var(--ad-off-bg)!important;color:var(--ad-off)!important}
+.admin-main .badge.bg-danger{background:var(--ad-bad-bg)!important;color:var(--ad-bad)!important}
+.admin-main .badge.bg-warning{background:var(--ad-gold-soft)!important;color:#7a5b00!important}
+
+/* ---------- Forms ---------- */
+.admin-main .form-control,.admin-main .form-select{border:1px solid var(--ad-line);border-radius:8px;background:#fff;padding:.5rem .75rem;font-size:.92rem}
+.admin-main .form-control:focus,.admin-main .form-select:focus{border-color:var(--ad-gold);box-shadow:0 0 0 .22rem var(--ad-gold-soft)}
+.admin-main .alert{border-radius:10px;border:1px solid var(--ad-line);font-size:.9rem}
+.admin-main .alert-success{background:var(--ad-ok-bg);color:var(--ad-ok);border-color:#bfe3cd}
+.admin-main .alert-danger{background:var(--ad-bad-bg);color:var(--ad-bad);border-color:#f2c4c0}
+.admin-main .admin-hub-card:hover{border-color:var(--ad-gold)!important}
+
+@media (max-width:767px){
+  .admin-shell .admin-main{padding:0 1rem 2rem!important}
+  .admin-shell .admin-topbar{margin:0 -1rem 1.2rem!important;padding:.7rem 1rem!important}
+  .admin-user-pill .ad-who{display:none}
+}
+.admin-main .btn{white-space:nowrap}
+.admin-sidebar .brand .site-name,.admin-sidebar .brand .sub-name{display:block}
+.admin-sidebar .brand .sub-name{margin-top:.2rem}
+
+/* ================= v66: logo, one font everywhere, all admin layouts, Site Admin Accounts ================= */
+body,body input,body select,body textarea,body button,body table,body .btn,body .form-control,body .form-select,
+body h1,body h2,body h3,body h4,body h5,body h6,body .h1,body .h2,body .h3,body .h4,body .h5,body .h6,
+body .topbar-page-title,body .sidebar-link,body .sidebar-section,body .sidebar-brand-name{font-family:"Roboto","Helvetica Neue",Arial,sans-serif!important}
+.bi,.bi::before{font-family:"bootstrap-icons"!important}
+
+/* logo, centred at the top of every sidebar; the old name text is hidden */
+.admin-sidebar .brand .site-name,.admin-sidebar .brand .sub-name,.sidebar-brand-text,.sidebar-brand-icon{display:none!important}
+.admin-shell .admin-sidebar .brand{display:flex!important;justify-content:center;align-items:center;text-align:center;background:#fff!important;border:0!important;
+  border-radius:14px;margin:14px 14px 6px;padding:12px 14px!important}
+.admin-sidebar .brand img{display:block;margin:0 auto;max-width:180px;max-height:64px;width:auto;height:auto}
+body .sidebar-brand{justify-content:center!important;background:rgba(255,255,255,.04)!important;padding:18px 14px!important}
+body .sidebar-brand img{margin:0 auto;height:auto!important;max-height:64px!important}
+.ad-toplogo{height:34px;width:auto;margin-right:14px;flex:none}
+.ad-loginlogo{display:block;margin:0 auto 20px;max-width:190px;height:auto}
+
+/* ANU Online admin: same calm dark sidebar and white bar as the main admin */
+body .admin-sidebar{background:var(--ad-side)!important}
+body .sidebar-link{color:var(--ad-side-ink)!important;border-radius:8px;border-left:3px solid transparent;font-weight:400;font-size:.9rem}
+body .sidebar-link i{color:var(--ad-side-mute)}
+body .sidebar-link:hover{background:var(--ad-side-2)!important;color:#fff!important}
+body .sidebar-link.active{background:var(--ad-gold-soft)!important;color:#fff!important;font-weight:600;border-left-color:var(--ad-gold)}
+body .sidebar-link.active i{color:var(--ad-gold)!important}
+body .sidebar-section{color:var(--ad-side-mute)!important;font-size:.68rem!important;letter-spacing:.12em!important}
+body .sidebar-link.logout{color:#f2b8b5!important}
+body .sidebar-avatar{background:var(--ad-ink)!important;color:var(--ad-gold)!important}
+body .admin-topbar{box-shadow:none!important;border-bottom:1px solid var(--ad-line)!important;background:#fff!important}
+body .topbar-page-title{font-size:1.2rem!important;font-weight:700!important}
+
+/* ---------- Site Admin Accounts: one card per site ---------- */
+body.ad-page-site_admins .card-anu .body.p-0{overflow:visible}
+body.ad-page-site_admins .table-anu{min-width:0!important}
+body.ad-page-site_admins .table thead{display:none}
+body.ad-page-site_admins .table,body.ad-page-site_admins .table tbody{display:block;width:100%}
+body.ad-page-site_admins .table tbody{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:16px;padding:18px;background:var(--ad-bg)}
+body.ad-page-site_admins .table tbody tr{display:flex;flex-direction:column;gap:12px;background:#fff;border:1px solid var(--ad-line);border-radius:12px;padding:16px 18px;
+  box-shadow:0 1px 2px rgba(23,21,15,.05);transition:border-color .15s,box-shadow .15s}
+body.ad-page-site_admins .table tbody tr:hover{background:#fff!important;border-color:var(--ad-gold);box-shadow:0 6px 18px rgba(23,21,15,.08)}
+body.ad-page-site_admins .table tbody td{display:block;padding:0!important;border:0!important;width:auto}
+body.ad-page-site_admins .table tbody td:first-child{font-size:1.05rem;font-weight:700;color:var(--ad-ink);padding-bottom:10px!important;border-bottom:1px solid var(--ad-line)!important}
+body.ad-page-site_admins .table tbody td:nth-child(2){display:flex;flex-direction:column;gap:10px;font-size:.9rem;color:var(--ad-ink)}
+body.ad-page-site_admins .table tbody td:nth-child(2)>*{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+body.ad-page-site_admins .table tbody td:nth-child(2) input[type=password],
+body.ad-page-site_admins .table tbody td:nth-child(2) input[type=text]{width:170px!important;max-width:100%;flex:1 1 150px}
+body.ad-page-site_admins .table tbody td:last-child{text-align:left!important;margin-top:auto}
+body.ad-page-site_admins .table tbody td:last-child .btn{width:100%;text-align:center;padding:.6rem 1rem}
+.ad-filter{display:block;width:100%;max-width:360px;margin:0 0 14px}
+@media(max-width:600px){body.ad-page-site_admins .table tbody{grid-template-columns:minmax(0,1fr);padding:12px}}
+.admin-shell .admin-topbar{justify-content:flex-start!important;gap:0}
+.admin-shell .admin-topbar>:last-child{margin-left:auto}
+.admin-topbar .ad-toplogo+*{margin-left:0}

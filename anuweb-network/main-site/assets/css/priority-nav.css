@@ -1,0 +1,36 @@
+/* Shared priority+ navbar support (priority-nav.js). Desktop only. */
+@media (min-width: 992px){
+  nav.navbar .offcanvas-body > ul, nav.navbar .navbar-collapse > ul{ flex-wrap: nowrap !important; white-space: nowrap; }
+  nav.navbar .offcanvas-body > ul > li, nav.navbar .navbar-collapse > ul > li{ flex: 0 0 auto; }
+  /* let the menu panel shrink to the space beside the logo instead of pushing past the viewport */
+  nav.navbar .offcanvas{ min-width: 0; }
+  nav.navbar .offcanvas-body, nav.navbar .navbar-collapse{ min-width: 0; }
+}
+nav.navbar .nav-link{ white-space: nowrap; }
+nav.navbar .offcanvas-body > ul > li.pn-hidden, nav.navbar .navbar-collapse > ul > li.pn-hidden{ display: none !important; }
+nav.navbar .pn-more[hidden]{ display: none !important; }
+nav.navbar .pn-more-menu{
+  min-width: 15rem; max-height: min(70vh, 32rem); overflow-y: auto; overscroll-behavior: contain;
+  right: 0; left: auto;
+}
+nav.navbar .pn-more-menu .dropdown-item{ white-space: normal; }
+@media (max-width: 991.98px){ nav.navbar .pn-more{ display: none !important; } }
+
+/* ---- Layout guards (responsive sweep): stop wide gutters / long tile labels causing sideways overflow ---- */
+@media (max-width: 1199.98px){ .row.g-5, .row.g-lg-5{ --bs-gutter-x: 1.5rem; } }
+.network-tile{ min-width: 0; }
+.network-tile > span{ min-width: 0; overflow-wrap: anywhere; }
+
+/* Fit the whole bar (incl. Resources and News & Events) on laptop screens: compact spacing from 1200px up.
+   Items that still cannot fit go to "More" (never Resources / News & Events, which are pinned). */
+@media (min-width: 1200px){
+  .navbar-anu .navbar-brand img{ height: 58px; }
+  .navbar-anu .nav-link{ margin: 0; padding: .5rem .27rem !important; font-size: .82rem; }
+  .navbar-anu .btn-apply{ padding: .45rem .75rem; font-size: .82rem; }
+  .navbar-anu .navbar-brand{ margin-right: .6rem; }
+}
+@media (min-width: 1200px) and (max-width: 1399.98px){
+  .navbar-anu .navbar-brand img{ height: 52px; }
+  .navbar-anu .nav-link{ padding: .5rem .2rem !important; font-size: .8rem; }
+  .navbar-anu .btn-apply{ padding: .4rem .65rem; font-size: .8rem; }
+}
